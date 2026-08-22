@@ -14,16 +14,16 @@ export interface CredentialItem {
 
 export const credentialsData: CredentialItem[] = [
   {
-    id: "sih-2024-podium",
-    title: "Smart India Hackathon (SIH 2024) — Ideathon Podium Award",
-    issuer: "Ministry of Education & AICTE, Government of India",
+    id: "sih-2024-ideathon-3rd",
+    title: "College Ideathon (SIH-Aligned Problem Statements) — 3rd Place",
+    issuer: "Internal Institutional Ideathon",
     category: "hackathon",
-    categoryLabel: "National Hackathon",
+    categoryLabel: "College Hackathon",
     date: "2024",
     summary:
-      "Awarded for conceptualizing, engineering, and presenting the Krishi360 Precision Agriculture & Crop Suitability Platform to the national evaluation jury.",
+      "Awarded 3rd place for conceptualizing, engineering, and presenting the Krishi360 Precision Agriculture & Crop Suitability Platform, built on an official Smart India Hackathon problem statement, to the internal judging panel.",
     skillsVerified: ["Team Leadership", "Machine Learning Architecture", "REST API Backend", "Presentation & Defense"],
-    placeholderText: "[📜 PASTE SMART INDIA HACKATHON PODIUM CERTIFICATE PHOTO HERE]",
+    placeholderText: "[📜 PASTE COLLEGE IDEATHON 3RD PLACE CERTIFICATE PHOTO HERE]",
     hasPhoto: false,
   },
   {

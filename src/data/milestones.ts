@@ -44,14 +44,14 @@ export const milestonesData: Milestone[] = [
   },
   {
     period: "2024",
-    title: "Smart India Hackathon (SIH) — Ideathon Podium",
-    organization: "Ministry of Education & AICTE",
+    title: "College-Level Ideathon (SIH Problem Statements) — 3rd Place",
+    organization: "Internal Ideathon, aligned with Smart India Hackathon problem statements",
     role: "Team Leader — Krishi360 Platform",
-    badge: "🏆 3rd Place Podium Winner",
+    badge: "🥉 3rd Place, College Ideathon",
     description:
-      "Led the team at Smart India Hackathon Ideathon, architecting Krishi360's Crop Suitability Index mathematical model and presenting the live prototype to the national jury.",
+      "Led the team at a college-level Ideathon built around official Smart India Hackathon problem statements, architecting Krishi360's Crop Suitability Index mathematical model and presenting the prototype to the internal judging panel.",
     highlights: [
-      "Secured 3rd Place nationwide for precision agriculture ML scoring.",
+      "Secured 3rd place at the institution's internal ideathon round on an SIH-aligned problem statement.",
       "Coordinated task breakdown, ML model training, and API integration within tight hackathon sprints.",
       "Delivered a live interactive farmer advisory platform with soil and rainfall recommendation algorithms.",
     ],

@@ -10,6 +10,7 @@ export function HorizontalProjectRail() {
   const [activeCaseStudy, setActiveCaseStudy] = useState<ProjectCaseStudy | null>(null);
   const [hoveredProjectId, setHoveredProjectId] = useState<string | null>(null);
   const [scrollProgress, setScrollProgress] = useState(0);
+  const isPausedRef = useRef(false);
 
   const handleScrollEvent = () => {
     if (scrollContainerRef.current) {
@@ -27,6 +28,62 @@ export function HorizontalProjectRail() {
         behavior: "smooth",
       });
     }
+  };
+
+  // Auto-scroll left → right, pauses on hover/touch/manual interaction, loops back at the end
+  useEffect(() => {
+    const el = scrollContainerRef.current;
+    if (!el) return;
+
+    const AUTO_SCROLL_SPEED = 0.6; // px per tick — slow, ambient drift
+    let frameId: number;
+
+    const tick = () => {
+      if (!isPausedRef.current && el) {
+        const maxScroll = el.scrollWidth - el.clientWidth;
+        if (maxScroll > 0) {
+          if (el.scrollLeft >= maxScroll - 1) {
+            // Reached the end — pause briefly, then loop back to start
+            el.scrollTo({ left: 0, behavior: "smooth" });
+          } else {
+            el.scrollLeft += AUTO_SCROLL_SPEED;
+          }
+        }
+      }
+      frameId = requestAnimationFrame(tick);
+    };
+
+    frameId = requestAnimationFrame(tick);
+
+    const pause = () => (isPausedRef.current = true);
+    const resume = () => {
+      // Small delay before resuming so it doesn't yank the rail right after a manual scroll/drag
+      setTimeout(() => (isPausedRef.current = false), 1200);
+    };
+
+    el.addEventListener("mouseenter", pause);
+    el.addEventListener("mouseleave", resume);
+    el.addEventListener("touchstart", pause, { passive: true });
+    el.addEventListener("touchend", resume);
+    el.addEventListener("wheel", pause, { passive: true });
+    el.addEventListener("pointerdown", pause);
+
+    return () => {
+      cancelAnimationFrame(frameId);
+      el.removeEventListener("mouseenter", pause);
+      el.removeEventListener("mouseleave", resume);
+      el.removeEventListener("touchstart", pause);
+      el.removeEventListener("touchend", resume);
+      el.removeEventListener("wheel", pause);
+      el.removeEventListener("pointerdown", pause);
+    };
+  }, []);
+
+  // Nav-button clicks should also pause auto-scroll briefly so it doesn't fight the user
+  const scrollWithPause = (direction: "left" | "right") => {
+    isPausedRef.current = true;
+    scroll(direction);
+    setTimeout(() => (isPausedRef.current = false), 2000);
   };
 
   return (
@@ -48,14 +105,14 @@ export function HorizontalProjectRail() {
         {/* Scroll Control Arrows */}
         <div className="flex items-center gap-2">
           <button
-            onClick={() => scroll("left")}
+            onClick={() => scrollWithPause("left")}
             className="p-2.5 rounded-xl bg-white border border-slate-200 text-slate-600 hover:text-[#D4AF37] hover:border-[#D4AF37] shadow-xs transition-all active:scale-[0.95]"
             aria-label="Scroll left"
           >
             <ChevronLeft className="w-5 h-5" />
           </button>
           <button
-            onClick={() => scroll("right")}
+            onClick={() => scrollWithPause("right")}
             className="p-2.5 rounded-xl bg-white border border-slate-200 text-slate-600 hover:text-[#D4AF37] hover:border-[#D4AF37] shadow-xs transition-all active:scale-[0.95]"
             aria-label="Scroll right"
           >

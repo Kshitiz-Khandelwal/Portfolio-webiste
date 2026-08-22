@@ -90,15 +90,24 @@ body {
   filter: grayscale(0%) contrast(100%) brightness(100%);
 }
 
-/* Background Subtle Grid Animation */
-@keyframes pulseSubtle {
-  0%, 100% { opacity: 0.4; }
-  50% { opacity: 0.8; }
+/* Ambient Dark Background — animated dot grid + drifting glow, replaces old light-canvas checker grid */
+@keyframes driftGrid {
+  0% { background-position: 0px 0px; }
+  100% { background-position: 64px 64px; }
+}
+
+@keyframes glowDrift {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(30px, -20px) scale(1.08); }
 }
 
 .ambient-grid {
   background-size: 32px 32px;
-  background-image: 
-    linear-gradient(to right, rgba(226, 232, 240, 0.6) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(226, 232, 240, 0.6) 1px, transparent 1px);
+  background-image:
+    radial-gradient(rgba(212, 175, 55, 0.16) 1px, transparent 1px);
+  animation: driftGrid 18s linear infinite;
+}
+
+.ambient-glow {
+  animation: glowDrift 14s ease-in-out infinite;
 }

@@ -7,14 +7,15 @@ export function HackathonExperience() {
   const experiences = [
     {
       period: "2024",
-      title: "Smart India Hackathon (SIH 2024)",
-      organization: "Ministry of Education & AICTE",
+      title: "College Ideathon — SIH-Aligned Problem Statement",
+      organization: "Internal Institutional Ideathon",
       role: "Team Leader — Krishi360 Platform",
-      badge: "National Ideathon Podium",
+      badge: "3rd Place, College Ideathon",
       description:
-        "Led the team at Smart India Hackathon, architecting Krishi360's Crop Suitability Index mathematical model and presenting the live prototype to the national jury.",
-      photoPlaceholder: "[📷 PASTE SIH HACKATHON STAGE PRESENTATION PHOTO HERE]",
+        "Led the team at a college-level Ideathon built on an official Smart India Hackathon problem statement, architecting Krishi360's Crop Suitability Index mathematical model and presenting the prototype to the internal judging panel.",
+      photoPlaceholder: "[📷 PASTE IDEATHON STAGE PRESENTATION PHOTO HERE]",
       highlights: [
+        "Secured 3rd place at the institution's internal ideathon round.",
         "Coordinated task breakdown, ML model training, and API integration within tight hackathon sprints.",
         "Delivered a live interactive farmer advisory platform with soil and rainfall recommendation algorithms.",
       ],
