@@ -9,16 +9,10 @@ export function HorizontalProjectRail() {
   const scrollContainerRef = useRef<HTMLDivElement | null>(null);
   const [activeCaseStudy, setActiveCaseStudy] = useState<ProjectCaseStudy | null>(null);
   const [hoveredProjectId, setHoveredProjectId] = useState<string | null>(null);
-  const [scrollProgress, setScrollProgress] = useState(0);
   const isPausedRef = useRef(false);
 
-  const handleScrollEvent = () => {
-    if (scrollContainerRef.current) {
-      const { scrollLeft, scrollWidth, clientWidth } = scrollContainerRef.current;
-      const progress = scrollLeft / (scrollWidth - clientWidth);
-      setScrollProgress(Math.min(Math.max(progress, 0), 1));
-    }
-  };
+  // Seamless infinite array (duplicated to create continuous smooth looping)
+  const displayProjects = [...featuredProjects, ...featuredProjects];
 
   const scroll = (direction: "left" | "right") => {
     if (scrollContainerRef.current) {
@@ -30,24 +24,22 @@ export function HorizontalProjectRail() {
     }
   };
 
-  // Auto-scroll left → right, pauses on hover/touch/manual interaction, loops back at the end
+  // Continuous seamless auto-scroll loop
   useEffect(() => {
     const el = scrollContainerRef.current;
     if (!el) return;
 
-    const AUTO_SCROLL_SPEED = 0.6; // px per tick — slow, ambient drift
+    const AUTO_SCROLL_SPEED = 0.55; // Smooth ambient drifting speed
     let frameId: number;
 
     const tick = () => {
       if (!isPausedRef.current && el) {
-        const maxScroll = el.scrollWidth - el.clientWidth;
-        if (maxScroll > 0) {
-          if (el.scrollLeft >= maxScroll - 1) {
-            // Reached the end — pause briefly, then loop back to start
-            el.scrollTo({ left: 0, behavior: "smooth" });
-          } else {
-            el.scrollLeft += AUTO_SCROLL_SPEED;
-          }
+        const halfWidth = el.scrollWidth / 2;
+        if (el.scrollLeft >= halfWidth) {
+          // Seamless reset to beginning of loop with zero jump
+          el.scrollLeft -= halfWidth;
+        } else {
+          el.scrollLeft += AUTO_SCROLL_SPEED;
         }
       }
       frameId = requestAnimationFrame(tick);
@@ -57,8 +49,7 @@ export function HorizontalProjectRail() {
 
     const pause = () => (isPausedRef.current = true);
     const resume = () => {
-      // Small delay before resuming so it doesn't yank the rail right after a manual scroll/drag
-      setTimeout(() => (isPausedRef.current = false), 1200);
+      setTimeout(() => (isPausedRef.current = false), 800);
     };
 
     el.addEventListener("mouseenter", pause);
@@ -79,7 +70,6 @@ export function HorizontalProjectRail() {
     };
   }, []);
 
-  // Nav-button clicks should also pause auto-scroll briefly so it doesn't fight the user
   const scrollWithPause = (direction: "left" | "right") => {
     isPausedRef.current = true;
     scroll(direction);
@@ -89,7 +79,7 @@ export function HorizontalProjectRail() {
   return (
     <section id="featured-projects" className="py-20 px-4 sm:px-6 max-w-7xl mx-auto border-t border-[#22222A]">
       {/* Section Header with Navigation Controls */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between mb-6 gap-4">
+      <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
         <div>
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#D4AF37]/15 border border-[#D4AF37]/40 text-[11px] font-mono uppercase tracking-wider text-[#D4AF37] font-bold mb-3">
             Flagship Engineering &amp; Research
@@ -98,7 +88,7 @@ export function HorizontalProjectRail() {
             Featured Systems &amp; Architectures
           </h2>
           <p className="font-sans text-xs sm:text-sm text-[#9A9AA4] mt-1 max-w-xl">
-            Horizontal scroll rail with in-card telemetry previews. Hover over any project to inspect the pipeline or click to open the case study.
+            Infinite looping horizontal rail with in-card telemetry previews. Hover over any project to inspect the pipeline or click to open the case study.
           </p>
         </div>
 
@@ -121,33 +111,33 @@ export function HorizontalProjectRail() {
         </div>
       </div>
 
-      {/* Progress Track Bar */}
-      <div className="w-full bg-[#22222A] h-1 rounded-full mb-6 overflow-hidden">
-        <div
-          className="bg-[#D4AF37] h-full transition-all duration-150 rounded-full"
-          style={{ width: `${Math.max(scrollProgress * 100, 16)}%` }}
-        />
-      </div>
-
       {/* Horizontal Scroll Rail */}
       <div
         ref={scrollContainerRef}
-        onScroll={handleScrollEvent}
         className="flex gap-6 overflow-x-auto pb-6 pt-2 no-scrollbar scroll-smooth snap-x snap-mandatory items-stretch"
       >
-        {featuredProjects.map((project) => {
-          const isHovered = hoveredProjectId === project.id;
+        {displayProjects.map((project, index) => {
+          const uniqueKey = `${project.id}-${index}`;
+          const isHovered = hoveredProjectId === uniqueKey;
 
           return (
             <div
-              key={project.id}
-              onMouseEnter={() => setHoveredProjectId(project.id)}
+              key={uniqueKey}
+              onMouseEnter={() => setHoveredProjectId(uniqueKey)}
               onMouseLeave={() => setHoveredProjectId(null)}
               onClick={() => setActiveCaseStudy(project)}
-              className="snap-start shrink-0 w-[340px] sm:w-[420px] bg-white border border-slate-200 hover:border-[#D4AF37] rounded-3xl p-6 transition-all duration-300 hover:scale-[1.01] hover:shadow-lg cursor-pointer flex flex-col justify-between relative overflow-hidden group"
+              className={`snap-start shrink-0 w-[340px] sm:w-[420px] bg-white border rounded-3xl p-6 transition-all duration-300 cursor-pointer flex flex-col justify-between relative overflow-hidden group ${
+                isHovered
+                  ? "border-[#D4AF37] -translate-y-2 shadow-[0_15px_40px_rgba(212,175,55,0.2)] z-10 scale-[1.01]"
+                  : "border-slate-200 hover:border-slate-300 shadow-sm"
+              }`}
             >
-              {/* Subtle Top Glow */}
-              <div className="absolute top-0 right-0 w-32 h-32 bg-[#D4AF37]/10 rounded-full blur-3xl group-hover:bg-[#D4AF37]/20 transition-colors pointer-events-none" />
+              {/* Subtle Top Glow on Hover */}
+              <div
+                className={`absolute top-0 right-0 w-36 h-36 bg-[#D4AF37]/15 rounded-full blur-3xl transition-opacity pointer-events-none ${
+                  isHovered ? "opacity-100" : "opacity-0"
+                }`}
+              />
 
               <div>
                 {/* Top Badge Strip */}
@@ -164,13 +154,13 @@ export function HorizontalProjectRail() {
                 <h3 className="font-sans font-bold text-xl text-slate-900 group-hover:text-[#D4AF37] transition-colors mb-1.5 leading-snug">
                   {project.title}
                 </h3>
-                <p className="font-sans text-xs text-slate-600 line-clamp-2 mb-4 leading-relaxed">
+                <p className="font-sans text-xs text-slate-600 line-clamp-2 mb-4 leading-relaxed h-[36px]">
                   {project.summary}
                 </p>
 
-                {/* In-Card Dynamic Preview / Architecture Reveal on Hover */}
-                <div className="mb-4 bg-slate-50 border border-slate-200 rounded-2xl p-3.5 transition-all">
-                  <div className="flex items-center justify-between mb-2 pb-2 border-b border-slate-200">
+                {/* In-Card Fixed Height Preview Container (Zero Layout Shift) */}
+                <div className="mb-4 bg-slate-50 border border-slate-200 rounded-2xl p-3.5 h-[88px] relative overflow-hidden transition-all flex flex-col justify-between">
+                  <div className="flex items-center justify-between pb-1.5 border-b border-slate-200">
                     <span className="font-mono text-[10px] uppercase text-slate-500 font-semibold flex items-center gap-1">
                       <Terminal className="w-3 h-3 text-[#D4AF37]" />
                       <span>{isHovered ? "Live Pipeline Flow" : "Verified Benchmark"}</span>
@@ -180,26 +170,28 @@ export function HorizontalProjectRail() {
                     </span>
                   </div>
 
-                  {isHovered ? (
-                    /* Live Pipeline Flow Preview */
-                    <div className="font-mono text-[10px] text-slate-800 space-y-1 animate-in fade-in duration-200">
-                      <div className="text-[#D4AF37] font-bold truncate">➔ Input: {project.metrics[0].label}</div>
-                      <div className="text-slate-600 truncate">➔ Pipeline: {project.metrics[3]?.value || "Multi-Stage ML"}</div>
-                      <div className="text-emerald-700 font-bold">➔ Metric: {project.metrics[1].value} ({project.metrics[1].label})</div>
-                    </div>
-                  ) : (
-                    /* Default Metrics Snapshot */
-                    <div className="grid grid-cols-2 gap-2">
-                      <div className="text-left">
-                        <span className="font-mono text-[9px] text-slate-500 uppercase block">{project.metrics[0].label}</span>
-                        <span className="font-mono text-xs font-bold text-slate-900 mt-0.5 block">{project.metrics[0].value}</span>
+                  {/* Cross-fading Content without Height Change */}
+                  <div className="relative flex-1 pt-1.5">
+                    {isHovered ? (
+                      /* Live Pipeline Flow Preview */
+                      <div className="font-mono text-[10px] text-slate-800 space-y-0.5 animate-in fade-in duration-150">
+                        <div className="text-[#D4AF37] font-bold truncate">➔ Input: {project.metrics[0].label}</div>
+                        <div className="text-emerald-700 font-bold truncate">➔ Score: {project.metrics[1].value} ({project.metrics[1].label})</div>
                       </div>
-                      <div className="text-left">
-                        <span className="font-mono text-[9px] text-slate-500 uppercase block">{project.metrics[1].label}</span>
-                        <span className="font-mono text-xs font-bold text-[#D4AF37] mt-0.5 block">{project.metrics[1].value}</span>
+                    ) : (
+                      /* Default Metrics Snapshot */
+                      <div className="grid grid-cols-2 gap-2 animate-in fade-in duration-150">
+                        <div className="text-left">
+                          <span className="font-mono text-[9px] text-slate-500 uppercase block leading-none">{project.metrics[0].label}</span>
+                          <span className="font-mono text-xs font-bold text-slate-900 mt-0.5 block">{project.metrics[0].value}</span>
+                        </div>
+                        <div className="text-left">
+                          <span className="font-mono text-[9px] text-slate-500 uppercase block leading-none">{project.metrics[1].label}</span>
+                          <span className="font-mono text-xs font-bold text-[#D4AF37] mt-0.5 block">{project.metrics[1].value}</span>
+                        </div>
                       </div>
-                    </div>
-                  )}
+                    )}
+                  </div>
                 </div>
               </div>
 

@@ -12,6 +12,19 @@ interface Particle {
   alpha: number;
 }
 
+interface FloatingEquation {
+  text: string;
+  x: number;
+  y: number;
+  vx: number;
+  vy: number;
+  size: number;
+  color: string;
+  alpha: number;
+  pulseSpeed: number;
+  pulseOffset: number;
+}
+
 export function BackgroundEffects() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const [mousePos, setMousePos] = useState<{ x: number; y: number }>({ x: -1000, y: -1000 });
@@ -49,44 +62,98 @@ export function BackgroundEffects() {
       "rgba(155, 17, 30,",   // Ruby Red
     ];
 
-    const particleCount = Math.min(Math.floor((width * height) / 28000), 55);
+    const particleCount = Math.min(Math.floor((width * height) / 28000), 50);
     const particles: Particle[] = [];
 
     for (let i = 0; i < particleCount; i++) {
       particles.push({
         x: Math.random() * width,
         y: Math.random() * height,
-        vx: (Math.random() - 0.5) * 0.45,
-        vy: (Math.random() - 0.5) * 0.45,
-        radius: Math.random() * 1.8 + 0.8,
+        vx: (Math.random() - 0.5) * 0.4,
+        vy: (Math.random() - 0.5) * 0.4,
+        radius: Math.random() * 1.6 + 0.7,
         color: colors[Math.floor(Math.random() * colors.length)],
-        alpha: Math.random() * 0.5 + 0.2,
+        alpha: Math.random() * 0.45 + 0.15,
       });
     }
 
+    // Mathematical Equations & System Design Formulas
+    const equationFormulas = [
+      "H(X) = -Σ P(xᵢ) · log₂ P(xᵢ)",
+      "W(a,b) = |a|⁻¹/² ∫ x(t) ψ*((t-b)/a) dt",
+      "ℒ_Fed = Σ (nₖ / N) ℒₖ(w)",
+      "ϕᵢ(f,x) = Σ [|S|!(|F|-|S|-1)! / |F|!] · Δf(S)",
+      "∇_θ ℒ(θ; x, y)",
+      "σ(z) = 1 / (1 + e⁻ᶻ)",
+      "P(A|B) = [P(B|A) · P(A)] / P(B)",
+      "DGA = PRNG(Seed_epoch, TLD)",
+      "f(x) = ReLU(W · x + b)",
+      "softmax(zᵢ) = eᶻⁱ / Σ eᶻʲ",
+      "𝒪(N log N)",
+      "NoPeek_Loss = ℒ_task + α · dCor(X, Z)",
+      "Attention(Q,K,V) = softmax(QKᵀ / √dₖ) V",
+    ];
+
+    const equations: FloatingEquation[] = equationFormulas.map((text, idx) => ({
+      text,
+      x: Math.random() * width,
+      y: Math.random() * height,
+      vx: (Math.random() - 0.5) * 0.25,
+      vy: (Math.random() - 0.5) * 0.25,
+      size: Math.floor(Math.random() * 2) + 11, // 11px to 13px
+      color: colors[idx % colors.length],
+      alpha: Math.random() * 0.15 + 0.12, // Subtle ambient transparency
+      pulseSpeed: Math.random() * 0.02 + 0.01,
+      pulseOffset: Math.random() * Math.PI * 2,
+    }));
+
+    let time = 0;
+
     const render = () => {
+      time += 0.015;
       ctx.clearRect(0, 0, width, height);
 
-      // Connect particles with distance-based constellation lines
+      // 1. Draw Floating Mathematical Equations
+      for (const eq of equations) {
+        eq.x += eq.vx;
+        eq.y += eq.vy;
+
+        // Wrap boundaries
+        if (eq.x < -150) eq.x = width + 50;
+        if (eq.x > width + 150) eq.x = -50;
+        if (eq.y < -50) eq.y = height + 30;
+        if (eq.y > height + 50) eq.y = -30;
+
+        const dynamicAlpha = eq.alpha + Math.sin(time * eq.pulseSpeed * 60 + eq.pulseOffset) * 0.05;
+
+        ctx.font = `${eq.size}px "Courier New", Courier, monospace`;
+        ctx.fillStyle = `${eq.color} ${Math.max(dynamicAlpha, 0.08)})`;
+        ctx.shadowColor = "rgba(212, 175, 55, 0.3)";
+        ctx.shadowBlur = 4;
+        ctx.fillText(eq.text, eq.x, eq.y);
+      }
+
+      // 2. Connect particles with distance-based constellation lines
       for (let i = 0; i < particles.length; i++) {
         for (let j = i + 1; j < particles.length; j++) {
           const dx = particles[i].x - particles[j].x;
           const dy = particles[i].y - particles[j].y;
           const dist = Math.sqrt(dx * dx + dy * dy);
 
-          if (dist < 130) {
-            const lineAlpha = (1 - dist / 130) * 0.18;
+          if (dist < 125) {
+            const lineAlpha = (1 - dist / 125) * 0.14;
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
             ctx.strokeStyle = `rgba(212, 175, 55, ${lineAlpha})`;
-            ctx.lineWidth = 0.75;
+            ctx.lineWidth = 0.7;
+            ctx.shadowBlur = 0;
             ctx.stroke();
           }
         }
       }
 
-      // Update and draw individual particles
+      // 3. Update and draw individual particles
       for (const p of particles) {
         p.x += p.vx;
         p.y += p.vy;
@@ -101,7 +168,7 @@ export function BackgroundEffects() {
         ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
         ctx.fillStyle = `${p.color} ${p.alpha})`;
         ctx.shadowColor = "rgba(212, 175, 55, 0.4)";
-        ctx.shadowBlur = 6;
+        ctx.shadowBlur = 5;
         ctx.fill();
       }
 
@@ -118,8 +185,8 @@ export function BackgroundEffects() {
 
   return (
     <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-      {/* Interactive HTML5 Particle Constellation Canvas */}
-      <canvas ref={canvasRef} className="absolute inset-0 w-full h-full opacity-60" />
+      {/* Interactive HTML5 Particle & Mathematical Equation Canvas */}
+      <canvas ref={canvasRef} className="absolute inset-0 w-full h-full opacity-70" />
 
       {/* Interactive Cursor Spotlight Glow */}
       <div
