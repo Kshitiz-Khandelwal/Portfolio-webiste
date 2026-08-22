@@ -1,0 +1,104 @@
+@import "tailwindcss";
+
+:root {
+  /* Master Palette Tokens — Ney Gold & Ruby Red on Light Canvas */
+  --rich-gold: #D4AF37;
+  --sunburst-gold: #FFD700;
+  --crimson-red: #DC143C;
+  --ruby-red: #9B111E;
+  --pure-white: #FFFFFF;
+  
+  --canvas-bg: #F8FAFC;
+  --card-bg: #FFFFFF;
+  --card-subtle: #F1F5F9;
+  --border-subtle: #E2E8F0;
+  --border-gold: rgba(212, 175, 55, 0.4);
+  
+  --text-primary: #0F172A;
+  --text-secondary: #475569;
+  --text-muted: #64748B;
+  
+  --background: var(--canvas-bg);
+  --foreground: var(--text-primary);
+}
+
+@theme inline {
+  --color-gold-rich: #D4AF37;
+  --color-gold-sunburst: #FFD700;
+  --color-crimson: #DC143C;
+  --color-ruby: #9B111E;
+  --color-canvas: #F8FAFC;
+  --color-card-surface: #FFFFFF;
+  --color-card-subtle: #F1F5F9;
+  --color-border-subtle: #E2E8F0;
+  
+  --font-sans: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, "SF Mono", Menlo, Monaco, Consolas, monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--canvas-bg);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+::selection {
+  background-color: rgba(212, 175, 55, 0.25);
+  color: #0F172A;
+}
+
+/* Minimal Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F8FAFC;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #D4AF37;
+}
+
+/* Hide scrollbar for horizontal rail while maintaining touch/drag scroll */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Profile Photo Engineered Treatment */
+.profile-engineered {
+  filter: grayscale(85%) contrast(110%) brightness(100%);
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.profile-engineered:hover {
+  filter: grayscale(0%) contrast(100%) brightness(100%);
+}
+
+/* Background Subtle Grid Animation */
+@keyframes pulseSubtle {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.8; }
+}
+
+.ambient-grid {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(226, 232, 240, 0.6) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(226, 232, 240, 0.6) 1px, transparent 1px);
+}
