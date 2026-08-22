@@ -1,4 +1,5 @@
 import { Navbar } from "@/components/Navbar";
+import { BackgroundEffects } from "@/components/BackgroundEffects";
 import { Hero } from "@/components/Hero";
 import { AboutSection } from "@/components/AboutSection";
 import { HowIBuild } from "@/components/HowIBuild";
@@ -15,6 +16,9 @@ import { Footer } from "@/components/Footer";
 export default function Home() {
   return (
     <div className="relative min-h-screen bg-[#0A0A0C] text-[#F4F4F7] overflow-x-hidden selection:bg-[#D4AF37]/30 selection:text-white">
+      {/* Interactive Constellation Canvas & Cursor Spotlight */}
+      <BackgroundEffects />
+
       {/* Sticky Navbar */}
       <Navbar />
 

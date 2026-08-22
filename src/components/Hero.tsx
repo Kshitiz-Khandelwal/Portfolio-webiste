@@ -4,6 +4,7 @@ import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Terminal, ArrowRight, FileDown, Mail, Shield, Sparkles, CheckCircle2 } from "lucide-react";
+import { BorderBeam } from "./BorderBeam";
 import { toast } from "sonner";
 
 const fadeUp = {
@@ -12,9 +13,9 @@ const fadeUp = {
 };
 
 export function Hero() {
-  const handleResume = () => {
-    toast.success("Resume download initiated", {
-      description: "Fetching Kshitiz_Khandelwal_Resume.pdf",
+  const handleResumeClick = () => {
+    toast.success("Downloading Resume...", {
+      description: "Kshitiz_Khandelwal_Resume.pdf",
     });
   };
 
@@ -71,8 +72,10 @@ export function Hero() {
             <span className="text-white font-semibold underline decoration-[#FFD700]/60">real-time embedded hardware</span>.
           </p>
 
-          {/* Terminal Card: $ whoami */}
-          <div className="w-full max-w-xl bg-[#121216] border border-[#22222A] rounded-2xl p-4 sm:p-5 shadow-md mb-8 font-mono text-xs text-[#E4E4E9] relative overflow-hidden">
+          {/* Terminal Card: $ whoami with BorderBeam */}
+          <div className="w-full max-w-xl bg-[#121216] border border-[#22222A] rounded-2xl p-4 sm:p-5 shadow-xl mb-8 font-mono text-xs text-[#E4E4E9] relative overflow-hidden group">
+            <BorderBeam size={200} duration={8} colorFrom="#FFD700" colorTo="#D4AF37" />
+
             <div className="flex items-center justify-between pb-3 mb-3 border-b border-[#22222A]">
               <div className="flex items-center gap-2">
                 <div className="w-3 h-3 rounded-full bg-[#DC143C]" />
@@ -124,13 +127,16 @@ export function Hero() {
               <span>GitHub</span>
             </a>
 
-            <button
-              onClick={handleResume}
+            {/* Direct Resume Download Link */}
+            <a
+              href="/Kshitiz_Khandelwal_Resume.pdf"
+              download="Kshitiz_Khandelwal_Resume.pdf"
+              onClick={handleResumeClick}
               className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-[#121216] text-[#E4E4E9] border border-[#22222A] hover:border-[#D4AF37] text-sm font-sans font-medium hover:text-[#FFD700] shadow-xs transition-all active:scale-[0.98]"
             >
               <FileDown className="w-4 h-4 text-[#D4AF37]" />
               <span>Resume</span>
-            </button>
+            </a>
 
             <a
               href="#contact"
@@ -148,7 +154,9 @@ export function Hero() {
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           className="lg:col-span-5 flex flex-col items-center justify-center z-10"
         >
-          <div className="relative w-full max-w-md bg-[#121216] border border-[#22222A] hover:border-[#D4AF37] rounded-3xl p-4 sm:p-5 shadow-xl transition-all duration-300">
+          <div className="relative w-full max-w-md bg-[#121216] border border-[#22222A] hover:border-[#D4AF37] rounded-3xl p-4 sm:p-5 shadow-2xl transition-all duration-300 overflow-hidden group">
+            <BorderBeam size={220} duration={12} colorFrom="#D4AF37" colorTo="#9B111E" />
+
             {/* Technical Frame Top Coordinate Bar */}
             <div className="flex items-center justify-between pb-3 mb-3 border-b border-[#22222A] font-mono text-[10px] text-[#8A8A94]">
               <span className="text-[#D4AF37] font-bold">ENG_ID: KSHITIZ-9491</span>
@@ -156,7 +164,7 @@ export function Hero() {
             </div>
 
             {/* Profile Picture Container with Engineered Monochromatic Hover Reveal */}
-            <div className="relative aspect-[4/5] rounded-2xl overflow-hidden bg-[#1A1A1F] border border-[#22222A] group">
+            <div className="relative aspect-[4/5] rounded-2xl overflow-hidden bg-[#0A0A0C] border border-[#22222A]">
               <Image
                 src="/profile.jpg"
                 alt="Kshitiz Khandelwal"
@@ -167,24 +175,24 @@ export function Hero() {
               />
 
               {/* Bottom Gradient Overlay with Label */}
-              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-4 text-left">
+              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent p-4 text-left">
                 <span className="font-mono text-xs uppercase tracking-widest text-white font-bold block">
                   Kshitiz Khandelwal
                 </span>
                 <span className="font-mono text-[11px] text-[#FFD700] block">
                   BMSIT&amp;M Bangalore • CSBS (9.43 CGPA)
                 </span>
-                <p className="font-sans text-[11px] text-[#9A9AA4] mt-1">
+                <p className="font-sans text-[11px] text-slate-300 mt-1">
                   Hover to view natural photo • Systems &amp; AI
                 </p>
               </div>
             </div>
 
             {/* Technical Frame Bottom Telemetry Bar */}
-            <div className="flex items-center justify-between pt-3 mt-3 border-t border-[#22222A] font-mono text-[10px] text-[#9A9AA4]">
+            <div className="flex items-center justify-between pt-3 mt-3 border-t border-[#22222A] font-mono text-[10px] text-[#8A8A94]">
               <span className="flex items-center gap-1.5">
                 <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
-                <span>SYSTEM CORE: ONLINE</span>
+                <span className="text-[#C7C7CF]">SYSTEM CORE: ONLINE</span>
               </span>
               <span className="text-[#D4AF37] font-bold">SEC_LEVEL: ALPHA</span>
             </div>

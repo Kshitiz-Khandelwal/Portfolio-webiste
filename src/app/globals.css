@@ -101,6 +101,16 @@ body {
   50% { transform: translate(30px, -20px) scale(1.08); }
 }
 
+@keyframes border-beam {
+  100% {
+    offset-distance: 100%;
+  }
+}
+
+.animate-border-beam {
+  animation: border-beam 8s linear infinite;
+}
+
 .ambient-grid {
   background-size: 32px 32px;
   background-image:
