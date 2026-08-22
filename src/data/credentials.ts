@@ -2,80 +2,56 @@ export interface CredentialItem {
   id: string;
   title: string;
   issuer: string;
-  category: "hackathon" | "internship" | "workshop" | "academic";
-  categoryLabel: string;
   date: string;
-  credentialId?: string;
+  categoryLabel: string;
   summary: string;
   skillsVerified: string[];
   placeholderText: string;
-  hasPhoto: boolean;
 }
 
 export const credentialsData: CredentialItem[] = [
   {
-    id: "sih-2024-ideathon-3rd",
-    title: "College Ideathon (SIH-Aligned Problem Statements) — 3rd Place",
-    issuer: "Internal Institutional Ideathon",
-    category: "hackathon",
-    categoryLabel: "College Hackathon",
+    id: "cred-sih-2024",
+    title: "College Ideathon — SIH-Aligned Problem Statement",
+    issuer: "Internal Institutional Ideathon (BMSIT&M)",
     date: "2024",
+    categoryLabel: "Hackathon Podium",
     summary:
-      "Awarded 3rd place for conceptualizing, engineering, and presenting the Krishi360 Precision Agriculture & Crop Suitability Platform, built on an official Smart India Hackathon problem statement, to the internal judging panel.",
-    skillsVerified: ["Team Leadership", "Machine Learning Architecture", "REST API Backend", "Presentation & Defense"],
-    placeholderText: "[📜 PASTE COLLEGE IDEATHON 3RD PLACE CERTIFICATE PHOTO HERE]",
-    hasPhoto: false,
+      "Secured 3rd place in college-level ideathon round evaluating Krishi360 agricultural advisory system against official Smart India Hackathon problem statements.",
+    skillsVerified: ["Mathematical Modeling", "Team Leadership", "Pitch & Architecture"],
+    placeholderText: "[📜 PASTE IDEATHON 3RD PLACE CERTIFICATE HERE]",
   },
   {
-    id: "isro-bah-2026",
-    title: "ISRO Build-A-Hackathon 2026 — Finalist Submission (PS13)",
-    issuer: "Indian Space Research Organisation (ISRO)",
-    category: "hackathon",
-    categoryLabel: "National Space Hackathon",
+    id: "cred-isro-bah-2026",
+    title: "Predictive Ground Station NOC Copilot (PS13)",
+    issuer: "ISRO Build-A-Hackathon 2026",
     date: "2026",
+    categoryLabel: "Space Tech Submission",
     summary:
-      "Recognized for designing the complete Predictive NOC Copilot architecture for Problem Statement 13 (Predictive Ground Station MPLS Fault Anomaly Detection).",
-    skillsVerified: ["Time-Series Forecasting", "XGBoost Telemetry", "ChromaDB Offline RAG", "System Architecture"],
-    placeholderText: "[📜 PASTE ISRO BAH 2026 SUBMISSION CERTIFICATE / RECORD HERE]",
-    hasPhoto: false,
+      "Finalist submission proposing Prophet time-series trend decomposition, XGBoost fault classification, and offline RAG knowledge base for ISRO ground station telemetry.",
+    skillsVerified: ["Time-Series Forecasting", "Offline RAG", "System Reliability"],
+    placeholderText: "[📜 PASTE ISRO BAH SUBMISSION RECORD HERE]",
   },
   {
-    id: "iot-outreach-instructor",
-    title: "IoT & Edge AI Outreach Workshop — Co-Organizer & Instructor",
+    id: "cred-iot-outreach-2026",
+    title: "IoT & Edge AI Workshop Instructor Certification",
     issuer: "Vivekananda Institute of Technology & BMSIT&M",
-    category: "workshop",
-    categoryLabel: "Technical Instruction",
-    date: "May 18, 2026",
+    date: "May 2026",
+    categoryLabel: "Technical Outreach",
     summary:
-      "Official recognition for organizing and instructing a full-day hands-on hardware engineering workshop for 100+ rural college students on microcontrollers and IoT telemetry.",
-    skillsVerified: ["Embedded C/C++", "Hardware Debugging", "Technical Pedagogy", "Event Logistics"],
-    placeholderText: "[📜 PASTE WORKSHOP ORGANIZER & INSTRUCTOR CERTIFICATE HERE]",
-    hasPhoto: false,
+      "Co-organized and instructed full-day hands-on hardware workshop training 100+ rural engineering students in ESP32, sensor networks, and edge ML pipelines.",
+    skillsVerified: ["Microcontroller Firmware", "Technical Teaching", "Sensor Integration"],
+    placeholderText: "[📜 PASTE WORKSHOP INSTRUCTOR CERTIFICATE HERE]",
   },
   {
-    id: "software-internship-cred",
-    title: "Systems & Backend Software Engineering Internship Certificate",
-    issuer: "Industry Partner / Engineering Lab",
-    category: "internship",
-    categoryLabel: "Industry Internship",
-    date: "2024 — 2025",
+    id: "cred-backend-internship",
+    title: "Systems & Backend Software Engineering Internship",
+    issuer: "Confidential Engineering Client (Details Available on Request)",
+    date: "2025 – 2026",
+    categoryLabel: "Industry Experience",
     summary:
-      "Hands-on engineering across backend API routing, database schema modeling, and asynchronous task pipelines.",
-    skillsVerified: ["Backend Systems", "FastAPI / Python", "Database Modeling", "Git Workflows"],
-    placeholderText: "[📜 PASTE INTERNSHIP COMPLETION CERTIFICATE HERE]",
-    hasPhoto: false,
-  },
-  {
-    id: "academic-excellence-bmsit",
-    title: "B.E. Computer Science & Business Systems Academic Scholar (CGPA 9.43)",
-    issuer: "BMS Institute of Technology & Management",
-    category: "academic",
-    categoryLabel: "Academic Record",
-    date: "2024 — 2028",
-    summary:
-      "Consistent academic top-tier standing across Data Structures & Algorithms, Operating Systems, Database Internals, and Computer Networks.",
-    skillsVerified: ["Data Structures & Algorithms", "Operating Systems", "DBMS", "Computer Networks"],
-    placeholderText: "[📜 PASTE ACADEMIC TRANSCRIPT / MERIT CERTIFICATE HERE]",
-    hasPhoto: false,
+      "Engineered high-throughput REST APIs, asynchronous worker pipelines, and database optimization for cloud telemetry processing under strict NDA.",
+    skillsVerified: ["FastAPI", "Database Indexing", "System Architecture"],
+    placeholderText: "[📜 PASTE INTERNSHIP VERIFICATION / NDA LETTER HERE]",
   },
 ];
