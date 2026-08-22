@@ -45,17 +45,17 @@ export function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-20 px-4 sm:px-6 max-w-7xl mx-auto border-t border-slate-200">
+    <section id="contact" className="py-20 px-4 sm:px-6 max-w-7xl mx-auto border-t border-[#22222A]">
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
         <div>
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#D4AF37]/15 border border-[#D4AF37]/40 text-[11px] font-mono uppercase tracking-wider text-[#D4AF37] font-bold mb-3">
             Direct Reach Out
           </div>
-          <h2 className="font-sans font-bold text-3xl sm:text-4xl text-slate-900 tracking-tight">
+          <h2 className="font-sans font-bold text-3xl sm:text-4xl text-white tracking-tight">
             Let&apos;s Build Something
           </h2>
         </div>
-        <p className="font-sans text-sm text-slate-600 max-w-md">
+        <p className="font-sans text-sm text-[#9A9AA4] max-w-md">
           Interested in AI systems, software engineering, research collaborations, or building high-impact products?
         </p>
       </div>

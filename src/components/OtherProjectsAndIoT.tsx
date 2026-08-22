@@ -9,18 +9,18 @@ export function OtherProjectsAndIoT() {
   const remaining = otherProjects.filter((p) => p.id !== "zephyr-pico-lab");
 
   return (
-    <section id="iot-lab" className="py-20 px-4 sm:px-6 max-w-7xl mx-auto border-t border-slate-200">
+    <section id="iot-lab" className="py-20 px-4 sm:px-6 max-w-7xl mx-auto border-t border-[#22222A]">
       {/* Section Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
         <div>
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#D4AF37]/15 border border-[#D4AF37]/40 text-[11px] font-mono uppercase tracking-wider text-[#D4AF37] font-bold mb-3">
             Hardware &amp; Additional Systems
           </div>
-          <h2 className="font-sans font-bold text-3xl sm:text-4xl text-slate-900 tracking-tight">
+          <h2 className="font-sans font-bold text-3xl sm:text-4xl text-white tracking-tight">
             Embedded IoT Lab &amp; Other Builds
           </h2>
         </div>
-        <p className="font-sans text-sm text-slate-600 max-w-md">
+        <p className="font-sans text-sm text-[#9A9AA4] max-w-md">
           Hardware prototyping on Raspberry Pi Pico 2 (RP2350), climate resilience systems, and full-stack event applications.
         </p>
       </div>

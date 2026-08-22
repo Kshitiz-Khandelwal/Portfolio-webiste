@@ -87,17 +87,17 @@ export function HorizontalProjectRail() {
   };
 
   return (
-    <section id="featured-projects" className="py-20 px-4 sm:px-6 max-w-7xl mx-auto border-t border-slate-200">
+    <section id="featured-projects" className="py-20 px-4 sm:px-6 max-w-7xl mx-auto border-t border-[#22222A]">
       {/* Section Header with Navigation Controls */}
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-6 gap-4">
         <div>
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#D4AF37]/15 border border-[#D4AF37]/40 text-[11px] font-mono uppercase tracking-wider text-[#D4AF37] font-bold mb-3">
             Flagship Engineering &amp; Research
           </div>
-          <h2 className="font-sans font-bold text-3xl sm:text-4xl text-slate-900 tracking-tight">
+          <h2 className="font-sans font-bold text-3xl sm:text-4xl text-white tracking-tight">
             Featured Systems &amp; Architectures
           </h2>
-          <p className="font-sans text-xs sm:text-sm text-slate-600 mt-1 max-w-xl">
+          <p className="font-sans text-xs sm:text-sm text-[#9A9AA4] mt-1 max-w-xl">
             Horizontal scroll rail with in-card telemetry previews. Hover over any project to inspect the pipeline or click to open the case study.
           </p>
         </div>
@@ -106,14 +106,14 @@ export function HorizontalProjectRail() {
         <div className="flex items-center gap-2">
           <button
             onClick={() => scrollWithPause("left")}
-            className="p-2.5 rounded-xl bg-white border border-slate-200 text-slate-600 hover:text-[#D4AF37] hover:border-[#D4AF37] shadow-xs transition-all active:scale-[0.95]"
+            className="p-2.5 rounded-xl bg-[#121216] border border-[#22222A] text-[#9A9AA4] hover:text-[#FFD700] hover:border-[#D4AF37] shadow-xs transition-all active:scale-[0.95]"
             aria-label="Scroll left"
           >
             <ChevronLeft className="w-5 h-5" />
           </button>
           <button
             onClick={() => scrollWithPause("right")}
-            className="p-2.5 rounded-xl bg-white border border-slate-200 text-slate-600 hover:text-[#D4AF37] hover:border-[#D4AF37] shadow-xs transition-all active:scale-[0.95]"
+            className="p-2.5 rounded-xl bg-[#121216] border border-[#22222A] text-[#9A9AA4] hover:text-[#FFD700] hover:border-[#D4AF37] shadow-xs transition-all active:scale-[0.95]"
             aria-label="Scroll right"
           >
             <ChevronRight className="w-5 h-5" />
@@ -122,7 +122,7 @@ export function HorizontalProjectRail() {
       </div>
 
       {/* Progress Track Bar */}
-      <div className="w-full bg-slate-200 h-1 rounded-full mb-6 overflow-hidden">
+      <div className="w-full bg-[#22222A] h-1 rounded-full mb-6 overflow-hidden">
         <div
           className="bg-[#D4AF37] h-full transition-all duration-150 rounded-full"
           style={{ width: `${Math.max(scrollProgress * 100, 16)}%` }}

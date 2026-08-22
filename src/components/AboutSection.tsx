@@ -14,7 +14,7 @@ export function AboutSection() {
   ];
 
   return (
-    <section id="about" className="py-20 px-4 sm:px-6 max-w-7xl mx-auto border-t border-slate-200">
+    <section id="about" className="py-20 px-4 sm:px-6 max-w-7xl mx-auto border-t border-[#22222A]">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
         {/* Left Column: Bio Narrative */}
         <div className="lg:col-span-5 space-y-5">
@@ -22,17 +22,17 @@ export function AboutSection() {
             About &amp; Philosophy
           </div>
 
-          <h2 className="font-sans font-bold text-3xl sm:text-4xl text-slate-900 tracking-tight">
+          <h2 className="font-sans font-bold text-3xl sm:text-4xl text-white tracking-tight">
             Engineering Systems From Concept to Deployment
           </h2>
 
-          <p className="font-sans text-sm sm:text-base text-slate-700 leading-relaxed">
-            I am a Computer Science &amp; Business Systems student at <span className="text-slate-900 font-bold">BMSIT&amp;M, Bangalore</span>. 
+          <p className="font-sans text-sm sm:text-base text-[#C7C7CF] leading-relaxed">
+            I am a Computer Science &amp; Business Systems student at <span className="text-white font-bold">BMSIT&amp;M, Bangalore</span>. 
             I specialize in bridging the gap between theoretical machine learning algorithms, low-level systems architectures, and production-ready software products.
           </p>
 
-          <p className="font-sans text-sm sm:text-base text-slate-600 leading-relaxed">
-            Whether architecting decentralized federated learning pipelines for hospitals, wire-speed DNS threat filters, or real-time embedded firmware on microcontrollers, I focus on building <span className="text-[#D4AF37] font-bold">practical, defensible, and high-impact solutions</span>.
+          <p className="font-sans text-sm sm:text-base text-[#9A9AA4] leading-relaxed">
+            Whether architecting decentralized federated learning pipelines for hospitals, wire-speed DNS threat filters, or real-time embedded firmware on microcontrollers, I focus on building <span className="text-[#FFD700] font-bold">practical, defensible, and high-impact solutions</span>.
           </p>
 
           {/* Quick Pillars */}
