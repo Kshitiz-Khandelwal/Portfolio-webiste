@@ -44,7 +44,7 @@ export function Navbar() {
             <div className="absolute top-2 right-6 w-3 h-3 rounded-full bg-[#0A0A0C] border-2 border-[#D4AF37] shadow-inner" />
 
             <div className="flex items-center justify-between">
-              {/* Left Brand: Red/Gold Traditional Seal Emblem */}
+              {/* Left Brand: Clean Title & Red/Gold Emblem */}
               <a href="#" className="flex items-center gap-3 group">
                 <div className="w-8 h-8 rounded-lg border border-[#D4AF37] bg-[#0A0A0C] flex items-center justify-center p-1 shadow-[0_0_10px_rgba(212,175,55,0.25)] group-hover:scale-105 transition-transform">
                   <svg className="w-full h-full text-[#D4AF37] fill-current" viewBox="0 0 24 24">
@@ -52,22 +52,17 @@ export function Navbar() {
                   </svg>
                 </div>
                 <div className="flex flex-col">
-                  <div className="flex items-center gap-2">
-                    <span className="font-hand font-bold text-xl sm:text-2xl text-white group-hover:text-[#FFD700] transition-colors leading-tight">
-                      Kshitiz Khandelwal
-                    </span>
-                    <span className="hidden sm:inline-flex items-center px-2 py-0.2 rounded-full text-[10px] font-mono bg-[#D4AF37]/15 text-[#FFD700] border border-[#D4AF37]/40 font-bold">
-                      9.43 CGPA
-                    </span>
-                  </div>
-                  <span className="text-[10px] font-mono text-[#8A8A94] tracking-wider uppercase hidden sm:block">
+                  <span className="font-hand font-bold text-xl sm:text-2xl text-white group-hover:text-[#FFD700] transition-colors leading-tight">
+                    Kshitiz Khandelwal
+                  </span>
+                  <span className="text-[10px] font-mono text-[#94A3B8] tracking-wider uppercase hidden sm:block">
                     Systems &amp; AI Engineer • BMSIT&amp;M
                   </span>
                 </div>
               </a>
 
-              {/* Navigation Links in Handwritten Font matching dark theme */}
-              <nav className="hidden md:flex items-center gap-5 font-hand text-xl text-[#C7C7CF]">
+              {/* Navigation Links in Handwritten Font */}
+              <nav className="hidden md:flex items-center gap-6 font-hand text-xl text-[#C7C7CF]">
                 <a
                   href="#about"
                   className="hover:text-[#FFD700] hover:-rotate-1 transition-all"
@@ -109,7 +104,7 @@ export function Navbar() {
                 </a>
                 <a
                   href="#contact"
-                  className="px-3 py-1 rounded-md bg-[#D4AF37] text-black font-hand font-bold text-lg hover:bg-[#FFD700] hover:scale-105 transition-all shadow-sm"
+                  className="px-3.5 py-1 rounded-md bg-[#D4AF37] text-black font-hand font-bold text-lg hover:bg-[#FFD700] hover:scale-105 transition-all shadow-sm"
                 >
                   Contact
                 </a>

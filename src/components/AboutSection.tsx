@@ -1,16 +1,16 @@
 "use client";
 
 import React from "react";
-import { Brain, Cpu, Shield, Sparkles, Layers, Terminal, ArrowRight } from "lucide-react";
+import { Brain, Cpu, Shield, Sparkles, Layers, Terminal, ArrowRight, Briefcase, Award } from "lucide-react";
 
 export function AboutSection() {
   const exploringTopics = [
-    { title: "Distributed & Federated Learning", desc: "NoPeek loss, cut-layer smash data, non-IID client drift" },
-    { title: "DNS Threat Defense & ML", desc: "Shannon entropy lexical models, DGA attribution, wire-speed filtering" },
-    { title: "Real-Time Embedded RTOS", desc: "Zephyr RTOS, ARM Cortex-M33 RP2350, edge anomaly detection" },
-    { title: "Biomedical Signal Transforms", desc: "12-lead ECG scalograms via Continuous Wavelet Transforms" },
-    { title: "Explainable AI & Auditing", desc: "TreeSHAP feature attribution & Grad-CAM visual heatmaps" },
-    { title: "Full-Stack Product Engineering", desc: "Next.js 15, high-taste design systems, zero CLS, REST APIs" },
+    { title: "Distributed & Split Federated Learning", desc: "NoPeek distance loss, cut-layer smash data, non-IID client drift (IIIT Trichy Research)" },
+    { title: "Java & Spring Boot Microservices", desc: "High-throughput asynchronous REST APIs, dependency injection, JPA/Hibernate ORM (Zarthi Internship)" },
+    { title: "DNS Threat Defense & ML", desc: "Shannon entropy lexical models, DGA attribution, wire-speed filtering (DNS Shield)" },
+    { title: "Real-Time Embedded RTOS", desc: "Zephyr RTOS, ARM Cortex-M33 RP2350, ESP32 FreeRTOS, edge anomaly detection" },
+    { title: "Biomedical Signal Transforms", desc: "12-lead ECG scalograms via Continuous Wavelet Transforms & EfficientNet-B4" },
+    { title: "Explainable AI & Auditing", desc: "TreeSHAP feature attribution & Grad-CAM visual heatmaps for transparent ML" },
   ];
 
   return (
@@ -18,61 +18,62 @@ export function AboutSection() {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
         {/* Left Column: Bio Narrative */}
         <div className="lg:col-span-5 space-y-5">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#D4AF37]/15 border border-[#D4AF37]/40 text-[11px] font-mono uppercase tracking-wider text-[#D4AF37] font-bold">
-            About &amp; Philosophy
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#D4AF37]/15 border border-[#D4AF37]/40 text-[11px] font-mono uppercase tracking-wider text-[#FFD700] font-bold">
+            About &amp; Engineering Philosophy
           </div>
 
           <h2 className="font-sans font-bold text-3xl sm:text-4xl text-white tracking-tight">
-            Engineering Systems From Concept to Deployment
+            Engineering Systems From Concept to High-Impact Deployment
           </h2>
 
-          <p className="font-sans text-sm sm:text-base text-[#C7C7CF] leading-relaxed">
-            I am a Computer Science &amp; Business Systems student at <span className="text-white font-bold">BMSIT&amp;M, Bangalore</span>. 
-            I specialize in bridging the gap between theoretical machine learning algorithms, low-level systems architectures, and production-ready software products.
+          <p className="font-sans text-sm sm:text-base text-[#E2E8F0] leading-relaxed">
+            I am a Computer Science &amp; Business Systems student at <span className="text-white font-bold">BMSIT&amp;M, Bangalore</span> (9.43 CGPA), currently working as a <span className="text-[#FFD700] font-bold">Backend Developer Intern at Zarthi</span> (Java &amp; Spring Boot) and conducting research under the <span className="text-[#38BDF8] font-bold">AICTE-QIP-PG Programme at IIIT Trichy</span>.
           </p>
 
-          <p className="font-sans text-sm sm:text-base text-[#9A9AA4] leading-relaxed">
-            Whether architecting decentralized federated learning pipelines for hospitals, wire-speed DNS threat filters, or real-time embedded firmware on microcontrollers, I focus on building <span className="text-[#FFD700] font-bold">practical, defensible, and high-impact solutions</span>.
+          <p className="font-sans text-sm sm:text-base text-[#CBD5E1] leading-relaxed">
+            Whether architecting decentralized federated learning pipelines for hospitals, wire-speed DNS threat filters, or real-time embedded firmware on microcontrollers, I focus on building <span className="text-[#FFD700] font-bold">practical, defensible, and latency-bounded solutions</span>.
           </p>
 
           {/* Quick Pillars */}
           <div className="pt-2 grid grid-cols-2 gap-3 font-mono text-xs">
-            <div className="p-3.5 rounded-xl bg-white border border-slate-200 shadow-xs">
-              <span className="text-[#D4AF37] block font-bold">Research &amp; ML</span>
-              <span className="text-[11px] text-slate-500">Signal transforms &amp; distributed AI</span>
+            <div className="p-3.5 rounded-xl bg-[#161620] border border-[#2A2A38] shadow-xs">
+              <span className="text-[#FFD700] block font-bold">Backend &amp; Cloud</span>
+              <span className="text-[11px] text-slate-300">Java, Spring Boot, Microservices &amp; SQL</span>
             </div>
-            <div className="p-3.5 rounded-xl bg-white border border-slate-200 shadow-xs">
-              <span className="text-[#D4AF37] block font-bold">Systems &amp; Product</span>
-              <span className="text-[11px] text-slate-500">End-to-end full-stack architectures</span>
+            <div className="p-3.5 rounded-xl bg-[#161620] border border-[#2A2A38] shadow-xs">
+              <span className="text-[#38BDF8] block font-bold">Embedded &amp; AI</span>
+              <span className="text-[11px] text-slate-300">Zephyr RTOS, RP2350, SFL on IoMT</span>
             </div>
           </div>
         </div>
 
-        {/* Right Column: Currently Exploring Grid */}
-        <div className="lg:col-span-7 bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-sm">
-          <div className="flex items-center justify-between pb-4 mb-6 border-b border-slate-100">
+        {/* Right Column: Currently Exploring Grid in Dark Obsidian */}
+        <div className="lg:col-span-7 bg-[#121216] border border-[#22222A] rounded-3xl p-6 sm:p-8 shadow-xl">
+          <div className="flex items-center justify-between pb-4 mb-6 border-b border-[#22222A]">
             <div className="flex items-center gap-2.5">
-              <div className="w-2.5 h-2.5 rounded-full bg-[#D4AF37]" />
-              <h3 className="font-mono text-xs uppercase tracking-widest text-slate-900 font-bold">
+              <div className="w-2.5 h-2.5 rounded-full bg-[#D4AF37] animate-pulse" />
+              <h3 className="font-mono text-xs uppercase tracking-widest text-white font-bold">
                 Currently Exploring &amp; Researching
               </h3>
             </div>
-            <span className="font-mono text-[10px] text-slate-500">PIPELINE: ACTIVE</span>
+            <span className="font-mono text-[10px] text-[#FFD700] bg-[#D4AF37]/15 px-2.5 py-0.5 rounded-md border border-[#D4AF37]/30 font-bold">
+              PIPELINE: ACTIVE
+            </span>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
             {exploringTopics.map((item, idx) => (
               <div
                 key={idx}
-                className="p-4 rounded-xl bg-slate-50 border border-slate-200 hover:border-[#D4AF37] transition-all group"
+                className="p-4 rounded-xl bg-[#161620] border border-[#2A2A38] hover:border-[#D4AF37] transition-all group"
               >
                 <div className="flex items-center justify-between mb-1.5">
-                  <h4 className="font-sans font-bold text-xs sm:text-sm text-slate-900 group-hover:text-[#D4AF37] transition-colors">
+                  <h4 className="font-sans font-bold text-xs sm:text-sm text-white group-hover:text-[#FFD700] transition-colors">
                     {item.title}
                   </h4>
-                  <span className="font-mono text-[10px] text-slate-400">0{idx + 1}</span>
+                  <span className="font-mono text-[10px] text-[#8A8A94]">0{idx + 1}</span>
                 </div>
-                <p className="font-mono text-[11px] text-slate-600 leading-relaxed">
+                <p className="font-sans text-[11px] text-[#CBD5E1] leading-relaxed">
                   {item.desc}
                 </p>
               </div>
