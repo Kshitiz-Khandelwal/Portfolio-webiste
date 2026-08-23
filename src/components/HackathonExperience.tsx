@@ -14,7 +14,7 @@ export function HackathonExperience() {
       organization: "Internal Institutional Ideathon",
       role: "Team Leader — Krishi360 Platform",
       badge: "3rd Place Podium, College Ideathon",
-      badgeClass: "badge-blue",
+      badgeClass: "badge-emerald",
       imageSrc: null,
       customCardTitle: "Krishi360 Precision Agriculture Platform",
       customCardSubtitle: "Smart India Hackathon Aligned Architecture",
@@ -32,7 +32,7 @@ export function HackathonExperience() {
       organization: "Indian Space Research Organisation (ISRO)",
       role: "System Architect & ML Lead",
       badge: "Finalist Solution Submission",
-      badgeClass: "badge-neutral",
+      badgeClass: "badge-violet",
       imageSrc: null,
       customCardTitle: "Predictive Ground Station NOC Copilot",
       customCardSubtitle: "ISRO PS13 Fault Anomaly Detection",
@@ -50,7 +50,7 @@ export function HackathonExperience() {
       role: "Co-Organizer & Instructor",
       location: "Bangalore, India",
       badge: "100+ Students Trained",
-      badgeClass: "badge-blue",
+      badgeClass: "badge-violet",
       imageSrc: "/events/vkit/vkit_1.jpeg",
       description:
         "Co-planned and instructed a full-day hardware and edge AI workshop for students from rural engineering colleges, covering microcontroller programming, sensor networks, and IoT telemetry.",
@@ -63,18 +63,18 @@ export function HackathonExperience() {
   ];
 
   return (
-    <section id="hackathons" className="py-20 px-4 sm:px-6 max-w-7xl mx-auto bg-white">
+    <section id="hackathons" className="py-20 px-4 sm:px-6 max-w-7xl mx-auto bg-[#1A1025]">
       {/* Section Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
         <div>
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-lg badge-blue text-[11px] font-mono uppercase tracking-wider font-semibold mb-3">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-lg badge-violet text-[11px] font-mono uppercase tracking-wider font-semibold mb-3">
             Competitive Builds &amp; Workshops
           </div>
-          <h2 className="font-sans font-bold text-3xl sm:text-4xl text-[#111827] tracking-tight">
+          <h2 className="font-sans font-bold text-3xl sm:text-4xl text-[#E5DAF7] tracking-tight">
             Hackathons &amp; Technical Leadership
           </h2>
         </div>
-        <p className="font-sans text-xs sm:text-sm text-[#6B7280] max-w-md">
+        <p className="font-sans text-xs sm:text-sm text-[#A99BC2] max-w-md">
           Competitive building under time constraints, university hackathons, and technical workshop leadership.
         </p>
       </div>
@@ -84,18 +84,18 @@ export function HackathonExperience() {
         {experiences.map((exp, idx) => (
           <div
             key={idx}
-            className="relative bg-white border border-[#E5E7EB] hover:border-[#2563EB] rounded-3xl p-6 sm:p-7 shadow-clean hover:shadow-clean-md transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between group"
+            className="relative bg-[#271A38] border border-[#3D2B55] hover:border-[#A78BFA] rounded-3xl p-6 sm:p-7 shadow-violet hover:shadow-violet-lg transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between group"
           >
             <div>
-              <div className="flex items-center justify-between pb-3 mb-4 border-b border-[#F3F4F6]">
+              <div className="flex items-center justify-between pb-3 mb-4 border-b border-[#3D2B55]">
                 <span className={`font-mono text-[10px] uppercase tracking-wider px-2.5 py-0.5 rounded-full font-semibold ${exp.badgeClass}`}>
                   {exp.badge}
                 </span>
-                <span className="font-mono text-xs text-[#6B7280] font-semibold">{exp.period}</span>
+                <span className="font-mono text-xs text-[#A99BC2] font-semibold">{exp.period}</span>
               </div>
 
               {/* Photo or Custom Architectural Banner */}
-              <div className="relative aspect-[16/10] rounded-2xl overflow-hidden bg-[#F7F7F5] border border-[#E5E7EB] mb-4">
+              <div className="relative aspect-[16/10] rounded-2xl overflow-hidden bg-[#1F142D] border border-[#3D2B55] mb-4">
                 {exp.imageSrc ? (
                   <div
                     className="relative w-full h-full cursor-pointer group"
@@ -107,44 +107,44 @@ export function HackathonExperience() {
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-500"
                     />
-                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                      <span className="px-3 py-1.5 rounded-lg bg-white text-xs font-sans font-medium text-[#111827] shadow-clean">
+                    <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                      <span className="px-3 py-1.5 rounded-lg bg-[#1A1025] text-xs font-sans font-medium text-[#E5DAF7] border border-[#3D2B55] shadow-violet">
                         Enlarge Photo 🔍
                       </span>
                     </div>
                   </div>
                 ) : (
-                  <div className="w-full h-full flex flex-col items-center justify-center p-4 text-center bg-[#EFF6FF]">
-                    <Trophy className="w-8 h-8 text-[#2563EB] mb-2" />
-                    <span className="font-sans font-bold text-xs sm:text-sm text-[#111827] block leading-tight">
+                  <div className="w-full h-full flex flex-col items-center justify-center p-4 text-center bg-[#1F142D]">
+                    <Trophy className="w-8 h-8 text-[#A78BFA] mb-2" />
+                    <span className="font-sans font-bold text-xs sm:text-sm text-[#E5DAF7] block leading-tight">
                       {exp.customCardTitle}
                     </span>
-                    <span className="font-mono text-[10px] text-[#4B5563] mt-1 block">
+                    <span className="font-mono text-[10px] text-[#A99BC2] mt-1 block">
                       {exp.customCardSubtitle}
                     </span>
-                    <span className="mt-2 font-mono text-[9px] px-2 py-0.5 rounded bg-white text-[#2563EB] border border-[#BFDBFE] font-medium">
+                    <span className="mt-2 font-mono text-[9px] px-2 py-0.5 rounded badge-subtle font-medium">
                       Verified Competition Submission
                     </span>
                   </div>
                 )}
               </div>
 
-              <h3 className="font-sans font-bold text-base sm:text-lg text-[#111827] group-hover:text-[#2563EB] transition-colors mb-1">
+              <h3 className="font-sans font-bold text-base sm:text-lg text-[#E5DAF7] group-hover:text-[#A78BFA] transition-colors mb-1">
                 {exp.title}
               </h3>
-              <p className="font-sans text-xs text-[#2563EB] mb-3 font-medium">
+              <p className="font-sans text-xs text-[#A78BFA] mb-3 font-medium">
                 {exp.role} • {exp.organization}
               </p>
 
-              <p className="font-sans text-xs text-[#4B5563] leading-relaxed mb-4">
+              <p className="font-sans text-xs text-[#C4B5FD] leading-relaxed mb-4">
                 {exp.description}
               </p>
             </div>
 
-            <div className="pt-4 border-t border-[#F3F4F6] space-y-2">
+            <div className="pt-4 border-t border-[#3D2B55] space-y-2">
               {exp.highlights.map((h, hIdx) => (
-                <div key={hIdx} className="flex items-start gap-2 text-xs text-[#4B5563]">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-[#2563EB] shrink-0 mt-0.5" />
+                <div key={hIdx} className="flex items-start gap-2 text-xs text-[#E5DAF7]">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-[#34D399] shrink-0 mt-0.5" />
                   <span>{h}</span>
                 </div>
               ))}
@@ -155,7 +155,7 @@ export function HackathonExperience() {
                     href={exp.driveLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-xs font-sans text-[#2563EB] hover:text-[#1D4ED8] font-medium"
+                    className="inline-flex items-center gap-1.5 text-xs font-sans text-[#A78BFA] hover:text-[#C4B5FD] font-medium"
                   >
                     <span>View Workshop Photo Proof Album</span>
                     <ExternalLink className="w-3 h-3" />
@@ -170,16 +170,16 @@ export function HackathonExperience() {
       {/* Lightbox Modal */}
       {zoomedImage && (
         <div
-          className="fixed inset-0 z-60 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm animate-in fade-in duration-200"
+          className="fixed inset-0 z-60 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md animate-in fade-in duration-200"
           onClick={() => setZoomedImage(null)}
         >
           <button
             onClick={() => setZoomedImage(null)}
-            className="absolute top-6 right-6 p-3 rounded-full bg-white border border-[#E5E7EB] text-[#111827] hover:text-[#2563EB] transition-colors shadow-clean"
+            className="absolute top-6 right-6 p-3 rounded-full bg-[#271A38] border border-[#3D2B55] text-white hover:text-[#A78BFA] transition-colors shadow-violet"
           >
             <X className="w-6 h-6" />
           </button>
-          <div className="relative w-full max-w-4xl max-h-[85vh] aspect-[4/3] overflow-hidden rounded-2xl border border-[#E5E7EB] bg-white shadow-clean-lg">
+          <div className="relative w-full max-w-4xl max-h-[85vh] aspect-[4/3] overflow-hidden rounded-2xl border border-[#3D2B55] bg-[#1A1025] shadow-violet-lg">
             <Image
               src={zoomedImage}
               alt="Zoomed Hackathon / Workshop Photo"
