@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Terminal, ArrowRight, FileDown, ExternalLink } from "lucide-react";
@@ -13,9 +13,18 @@ const fadeUp = {
 };
 
 export function Hero() {
+  const [isColor, setIsColor] = useState(false);
+
   const handleResumeClick = () => {
     toast.success("Downloading Resume...", {
       description: "Kshitiz_Khandelwal_Resume.pdf",
+    });
+  };
+
+  const togglePhotoColor = () => {
+    setIsColor(!isColor);
+    toast.info(isColor ? "Photo switched to Grayscale" : "Photo switched to Full Color", {
+      duration: 1500,
     });
   };
 
@@ -40,15 +49,15 @@ export function Hero() {
           {/* Domain Tags */}
           <div className="flex flex-wrap items-center gap-2 mb-5">
             <span className="px-3 py-1 rounded-full bg-[#121216] border border-[#D4AF37]/60 font-mono text-xs text-[#FFD700] font-bold shadow-xs">
-              AI / ML
+              BACKEND &amp; SYSTEMS
             </span>
             <span className="text-[#22222A]">•</span>
             <span className="px-3 py-1 rounded-full bg-[#121216] border border-[#22222A] font-mono text-xs text-[#C7C7CF] shadow-xs">
-              CYBERSECURITY
+              AI / ML RESEARCH
             </span>
             <span className="text-[#22222A]">•</span>
             <span className="px-3 py-1 rounded-full bg-[#121216] border border-[#22222A] font-mono text-xs text-[#C7C7CF] shadow-xs">
-              SOFTWARE
+              EMBEDDED IOT
             </span>
           </div>
 
@@ -57,7 +66,7 @@ export function Hero() {
             Kshitiz Khandelwal
           </h1>
           <p className="font-mono text-base sm:text-lg text-[#D4AF37] font-bold mb-2">
-            Computer Science Student building intelligent systems.
+            Systems, AI &amp; Backend Engineer • Intern @ Zarthi
           </p>
 
           {/* Credibility Line */}
@@ -67,11 +76,13 @@ export function Hero() {
             <span>CSBS</span>
             <span>•</span>
             <span className="text-[#FFD700] font-bold">9.43 CGPA</span>
+            <span>•</span>
+            <span className="text-[#38BDF8]">IIIT Trichy Research Fellow</span>
           </div>
 
           {/* Narrative Positioning */}
           <p className="font-sans text-base sm:text-lg text-[#C7C7CF] max-w-xl leading-relaxed mb-6">
-            I build AI/ML, cybersecurity, and full-stack systems that turn real-world problems into working products — from threat detection to healthcare AI.
+            I build high-throughput backend services in Java &amp; Spring Boot, research privacy-preserving split federated learning, and engineer deterministic embedded IoT firmware.
           </p>
 
           {/* Focused Terminal Card */}
@@ -93,15 +104,15 @@ export function Hero() {
                 <span className="text-[#D4AF37] font-bold">$ whoami</span>
               </div>
               <div className="text-white font-bold">
-                Kshitiz Khandelwal — Computer Science Student @ BMSIT&amp;M
+                Kshitiz Khandelwal — Backend &amp; Systems Engineer (Java / Spring Boot / Rust)
               </div>
               <div className="text-[#8A8A94] pt-1">
-                Focus Areas:
+                Active Engagements:
               </div>
               <div className="text-[#C7C7CF] pl-3 border-l-2 border-[#D4AF37] space-y-0.5 font-medium">
-                <div>→ Applied AI / ML &amp; Signal Processing</div>
-                <div>→ Cybersecurity Threat Defense (DNS &amp; Networks)</div>
-                <div>→ Software Engineering &amp; System Architecture</div>
+                <div>→ Backend Developer Intern @ Zarthi (Java &amp; Spring Boot)</div>
+                <div>→ Research Fellow @ IIIT Trichy (IoMT Split Federated Learning)</div>
+                <div>→ Embedded IoT Workshop Instructor (100+ Students Instructed)</div>
               </div>
             </div>
           </div>
@@ -142,7 +153,7 @@ export function Hero() {
           </div>
         </motion.div>
 
-        {/* Right Column: Clean, Human Photo Card */}
+        {/* Right Column: Clean, Human Photo Card with Click-to-Color Toggle */}
         <motion.div
           variants={fadeUp}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
@@ -157,27 +168,36 @@ export function Hero() {
               <span>BENGALURU, INDIA</span>
             </div>
 
-            {/* Profile Picture Container with Natural Hover Reveal */}
-            <div className="relative aspect-[4/5] rounded-2xl overflow-hidden bg-[#0A0A0C] border border-[#22222A]">
+            {/* Profile Picture Container with Click-to-Color Toggle & Hover Reveal */}
+            <div
+              onClick={togglePhotoColor}
+              className="relative aspect-[4/5] rounded-2xl overflow-hidden bg-[#0A0A0C] border border-[#22222A] cursor-pointer group select-none"
+              title="Click to toggle Color / Grayscale photo"
+            >
               <Image
                 src="/profile.jpg"
                 alt="Kshitiz Khandelwal"
                 fill
                 priority
                 sizes="(max-width: 768px) 100vw, 400px"
-                className="object-cover object-top profile-engineered"
+                className={`object-cover object-top transition-all duration-500 ${
+                  isColor
+                    ? "filter-none brightness-105"
+                    : "profile-engineered group-hover:filter-none"
+                }`}
               />
 
               {/* Bottom Gradient Overlay */}
-              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent p-4 text-left">
+              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent p-4 text-left pointer-events-none">
                 <span className="font-mono text-xs uppercase tracking-widest text-white font-bold block">
                   Kshitiz Khandelwal
                 </span>
                 <span className="font-mono text-[11px] text-[#FFD700] block">
                   Computer Science @ BMSIT&amp;M
                 </span>
-                <p className="font-sans text-[11px] text-slate-300 mt-1">
-                  Hover to view natural photo • Applied AI &amp; Systems
+                <p className="font-sans text-[11px] text-slate-300 mt-1 flex items-center gap-1.5">
+                  <span className="w-2 h-2 rounded-full bg-[#D4AF37] animate-pulse" />
+                  <span>{isColor ? "🎨 Full Color Mode (Click for B&W)" : "✨ Click to toggle full color"}</span>
                 </p>
               </div>
             </div>
@@ -188,7 +208,7 @@ export function Hero() {
                 <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
                 <span className="text-[#C7C7CF]">SYSTEM CORE: ONLINE</span>
               </span>
-              <span className="text-[#D4AF37] font-semibold">BMSIT&amp;M CSBS</span>
+              <span className="text-[#D4AF37] font-semibold">9.43 CGPA • CSBS</span>
             </div>
           </div>
         </motion.div>

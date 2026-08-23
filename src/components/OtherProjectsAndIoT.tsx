@@ -3,6 +3,7 @@
 import React from "react";
 import { otherProjects } from "@/data/projects";
 import { Cpu, ExternalLink, Play, Video, CheckCircle2, ShieldCheck, Sparkles } from "lucide-react";
+import { WorkshopCollage } from "./WorkshopCollage";
 
 export function OtherProjectsAndIoT() {
   const zephyrProject = otherProjects.find((p) => p.id === "zephyr-pico-lab") || otherProjects[0];
@@ -137,8 +138,11 @@ export function OtherProjectsAndIoT() {
         </div>
       </div>
 
+      {/* Animated Workshop Event Photos Collage */}
+      <WorkshopCollage />
+
       {/* Featured Hardware Spotlight: Zephyr Edge AI Lab */}
-      <div className="bg-[#121216] border border-[#22222A] rounded-3xl p-6 sm:p-8 mb-8 shadow-sm">
+      <div className="bg-[#121216] border border-[#22222A] rounded-3xl p-6 sm:p-8 mt-12 mb-8 shadow-sm">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           {/* Left: Project Details */}
           <div className="lg:col-span-7 space-y-4">

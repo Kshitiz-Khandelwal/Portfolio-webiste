@@ -12,18 +12,24 @@ export interface EvidenceSkillCategory {
 export const evidenceSkillsData: EvidenceSkillCategory[] = [
   {
     categoryName: "Programming Languages",
-    categoryDesc: "Core languages used for systems programming, data pipelines, and full-stack web products.",
+    categoryDesc: "Core languages used for systems programming, backend microservices, data pipelines, and full-stack web products.",
     skills: [
+      {
+        name: "Java & Spring Boot",
+        levelDescriptor: "Enterprise Backend Core (Zarthi Internship)",
+        usedIn: ["Zarthi Backend Services", "Enterprise Microservices", "REST APIs"],
+        context: "Spring Boot application architecture, dependency injection, JPA/Hibernate ORM, microservices routing, and high-concurrency production endpoints.",
+      },
       {
         name: "Python",
         levelDescriptor: "Primary Research & Systems Language",
-        usedIn: ["DNS Shield", "SplitFed Healthcare AI", "ECG Classification", "TON-IoT Forensics", "Ayurveda Platform", "CREWS"],
+        usedIn: ["DNS Shield", "SplitFed Healthcare AI", "ECG Classification", "TON-IoT Forensics", "Ayurveda Platform"],
         context: "Data science pipelines, PyTorch neural architectures, FastAPI microservices, CWT signal processing, TreeSHAP explainability.",
       },
       {
         name: "TypeScript & JavaScript",
         levelDescriptor: "Production Full-Stack",
-        usedIn: ["Next.js Clinical Dashboards", "VeriFake Web Product", "Campus Event Finder", "DNS Shield Console"],
+        usedIn: ["Next.js Clinical Dashboards", "VeriFake Web Product", "DNS Shield Console"],
         context: "Type-safe interfaces, state machines, real-time client hydration, custom interactive hooks, and Tailwind CSS design systems.",
       },
       {
@@ -51,6 +57,12 @@ export const evidenceSkillsData: EvidenceSkillCategory[] = [
     categoryDesc: "Deep learning models, distributed optimization, signal transforms, and model interpretability.",
     skills: [
       {
+        name: "Federated & Split Learning (SFL)",
+        levelDescriptor: "Privacy-Preserving Distributed ML (IIIT Trichy)",
+        usedIn: ["IIIT Trichy Research", "IoMT Privacy Framework"],
+        context: "Cut-layer smashed representation sharing, Spiking Neural Networks (SNNs), and differential privacy on distributed IoMT network telemetry.",
+      },
+      {
         name: "PyTorch",
         levelDescriptor: "Deep Learning Framework",
         usedIn: ["SplitFed Healthcare AI", "ECG EfficientNet-B4", "VeriFake CNN-LSTM"],
@@ -59,7 +71,7 @@ export const evidenceSkillsData: EvidenceSkillCategory[] = [
       {
         name: "Gradient Boosting (LightGBM & XGBoost)",
         levelDescriptor: "High-Velocity Tabular Classifiers",
-        usedIn: ["DNS Shield DGA Filter", "TON-IoT IDS", "ECG Multi-Label Ensemble"],
+        usedIn: ["DNS Shield DGA Filter", "ISRO Fault Predictor", "TON-IoT IDS", "ECG Ensemble"],
         context: "Sub-millisecond wire-speed classification, hyper-parameter tuning, and multi-class cyber attack identification.",
       },
       {
@@ -75,16 +87,10 @@ export const evidenceSkillsData: EvidenceSkillCategory[] = [
         context: "Multi-scale Morlet wavelet decomposition of 12-lead electrical pulses into 2D time-frequency scalograms.",
       },
       {
-        name: "Federated & Split Learning (SFL)",
-        levelDescriptor: "Privacy-Preserving Distributed ML",
-        usedIn: ["Multi-Hospital Collaborative AI"],
-        context: "Cut-layer smashed representation sharing, FedProx proximal regularization on non-IID data, and differential privacy noise.",
-      },
-      {
-        name: "Computer Vision & Audio Forensics",
-        levelDescriptor: "Multi-Modal Analysis",
-        usedIn: ["VeriFake / Verdict AI"],
-        context: "MTCNN facial tracking, spatial artifact extraction, temporal Bi-LSTM frame sequencing, and Mel-spectrogram analysis.",
+        name: "Time-Series Forecasting (Prophet)",
+        levelDescriptor: "Predictive Link Telemetry",
+        usedIn: ["ISRO Ground Station NOC Copilot"],
+        context: "Additive trend decomposition, seasonality modeling, and anomaly threshold triggers for mission-critical links.",
       },
     ],
   },
@@ -92,6 +98,12 @@ export const evidenceSkillsData: EvidenceSkillCategory[] = [
     categoryName: "Web Architectures & Frameworks",
     categoryDesc: "High-taste modern web applications, responsive layouts, micro-motion, and scalable backends.",
     skills: [
+      {
+        name: "Java & Spring Boot",
+        levelDescriptor: "Microservices & Enterprise Backend",
+        usedIn: ["Zarthi Backend Engineering", "REST API Gateways"],
+        context: "Spring Security, Spring Data JPA, RESTful API design, controller-service-repository patterns, and high-concurrency request routing.",
+      },
       {
         name: "Next.js 15 (App Router) & React 19",
         levelDescriptor: "Production Frontend Framework",
@@ -110,12 +122,6 @@ export const evidenceSkillsData: EvidenceSkillCategory[] = [
         usedIn: ["DNS Shield API", "Ayurveda Platform Engine", "Clinical ML Server"],
         context: "Asynchronous endpoint routing, Pydantic validation schemas, CORS handling, and sub-millisecond ML model serving.",
       },
-      {
-        name: "Framer Motion & CSS Springs",
-        levelDescriptor: "Interaction & Physics Animation",
-        usedIn: ["Interactive Sandboxes", "Horizontal Project Rails", "Case-Study Modals"],
-        context: "Emil Kowalski spring curves, gesture feedback, staggered entrance choreography, and exit transitions.",
-      },
     ],
   },
   {
@@ -123,16 +129,16 @@ export const evidenceSkillsData: EvidenceSkillCategory[] = [
     categoryDesc: "Cybersecurity defense, real-time operating systems, cryptography, and edge microcontrollers.",
     skills: [
       {
+        name: "Zephyr RTOS & RP2350 Microcontrollers",
+        levelDescriptor: "Real-Time Embedded Systems",
+        usedIn: ["Zephyr Edge AI Lab", "IoT Outreach Workshops"],
+        context: "West build system, multi-threaded scheduling, GPIO interrupt handlers, PWM motor drivers, and edge sensor pipelines.",
+      },
+      {
         name: "DNS Protocol & Shannon Entropy",
         levelDescriptor: "Cyber Defense & Lexical Analysis",
         usedIn: ["DNS Shield Platform"],
         context: "Packet wire format inspection, DGA algorithmic detection, Bloom filters, and automated threat mitigations.",
-      },
-      {
-        name: "Zephyr RTOS & RP2350 Microcontrollers",
-        levelDescriptor: "Real-Time Embedded Systems",
-        usedIn: ["Zephyr Edge AI Lab", "IoT Outreach Workshop"],
-        context: "West build system, multi-threaded scheduling, GPIO interrupt handlers, PWM motor drivers, and edge sensor pipelines.",
       },
       {
         name: "Cryptography & Vault Security",
