@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Sparkles, CheckCircle2, ArrowRight, ArrowDown } from "lucide-react";
+import { Sparkles, Zap, Puzzle, Cpu, Rocket, Network, Star, ArrowRight } from "lucide-react";
 
 export function HowIBuild() {
   const [activeNote, setActiveNote] = useState<string | null>("research");
@@ -52,274 +52,321 @@ export function HowIBuild() {
   return (
     <section id="how-i-build" className="py-24 px-4 sm:px-6 max-w-6xl mx-auto">
       {/* Section Header */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+      <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
         <div>
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#D4AF37]/15 border border-[#D4AF37]/40 text-[11px] font-mono uppercase tracking-wider text-[#FFD700] font-bold mb-3">
-            Engineering Methodology
+            ENGINEERING METHODOLOGY
           </div>
           <h2 className="font-sans font-bold text-3xl sm:text-4xl text-white tracking-tight">
             How I Approach Things
           </h2>
           <p className="font-sans text-xs sm:text-sm text-[#9A9AA4] mt-1 max-w-xl">
-            A handcrafted mindmap of my engineering lifecycle: from problem reconnaissance to architectural tradeoffs, adversarial stress-testing, and shipping.
+            A handcrafted mind map of my engineering lifecycle: from problem reconnaissance to architectural tradeoffs, adversarial stress-testing, and shipping.
           </p>
         </div>
         <div className="font-hand text-lg text-[#FFD700] hidden md:block">
-          * Click any note to read my engineering rationale
+          * Check any note to read my engineering rationale
         </div>
       </div>
 
-      {/* Dark Obsidian & Gold Handcrafted Sticky Note Flow Canvas */}
-      <div className="relative bg-[#0E0E14] border-2 border-dashed border-[#D4AF37]/30 rounded-3xl p-6 sm:p-10 shadow-[0_20px_50px_rgba(0,0,0,0.8),0_0_20px_rgba(212,175,55,0.08)] overflow-hidden">
-        {/* Subtle Ambient Gold Grid */}
+      {/* Main Dark Obsidian Mindmap Canvas Container */}
+      <div className="relative bg-[#0A0A0F] border border-[#D4AF37]/30 rounded-3xl p-6 sm:p-10 shadow-[0_20px_50px_rgba(0,0,0,0.8),0_0_20px_rgba(212,175,55,0.08)] overflow-hidden">
+        {/* Subtle Background Particle Grid */}
         <div className="absolute inset-0 opacity-10 pointer-events-none bg-[radial-gradient(#D4AF37_1px,transparent_1px)] [background-size:24px_24px]" />
 
-        {/* Structured Desktop Mindmap Board with Precision Connecting Lines */}
-        <div className="relative z-10 hidden lg:block">
+        {/* Structured Desktop Mindmap Diagram */}
+        <div className="relative z-10 hidden lg:block space-y-8">
           {/* Top Row: Heading Card & Research */}
-          <div className="flex items-start justify-between gap-8 mb-10">
-            {/* 1. Top Left: Main Heading Note */}
+          <div className="flex items-center justify-between gap-6">
+            {/* 1. Left: Main Heading Card */}
             <div
-              className={`relative w-80 p-5 rounded-2xl bg-[#161622] border-2 transition-all duration-300 -rotate-2 cursor-pointer shadow-[0_10px_25px_rgba(0,0,0,0.7),0_0_15px_rgba(212,175,55,0.15)] ${
-                activeNote === "research" ? "border-[#FFD700] scale-105" : "border-[#D4AF37]/50 hover:border-[#FFD700]"
+              className={`relative w-[340px] p-5 rounded-2xl bg-[#12121A] border transition-all duration-300 cursor-pointer shadow-[0_10px_25px_rgba(0,0,0,0.7)] ${
+                activeNote === "research" ? "border-[#FFD700] shadow-[0_0_15px_rgba(212,175,55,0.25)]" : "border-[#D4AF37]/40 hover:border-[#FFD700]"
               }`}
               onClick={() => setActiveNote("research")}
             >
               <div className="red-tape" />
-              <h3 className="font-hand font-bold text-3xl text-[#FFD700] text-center leading-tight">
+              <h3 className="font-hand font-bold text-2xl text-[#FFD700] text-center leading-tight">
                 How I Approach Things
               </h3>
               <p className="font-mono text-[10px] text-[#A1A1AA] text-center mt-1">
                 SYSTEMS LIFECYCLE MAP
               </p>
+              <div className="w-16 h-0.5 bg-[#D4AF37]/60 mx-auto mt-2 rounded-full" />
             </div>
 
-            {/* Connecting Bridge Line with Arrow */}
-            <div className="flex-1 flex items-center justify-center pt-8">
-              <div className="w-full border-t-2 border-dashed border-[#D4AF37]/60 relative flex items-center justify-center">
-                <span className="px-3 py-0.5 rounded-full bg-[#181824] border border-[#D4AF37]/50 font-mono text-[10px] text-[#FFD700] font-bold shadow-xs">
+            {/* Connecting Dotted Line with Step 1 Pill */}
+            <div className="flex-1 flex flex-col items-center justify-center relative">
+              <div className="w-full border-t border-dashed border-[#D4AF37]/50 relative flex items-center justify-center">
+                <span className="px-3.5 py-1 rounded-full bg-[#12121A] border border-[#D4AF37]/60 font-mono text-[10px] text-[#FFD700] font-bold shadow-xs">
                   Step 1: Reconnaissance ➔
                 </span>
               </div>
+              <div className="w-2 h-2 rounded-full bg-[#FFD700] shadow-[0_0_8px_#FFD700] mt-1" />
             </div>
 
-            {/* 2. Top Right: Research Card */}
+            {/* 2. Right: Research Card */}
             <div
-              className={`relative w-96 p-5 rounded-2xl bg-[#161622] border-2 transition-all duration-300 rotate-1 cursor-pointer shadow-[0_10px_25px_rgba(0,0,0,0.7)] ${
-                activeNote === "research" ? "border-[#FFD700] scale-105" : "border-[#D4AF37]/50 hover:border-[#FFD700]"
+              className={`relative w-[420px] p-5 rounded-2xl bg-[#12121A] border transition-all duration-300 cursor-pointer shadow-[0_10px_25px_rgba(0,0,0,0.7)] ${
+                activeNote === "research" ? "border-[#FFD700] shadow-[0_0_15px_rgba(212,175,55,0.25)]" : "border-[#D4AF37]/40 hover:border-[#FFD700]"
               }`}
               onClick={() => setActiveNote("research")}
             >
               <div className="red-tape" />
-              <h4 className="font-hand font-bold text-2xl text-white text-center leading-snug">
+              <h4 className="font-hand font-bold text-xl text-white text-center leading-snug">
                 Research — has someone solved this?
               </h4>
-              <p className="font-sans text-[11px] text-[#C7C7CF] text-center mt-1">
-                Prior art, IEEE papers &amp; heuristic vs ML tradeoffs
+              <p className="font-sans text-xs text-[#CBD5E1] text-center mt-1">
+                Prior art, IEEE papers &amp; heuristics vs ML tradeoffs
               </p>
+              <div className="w-20 h-0.5 bg-[#D4AF37]/60 mx-auto mt-2 rounded-full" />
             </div>
           </div>
 
-          {/* Middle Row: Architecture & 4 Mini Branching Nodes */}
-          <div className="grid grid-cols-12 gap-6 items-center mb-10">
-            {/* Connecting vertical drop to Architecture */}
-            <div className="col-span-12 flex justify-center -mt-6 mb-2">
-              <div className="h-8 border-l-2 border-dashed border-[#D4AF37]/60 flex items-center justify-center relative">
-                <span className="w-2 h-2 rounded-full bg-[#FFD700] shadow-[0_0_6px_#FFD700]" />
+          {/* Middle Row: Architecture + 4 Branching Decision Nodes */}
+          <div className="grid grid-cols-12 gap-8 items-center pt-2 pb-4">
+            {/* Left: Architecture with Glowing Network Icon */}
+            <div className="col-span-6 flex items-center gap-4">
+              <div className="w-14 h-14 rounded-full bg-[#12121A] border border-[#D4AF37] flex items-center justify-center text-[#FFD700] shrink-0 shadow-[0_0_15px_rgba(212,175,55,0.3)]">
+                <Network className="w-7 h-7" />
               </div>
-            </div>
 
-            {/* Center: Architecture Card (6 cols) */}
-            <div className="col-span-6 flex justify-end pr-4">
               <div
-                className={`relative w-80 p-5 rounded-2xl bg-[#181826] border-2 transition-all duration-300 -rotate-1 cursor-pointer shadow-[0_10px_25px_rgba(0,0,0,0.7)] ${
-                  activeNote === "architecture" ? "border-[#FFD700] scale-105" : "border-[#D4AF37]/50 hover:border-[#FFD700]"
+                className={`relative flex-1 p-5 rounded-2xl bg-[#12121A] border transition-all duration-300 cursor-pointer shadow-[0_10px_25px_rgba(0,0,0,0.7)] ${
+                  activeNote === "architecture" ? "border-[#FFD700] shadow-[0_0_15px_rgba(212,175,55,0.25)]" : "border-[#D4AF37]/40 hover:border-[#FFD700]"
                 }`}
                 onClick={() => setActiveNote("architecture")}
               >
                 <div className="red-tape" />
-                <h4 className="font-hand font-bold text-3xl text-white text-center">
+                <h4 className="font-hand font-bold text-2xl text-white text-center">
                   Architecture
                 </h4>
-                <p className="font-sans text-[11px] text-[#C7C7CF] text-center mt-1">
+                <p className="font-sans text-xs text-[#CBD5E1] text-center mt-1">
                   Latency budgets, API contracts &amp; State bounds
                 </p>
+                <div className="w-16 h-0.5 bg-[#D4AF37]/60 mx-auto mt-2 rounded-full" />
               </div>
             </div>
 
-            {/* 4 Mini Branching Nodes (6 cols) with seamless bracket connectors */}
-            <div className="col-span-6 pl-4 relative border-l-2 border-dashed border-[#D4AF37]/60 py-2">
-              <div className="grid grid-cols-2 gap-3">
+            {/* Right: 2x2 Decision Grid (AI, Model, DB, Scale) */}
+            <div className="col-span-6 pl-4 border-l border-dashed border-[#D4AF37]/40">
+              <div className="grid grid-cols-2 gap-3.5">
+                {/* AI? */}
                 <div
-                  className={`relative p-3 rounded-xl bg-[#14141E] border transition-all rotate-1 cursor-pointer text-center ${
-                    activeNote === "ai" ? "border-[#FFD700] bg-[#1C1C2A]" : "border-[#D4AF37]/40 hover:border-[#FFD700]"
+                  className={`relative p-3.5 rounded-2xl bg-[#12121A] border transition-all cursor-pointer text-center ${
+                    activeNote === "ai" ? "border-[#FFD700] bg-[#1A1A24]" : "border-[#D4AF37]/40 hover:border-[#FFD700]"
                   }`}
                   onClick={() => setActiveNote("ai")}
                 >
-                  <div className="red-pin" />
-                  <span className="font-hand font-bold text-xl text-[#FFD700] block">AI?</span>
-                  <span className="font-sans text-[10px] text-slate-300">Heuristic vs DNN</span>
+                  <div className="w-1.5 h-1.5 rounded-full bg-[#EF4444] mx-auto mb-1" />
+                  <span className="font-hand font-bold text-lg text-[#FFD700] block">AI?</span>
+                  <span className="font-sans text-[11px] text-[#CBD5E1]">Heuristic vs DNN</span>
+                  <div className="w-8 h-0.5 bg-[#D4AF37]/50 mx-auto mt-1.5 rounded-full" />
                 </div>
 
+                {/* Model? */}
                 <div
-                  className={`relative p-3 rounded-xl bg-[#14141E] border transition-all -rotate-1 cursor-pointer text-center ${
-                    activeNote === "model" ? "border-[#FFD700] bg-[#1C1C2A]" : "border-[#D4AF37]/40 hover:border-[#FFD700]"
+                  className={`relative p-3.5 rounded-2xl bg-[#12121A] border transition-all cursor-pointer text-center ${
+                    activeNote === "model" ? "border-[#FFD700] bg-[#1A1A24]" : "border-[#D4AF37]/40 hover:border-[#FFD700]"
                   }`}
                   onClick={() => setActiveNote("model")}
                 >
-                  <div className="red-pin" />
-                  <span className="font-hand font-bold text-xl text-[#FFD700] block">Model?</span>
-                  <span className="font-sans text-[10px] text-slate-300">LightGBM &lt;1.2ms</span>
+                  <div className="w-1.5 h-1.5 rounded-full bg-[#EF4444] mx-auto mb-1" />
+                  <span className="font-hand font-bold text-lg text-[#FFD700] block">Model?</span>
+                  <span className="font-sans text-[11px] text-[#CBD5E1]">LightGBM &lt;1.2ms</span>
+                  <div className="w-8 h-0.5 bg-[#D4AF37]/50 mx-auto mt-1.5 rounded-full" />
                 </div>
 
+                {/* DB? */}
                 <div
-                  className={`relative p-3 rounded-xl bg-[#14141E] border transition-all -rotate-2 cursor-pointer text-center ${
-                    activeNote === "db" ? "border-[#FFD700] bg-[#1C1C2A]" : "border-[#D4AF37]/40 hover:border-[#FFD700]"
+                  className={`relative p-3.5 rounded-2xl bg-[#12121A] border transition-all cursor-pointer text-center ${
+                    activeNote === "db" ? "border-[#FFD700] bg-[#1A1A24]" : "border-[#D4AF37]/40 hover:border-[#FFD700]"
                   }`}
                   onClick={() => setActiveNote("db")}
                 >
-                  <div className="red-pin" />
-                  <span className="font-hand font-bold text-xl text-[#FFD700] block">DB?</span>
-                  <span className="font-sans text-[10px] text-slate-300">Zero-copy vs SQL</span>
+                  <div className="w-1.5 h-1.5 rounded-full bg-[#EF4444] mx-auto mb-1" />
+                  <span className="font-hand font-bold text-lg text-[#FFD700] block">DB?</span>
+                  <span className="font-sans text-[11px] text-[#CBD5E1]">Zero-copy vs SQL</span>
+                  <div className="w-8 h-0.5 bg-[#D4AF37]/50 mx-auto mt-1.5 rounded-full" />
                 </div>
 
+                {/* Scale? */}
                 <div
-                  className={`relative p-3 rounded-xl bg-[#14141E] border transition-all rotate-2 cursor-pointer text-center ${
-                    activeNote === "scale" ? "border-[#FFD700] bg-[#1C1C2A]" : "border-[#D4AF37]/40 hover:border-[#FFD700]"
+                  className={`relative p-3.5 rounded-2xl bg-[#12121A] border transition-all cursor-pointer text-center ${
+                    activeNote === "scale" ? "border-[#FFD700] bg-[#1A1A24]" : "border-[#D4AF37]/40 hover:border-[#FFD700]"
                   }`}
                   onClick={() => setActiveNote("scale")}
                 >
-                  <div className="red-pin" />
-                  <span className="font-hand font-bold text-xl text-[#FFD700] block">Scale?</span>
-                  <span className="font-sans text-[10px] text-slate-300">100k req/sec load</span>
+                  <div className="w-1.5 h-1.5 rounded-full bg-[#EF4444] mx-auto mb-1" />
+                  <span className="font-hand font-bold text-lg text-[#FFD700] block">Scale?</span>
+                  <span className="font-sans text-[11px] text-[#CBD5E1]">100k req/sec load</span>
+                  <div className="w-8 h-0.5 bg-[#D4AF37]/50 mx-auto mt-1.5 rounded-full" />
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Bottom Row: Prototype -> Break it -> Fix it -> Ship with Clear Arrows */}
-          <div className="pt-4 border-t-2 border-dashed border-[#D4AF37]/30">
-            <div className="flex items-center justify-between gap-2.5">
-              {/* Prototype Card */}
+          {/* Bottom Row: Prototype ➔ Break it ➔ Fix it ➔ Ship */}
+          <div className="pt-6 border-t border-dashed border-[#D4AF37]/30">
+            <div className="flex items-center justify-between gap-3">
+              {/* Step 1: Prototype */}
               <div
-                className={`relative w-72 p-4 rounded-2xl bg-[#161622] border-2 transition-all duration-300 -rotate-1 cursor-pointer shadow-md ${
-                  activeNote === "prototype" ? "border-[#FFD700] scale-105" : "border-[#D4AF37]/50 hover:border-[#FFD700]"
+                className={`relative flex-1 p-4 rounded-2xl bg-[#12121A] border flex items-center gap-3 transition-all duration-300 cursor-pointer shadow-md ${
+                  activeNote === "prototype" ? "border-[#FFD700] shadow-[0_0_15px_rgba(212,175,55,0.25)]" : "border-[#D4AF37]/40 hover:border-[#FFD700]"
                 }`}
                 onClick={() => setActiveNote("prototype")}
               >
                 <div className="red-tape" />
-                <h4 className="font-hand font-bold text-xl text-white text-center">
-                  Prototype — build it ugly
-                </h4>
-                <p className="font-sans text-[10px] text-[#A1A1AA] text-center mt-0.5">
-                  24-hr fast iteration loop
-                </p>
+                <div className="w-11 h-11 rounded-full bg-[#1A1A24] border border-[#D4AF37] flex items-center justify-center text-[#FFD700] shrink-0 shadow-[0_0_10px_rgba(212,175,55,0.3)]">
+                  <Zap className="w-5 h-5 fill-current" />
+                </div>
+                <div className="text-left flex-1 min-w-0">
+                  <h4 className="font-hand font-bold text-base text-white truncate">
+                    Prototype — build it ugly
+                  </h4>
+                  <p className="font-sans text-[10px] text-[#CBD5E1] truncate">
+                    24-hr fast iteration loop
+                  </p>
+                  <div className="w-12 h-0.5 bg-[#D4AF37]/50 mt-1 rounded-full" />
+                </div>
               </div>
 
               {/* Arrow Connector */}
-              <div className="flex items-center gap-1">
-                <span className="text-[#FFD700] font-mono text-base font-bold">➔</span>
-              </div>
+              <span className="text-[#FFD700] font-mono text-base font-bold shrink-0">➔</span>
 
-              {/* Break it */}
+              {/* Step 2: Break it */}
               <div
-                className={`relative w-40 p-3.5 rounded-xl bg-[#14141E] border transition-all rotate-1 cursor-pointer text-center ${
-                  activeNote === "breakIt" ? "border-[#FFD700] bg-[#1C1C2A]" : "border-[#D4AF37]/40 hover:border-[#FFD700]"
+                className={`relative flex-1 p-4 rounded-2xl bg-[#12121A] border flex items-center gap-3 transition-all duration-300 cursor-pointer shadow-md ${
+                  activeNote === "breakIt" ? "border-[#FFD700] shadow-[0_0_15px_rgba(212,175,55,0.25)]" : "border-[#D4AF37]/40 hover:border-[#FFD700]"
                 }`}
                 onClick={() => setActiveNote("breakIt")}
               >
-                <div className="red-pin" />
-                <span className="font-hand font-bold text-xl text-[#FFD700] block">Break it</span>
-                <span className="font-sans text-[10px] text-slate-300">Fuzzing &amp; Stress</span>
+                <div className="w-11 h-11 rounded-full bg-[#1A1A24] border border-[#D4AF37] flex items-center justify-center text-[#FFD700] shrink-0 shadow-[0_0_10px_rgba(212,175,55,0.3)]">
+                  <Puzzle className="w-5 h-5" />
+                </div>
+                <div className="text-left flex-1 min-w-0">
+                  <h4 className="font-hand font-bold text-base text-[#FFD700] truncate">
+                    Break it
+                  </h4>
+                  <p className="font-sans text-[10px] text-[#CBD5E1] truncate">
+                    Fuzzing &amp; Strides
+                  </p>
+                  <div className="w-10 h-0.5 bg-[#D4AF37]/50 mt-1 rounded-full" />
+                </div>
               </div>
 
               {/* Arrow Connector */}
-              <div className="flex items-center gap-1">
-                <span className="text-[#FFD700] font-mono text-base font-bold">➔</span>
-              </div>
+              <span className="text-[#FFD700] font-mono text-base font-bold shrink-0">➔</span>
 
-              {/* Fix it */}
+              {/* Step 3: Fix it */}
               <div
-                className={`relative w-40 p-3.5 rounded-xl bg-[#14141E] border transition-all -rotate-1 cursor-pointer text-center ${
-                  activeNote === "fixIt" ? "border-[#FFD700] bg-[#1C1C2A]" : "border-[#D4AF37]/40 hover:border-[#FFD700]"
+                className={`relative flex-1 p-4 rounded-2xl bg-[#12121A] border flex items-center gap-3 transition-all duration-300 cursor-pointer shadow-md ${
+                  activeNote === "fixIt" ? "border-[#FFD700] shadow-[0_0_15px_rgba(212,175,55,0.25)]" : "border-[#D4AF37]/40 hover:border-[#FFD700]"
                 }`}
                 onClick={() => setActiveNote("fixIt")}
               >
-                <div className="red-pin" />
-                <span className="font-hand font-bold text-xl text-[#FFD700] block">Fix it</span>
-                <span className="font-sans text-[10px] text-slate-300">Memory Refactor</span>
+                <div className="w-11 h-11 rounded-full bg-[#1A1A24] border border-[#D4AF37] flex items-center justify-center text-[#FFD700] shrink-0 shadow-[0_0_10px_rgba(212,175,55,0.3)]">
+                  <Cpu className="w-5 h-5" />
+                </div>
+                <div className="text-left flex-1 min-w-0">
+                  <h4 className="font-hand font-bold text-base text-[#FFD700] truncate">
+                    Fix it
+                  </h4>
+                  <p className="font-sans text-[10px] text-[#CBD5E1] truncate">
+                    Memory Refactor
+                  </p>
+                  <div className="w-10 h-0.5 bg-[#D4AF37]/50 mt-1 rounded-full" />
+                </div>
               </div>
 
               {/* Arrow Connector */}
-              <div className="flex items-center gap-1">
-                <span className="text-[#FFD700] font-mono text-base font-bold">➔</span>
-              </div>
+              <span className="text-[#FFD700] font-mono text-base font-bold shrink-0">➔</span>
 
-              {/* Ship */}
+              {/* Step 4: Ship */}
               <div
-                className={`relative w-40 p-3.5 rounded-xl bg-[#181826] border-2 transition-all rotate-2 cursor-pointer text-center shadow-[0_0_15px_rgba(212,175,55,0.2)] ${
-                  activeNote === "ship" ? "border-[#FFD700] scale-105" : "border-[#D4AF37] hover:border-[#FFD700]"
+                className={`relative flex-1 p-4 rounded-2xl bg-[#12121A] border flex items-center gap-3 transition-all duration-300 cursor-pointer shadow-md ${
+                  activeNote === "ship" ? "border-[#FFD700] shadow-[0_0_15px_rgba(212,175,55,0.25)]" : "border-[#D4AF37]/40 hover:border-[#FFD700]"
                 }`}
                 onClick={() => setActiveNote("ship")}
               >
-                <div className="red-pin" />
-                <span className="font-hand font-bold text-xl text-[#FFD700] block">Ship</span>
-                <span className="font-sans text-[10px] text-slate-300">Telemetry &amp; CI/CD</span>
+                <div className="w-11 h-11 rounded-full bg-[#1A1A24] border border-[#D4AF37] flex items-center justify-center text-[#FFD700] shrink-0 shadow-[0_0_10px_rgba(212,175,55,0.3)]">
+                  <Rocket className="w-5 h-5" />
+                </div>
+                <div className="text-left flex-1 min-w-0">
+                  <h4 className="font-hand font-bold text-base text-[#FFD700] truncate">
+                    Ship
+                  </h4>
+                  <p className="font-sans text-[10px] text-[#CBD5E1] truncate">
+                    Telemetry &amp; CI/CD
+                  </p>
+                  <div className="w-8 h-0.5 bg-[#D4AF37]/50 mt-1 rounded-full" />
+                </div>
               </div>
+            </div>
+          </div>
+
+          {/* Bottom Footer Quote Banner */}
+          <div className="pt-4 text-center">
+            <div className="inline-flex items-center justify-center gap-2.5 px-6 py-2 rounded-full bg-[#12121A] border border-[#D4AF37]/40 text-xs font-mono text-[#FFD700] shadow-sm">
+              <Star className="w-4 h-4 fill-current text-[#FFD700]" />
+              <span>Iterate relentlessly. Measure everything. Ship with confidence.</span>
             </div>
           </div>
         </div>
 
-        {/* Mobile Responsive Vertical Flow */}
+        {/* Mobile Responsive Layout */}
         <div className="lg:hidden space-y-4">
-          <div className="relative p-5 rounded-2xl bg-[#161622] border-2 border-[#D4AF37]/50 text-center">
+          <div className="relative p-5 rounded-2xl bg-[#12121A] border border-[#D4AF37]/50 text-center">
             <div className="red-tape" />
             <h3 className="font-hand font-bold text-3xl text-[#FFD700]">
               How I Approach Things
             </h3>
+            <p className="font-mono text-[10px] text-[#A1A1AA] mt-1">
+              SYSTEMS LIFECYCLE MAP
+            </p>
           </div>
 
           <div
             onClick={() => setActiveNote("research")}
-            className={`relative p-4 rounded-2xl bg-[#161622] border cursor-pointer ${
+            className={`relative p-4 rounded-2xl bg-[#12121A] border cursor-pointer ${
               activeNote === "research" ? "border-[#FFD700]" : "border-[#D4AF37]/40"
             }`}
           >
             <div className="red-tape" />
-            <h4 className="font-hand font-bold text-2xl text-white text-center">
+            <h4 className="font-hand font-bold text-xl text-white text-center">
               1. Research — has someone solved this?
             </h4>
-            <p className="font-sans text-xs text-slate-300 text-center mt-1">
-              Prior art, IEEE literature &amp; heuristic vs ML tradeoffs
+            <p className="font-sans text-xs text-[#CBD5E1] text-center mt-1">
+              Prior art, IEEE papers &amp; heuristics vs ML tradeoffs
             </p>
           </div>
 
           <div
             onClick={() => setActiveNote("architecture")}
-            className={`relative p-4 rounded-2xl bg-[#161622] border cursor-pointer ${
+            className={`relative p-4 rounded-2xl bg-[#12121A] border cursor-pointer ${
               activeNote === "architecture" ? "border-[#FFD700]" : "border-[#D4AF37]/40"
             }`}
           >
             <div className="red-tape" />
-            <h4 className="font-hand font-bold text-2xl text-white text-center">
+            <h4 className="font-hand font-bold text-xl text-white text-center">
               2. Architecture (AI? Model? DB? Scale?)
             </h4>
-            <p className="font-sans text-xs text-slate-300 text-center mt-1">
+            <p className="font-sans text-xs text-[#CBD5E1] text-center mt-1">
               Latency budgets, API contracts &amp; memory limits
             </p>
           </div>
 
           <div
             onClick={() => setActiveNote("prototype")}
-            className={`relative p-4 rounded-2xl bg-[#161622] border cursor-pointer ${
+            className={`relative p-4 rounded-2xl bg-[#12121A] border cursor-pointer ${
               activeNote === "prototype" ? "border-[#FFD700]" : "border-[#D4AF37]/40"
             }`}
           >
             <div className="red-tape" />
-            <h4 className="font-hand font-bold text-2xl text-white text-center">
+            <h4 className="font-hand font-bold text-xl text-white text-center">
               3. Prototype — build it ugly
             </h4>
-            <p className="font-sans text-xs text-slate-300 text-center mt-1">
+            <p className="font-sans text-xs text-[#CBD5E1] text-center mt-1">
               24-hour rapid end-to-end MVP iteration
             </p>
           </div>
@@ -327,40 +374,37 @@ export function HowIBuild() {
           <div className="grid grid-cols-3 gap-2">
             <div
               onClick={() => setActiveNote("breakIt")}
-              className={`relative p-3 rounded-xl bg-[#14141E] border text-center cursor-pointer ${
+              className={`relative p-3 rounded-xl bg-[#12121A] border text-center cursor-pointer ${
                 activeNote === "breakIt" ? "border-[#FFD700]" : "border-[#D4AF37]/40"
               }`}
             >
-              <div className="red-pin" />
-              <span className="font-hand font-bold text-lg text-[#FFD700] block">Break it</span>
-              <span className="font-sans text-[9px] text-slate-300">Fuzzing</span>
+              <span className="font-hand font-bold text-base text-[#FFD700] block">Break it</span>
+              <span className="font-sans text-[10px] text-[#CBD5E1]">Fuzzing</span>
             </div>
             <div
               onClick={() => setActiveNote("fixIt")}
-              className={`relative p-3 rounded-xl bg-[#14141E] border text-center cursor-pointer ${
+              className={`relative p-3 rounded-xl bg-[#12121A] border text-center cursor-pointer ${
                 activeNote === "fixIt" ? "border-[#FFD700]" : "border-[#D4AF37]/40"
               }`}
             >
-              <div className="red-pin" />
-              <span className="font-hand font-bold text-lg text-[#FFD700] block">Fix it</span>
-              <span className="font-sans text-[9px] text-slate-300">Refactor</span>
+              <span className="font-hand font-bold text-base text-[#FFD700] block">Fix it</span>
+              <span className="font-sans text-[10px] text-[#CBD5E1]">Refactor</span>
             </div>
             <div
               onClick={() => setActiveNote("ship")}
-              className={`relative p-3 rounded-xl bg-[#14141E] border-2 text-center cursor-pointer ${
-                activeNote === "ship" ? "border-[#FFD700]" : "border-[#D4AF37]"
+              className={`relative p-3 rounded-xl bg-[#12121A] border text-center cursor-pointer ${
+                activeNote === "ship" ? "border-[#FFD700]" : "border-[#D4AF37]/40"
               }`}
             >
-              <div className="red-pin" />
-              <span className="font-hand font-bold text-lg text-[#FFD700] block">Ship</span>
-              <span className="font-sans text-[9px] text-slate-300">Deploy</span>
+              <span className="font-hand font-bold text-base text-[#FFD700] block">Ship</span>
+              <span className="font-sans text-[10px] text-[#CBD5E1]">Deploy</span>
             </div>
           </div>
         </div>
 
         {/* Selected Field Note Explanatory Card */}
         {activeNote && notesInfo[activeNote] && (
-          <div className="mt-8 p-5 sm:p-6 rounded-2xl bg-[#14141E] border-2 border-[#D4AF37] shadow-[0_0_20px_rgba(212,175,55,0.2)] animate-fadeIn">
+          <div className="mt-8 p-5 sm:p-6 rounded-2xl bg-[#12121A] border border-[#D4AF37] shadow-[0_0_20px_rgba(212,175,55,0.2)] animate-fadeIn">
             <div className="flex items-center justify-between pb-2 mb-2 border-b border-[#2A2A35]">
               <div className="flex items-center gap-2">
                 <Sparkles className="w-4 h-4 text-[#FFD700]" />

@@ -46,9 +46,17 @@ export function Navbar() {
             <div className="flex items-center justify-between">
               {/* Left Brand: Clean Title & Red/Gold Emblem */}
               <a href="#" className="flex items-center gap-3 group">
-                <div className="w-8 h-8 rounded-lg border border-[#D4AF37] bg-[#0A0A0C] flex items-center justify-center p-1 shadow-[0_0_10px_rgba(212,175,55,0.25)] group-hover:scale-105 transition-transform">
-                  <svg className="w-full h-full text-[#D4AF37] fill-current" viewBox="0 0 24 24">
-                    <path d="M12 2L2 12l10 10 10-10L12 2zm0 3.5l6.5 6.5-6.5 6.5-6.5-6.5L12 5.5zM12 8a4 4 0 100 8 4 4 0 000-8z" />
+                <div className="w-8 h-8 rounded-xl border border-[#D4AF37]/60 bg-[#0E1017] flex items-center justify-center p-1 shadow-[0_0_12px_rgba(212,175,55,0.3)] group-hover:border-[#FFD700] group-hover:scale-105 transition-all">
+                  <svg className="w-full h-full" viewBox="0 0 32 32" fill="none">
+                    {/* Vertical Gold Spine */}
+                    <rect x="6" y="5" width="4.5" height="22" rx="1.5" fill="#FFD700" />
+                    {/* Upper Arm */}
+                    <path d="M11 16 L22 6 C23 5 24.5 5 25.5 6 L26 6.5 C27 7.5 27 9 26 10 L16 19.5 Z" fill="#FFD700" />
+                    {/* Lower Leg */}
+                    <path d="M14 17 L25.5 26 C26.5 27 26.5 28.5 25.5 29.5 L25 30 C24 31 22.5 31 21.5 30 L10.5 20 Z" fill="#FFD700" />
+                    {/* Sleek Ruby Core Node */}
+                    <polygon points="17,14 20.5,17.5 17,21 13.5,17.5" fill="#EF4444" />
+                    <circle cx="17" cy="17.5" r="1.2" fill="#FFF099" />
                   </svg>
                 </div>
                 <div className="flex flex-col">

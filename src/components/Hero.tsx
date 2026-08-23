@@ -50,12 +50,6 @@ export function Hero() {
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           className="lg:col-span-7 flex flex-col items-start text-left z-10"
         >
-          {/* Recruiter Role Availability Badge */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-950/30 border border-emerald-500/40 font-mono text-[11px] text-emerald-300 font-bold mb-4 shadow-sm">
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-            <span>Open to Backend &amp; AI Engineering Roles (Bangalore / Remote • Full-Time &amp; Internships)</span>
-          </div>
-
           {/* Domain Tags */}
           <div className="flex flex-wrap gap-2.5 mb-4">
             <div className="relative inline-flex items-center px-3.5 py-1 rounded-xl bg-[#181C28] border border-[#D4AF37]/60 font-mono text-xs text-[#FFD700] font-bold shadow-sketch hover:scale-105 transition-transform -rotate-1">
