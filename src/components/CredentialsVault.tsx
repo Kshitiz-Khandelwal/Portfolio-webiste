@@ -10,22 +10,19 @@ export function CredentialsVault() {
   const [activeVenueTab, setActiveVenueTab] = useState<number>(0);
   const [zoomedImage, setZoomedImage] = useState<string | null>(null);
 
-  const tapeClasses = ["washi-tape-gold", "washi-tape-ruby", "washi-tape-slate"];
-  const tilts = ["-rotate-1", "rotate-1", "-rotate-0.8"];
-
   return (
-    <section id="credentials" className="py-20 px-4 sm:px-6 max-w-7xl mx-auto border-t border-[#22222A]">
+    <section id="credentials" className="py-20 px-4 sm:px-6 max-w-7xl mx-auto border-t border-[#E0C9AE]">
       {/* Section Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
         <div>
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#D4AF37]/15 border border-[#D4AF37]/40 text-[11px] font-mono uppercase tracking-wider text-[#FFD700] font-bold mb-3">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-xl badge-coral text-[11px] font-mono uppercase tracking-wider font-bold mb-3">
             Experience &amp; Institutional Proof
           </div>
-          <h2 className="font-sans font-bold text-3xl sm:text-4xl text-white tracking-tight">
+          <h2 className="font-sans font-bold text-3xl sm:text-4xl text-[#3A2E22] tracking-tight">
             Work Experience &amp; Credentials Vault
           </h2>
         </div>
-        <p className="font-sans text-sm text-[#94A3B8] max-w-md">
+        <p className="font-sans text-xs sm:text-sm text-[#8A7A63] max-w-md">
           Current industry internship at Zarthi, research fellowship at IIIT Trichy with verified certificate, and workshop event galleries.
         </p>
       </div>
@@ -33,9 +30,6 @@ export function CredentialsVault() {
       {/* Grid of Credentials */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {credentialsData.map((cred, idx) => {
-          const tapeClass = tapeClasses[idx % tapeClasses.length];
-          const tilt = tilts[idx % tilts.length];
-
           return (
             <div
               key={cred.id}
@@ -43,31 +37,25 @@ export function CredentialsVault() {
                 setSelectedCred(cred);
                 setActiveVenueTab(0);
               }}
-              className={`relative bg-[#181C28] border-2 border-[#2B3245] hover:border-[#D4AF37] rounded-3xl p-6 transition-all duration-300 hover:-translate-y-2 hover:rotate-0 hover:shadow-sketchLg shadow-sketch cursor-pointer flex flex-col justify-between group ${tilt}`}
+              className="relative bg-[#FDF8F2] border border-[#E0C9AE] hover:border-[#E8846B] rounded-3xl p-6 transition-all duration-300 hover:-translate-y-2 hover:shadow-warmLg shadow-warm cursor-pointer flex flex-col justify-between group"
             >
-              {/* Washi Tape Accent */}
-              <div className={`${tapeClass} -top-2 left-8 rotate-[-4deg]`} />
-              <div className="absolute top-3 right-5 text-lg select-none pointer-events-none opacity-80 group-hover:scale-110 transition-transform">
-                📎
-              </div>
-
               <div>
-                <div className="flex items-center justify-between gap-2 pb-2 mb-3 border-b-2 border-dashed border-[#2B3245]">
-                  <span className="font-mono text-[10px] uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-[#10121A] text-[#FFD700] border border-[#D4AF37]/30 font-bold">
+                <div className="flex items-center justify-between gap-2 pb-2 mb-3 border-b border-[#E0C9AE]">
+                  <span className="font-mono text-[10px] uppercase tracking-wider px-2.5 py-0.5 rounded-full badge-coral font-bold">
                     {cred.categoryLabel}
                   </span>
-                  <span className="font-mono text-[10px] text-[#94A3B8]">{cred.date}</span>
+                  <span className="font-mono text-[10px] text-[#8A7A63]">{cred.date}</span>
                 </div>
 
-                <h3 className="font-sans font-bold text-base sm:text-lg text-white group-hover:text-[#FFD700] transition-colors mb-1.5 leading-snug">
+                <h3 className="font-sans font-bold text-base sm:text-lg text-[#3A2E22] group-hover:text-[#E8846B] transition-colors mb-1.5 leading-snug">
                   {cred.title}
                 </h3>
-                <p className="font-mono text-xs text-[#FFD700] mb-4">
+                <p className="font-mono text-xs text-[#E8846B] mb-4 font-semibold">
                   {cred.issuer}
                 </p>
 
-                {/* Visual Preview Frame (Uncropped with object-contain) */}
-                <div className="relative aspect-[16/10] rounded-2xl overflow-hidden bg-[#0A0A0C] border-2 border-[#2B3245] group-hover:border-[#D4AF37]/50 flex flex-col items-center justify-center p-2 text-center mb-4 transition-colors">
+                {/* Visual Preview Frame */}
+                <div className="relative aspect-[16/10] rounded-2xl overflow-hidden bg-[#FAF3E8] border border-[#E0C9AE] group-hover:border-[#E8846B]/50 flex flex-col items-center justify-center p-2 text-center mb-4 transition-colors">
                   {cred.imagePath ? (
                     <Image
                       src={cred.imagePath}
@@ -84,8 +72,8 @@ export function CredentialsVault() {
                     />
                   ) : (
                     <div className="flex flex-col items-center justify-center p-3">
-                      <Briefcase className="w-8 h-8 text-[#D4AF37] mb-2" />
-                      <span className="font-mono text-[10px] text-[#E2E8F0] font-medium">
+                      <Briefcase className="w-8 h-8 text-[#E8846B] mb-2" />
+                      <span className="font-mono text-[10px] text-[#3A2E22] font-medium">
                         {cred.placeholderText}
                       </span>
                     </div>
@@ -93,8 +81,8 @@ export function CredentialsVault() {
 
                   {/* Badge Overlay */}
                   {(cred.imagePath || cred.photos) && (
-                    <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex items-end p-2">
-                      <span className="font-mono text-[10px] text-[#FFD700] font-bold">
+                    <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#3A2E22]/90 via-[#3A2E22]/40 to-transparent flex items-end p-2">
+                      <span className="font-mono text-[10px] text-[#FAF3E8] font-bold">
                         {cred.placeholderText}
                       </span>
                     </div>
@@ -103,16 +91,16 @@ export function CredentialsVault() {
               </div>
 
               <div>
-                <div className="space-y-1 mb-4 pt-2 border-t-2 border-dashed border-[#2B3245]">
+                <div className="space-y-1 mb-4 pt-2 border-t border-[#E0C9AE]">
                   {cred.skillsVerified.slice(0, 2).map((s, sIdx) => (
-                    <div key={sIdx} className="flex items-center gap-1.5 font-mono text-[10px] text-[#CBD5E1]">
-                      <CheckCircle2 className="w-3 h-3 text-[#D4AF37]" />
+                    <div key={sIdx} className="flex items-center gap-1.5 font-mono text-[10px] text-[#5C4D3C]">
+                      <CheckCircle2 className="w-3 h-3 text-[#8FBFA0]" />
                       <span>{s}</span>
                     </div>
                   ))}
                 </div>
 
-                <div className="flex items-center justify-between text-xs font-mono text-[#94A3B8] group-hover:text-[#FFD700] pt-2 border-t-2 border-dashed border-[#2B3245] font-bold">
+                <div className="flex items-center justify-between text-xs font-mono text-[#8A7A63] group-hover:text-[#E8846B] pt-2 border-t border-[#E0C9AE] font-bold">
                   <span>Inspect Verified Record</span>
                   <span>View Details →</span>
                 </div>
@@ -124,32 +112,32 @@ export function CredentialsVault() {
 
       {/* Credential Inspection & Image Gallery Modal */}
       {selectedCred && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md animate-in fade-in duration-200 overflow-y-auto">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#3A2E22]/80 backdrop-blur-md animate-in fade-in duration-200 overflow-y-auto">
           <div className="fixed inset-0" onClick={() => setSelectedCred(null)} />
-          <div className="relative w-full max-w-3xl bg-[#14141C] border-2 border-[#D4AF37] rounded-3xl p-6 sm:p-8 z-10 shadow-2xl my-8">
+          <div className="relative w-full max-w-3xl bg-[#FDF8F2] border-2 border-[#E8846B] rounded-3xl p-6 sm:p-8 z-10 shadow-warmLg my-8">
             <button
               onClick={() => setSelectedCred(null)}
-              className="absolute top-5 right-5 p-2 rounded-xl bg-[#1E1E28] border border-[#2A2A38] text-slate-400 hover:text-white transition-colors"
+              className="absolute top-5 right-5 p-2 rounded-xl bg-[#F3D9C4] border border-[#E0C9AE] text-[#5C4D3C] hover:text-[#3A2E22] transition-colors"
             >
               <X className="w-5 h-5" />
             </button>
 
-            <span className="font-mono text-[10px] uppercase tracking-wider px-2.5 py-1 rounded-full bg-[#D4AF37]/15 border border-[#D4AF37]/40 text-[#FFD700] font-bold inline-block mb-3">
+            <span className="font-mono text-[10px] uppercase tracking-wider px-2.5 py-1 rounded-full badge-coral font-bold inline-block mb-3">
               {selectedCred.categoryLabel} • {selectedCred.date}
             </span>
 
-            <h3 className="font-sans font-bold text-xl sm:text-2xl text-white mb-1">
+            <h3 className="font-sans font-bold text-xl sm:text-2xl text-[#3A2E22] mb-1">
               {selectedCred.title}
             </h3>
-            <p className="font-mono text-xs text-[#FFD700] font-bold mb-6">
+            <p className="font-mono text-xs text-[#E8846B] font-bold mb-6">
               Organization / Issuer: {selectedCred.issuer}
             </p>
 
-            {/* 1. IIIT Certificate Direct Image Preview (100% Uncropped with object-contain) */}
+            {/* 1. IIIT Certificate Direct Image Preview */}
             {selectedCred.imagePath && (
               <div className="mb-6">
                 <div
-                  className="relative aspect-[4/3] rounded-2xl overflow-hidden border-2 border-[#D4AF37]/50 shadow-2xl cursor-pointer group bg-[#0A0A0C]"
+                  className="relative aspect-[4/3] rounded-2xl overflow-hidden border border-[#E0C9AE] shadow-warm cursor-pointer group bg-[#FAF3E8]"
                   onClick={() => setZoomedImage(selectedCred.imagePath || null)}
                 >
                   <Image
@@ -158,8 +146,8 @@ export function CredentialsVault() {
                     fill
                     className="object-contain p-2"
                   />
-                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                    <span className="px-4 py-2 rounded-xl bg-black/80 border border-[#D4AF37] text-xs font-mono font-bold text-[#FFD700]">
+                  <div className="absolute inset-0 bg-[#3A2E22]/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                    <span className="px-4 py-2 rounded-xl bg-[#FAF3E8] border border-[#E8846B] text-xs font-mono font-bold text-[#3A2E22] shadow-sm">
                       Click to Enlarge High-Res Certificate 🔍
                     </span>
                   </div>
@@ -171,15 +159,15 @@ export function CredentialsVault() {
             {selectedCred.photos && selectedCred.photos.length > 0 && (
               <div className="mb-6">
                 {/* Venue Tab Selector */}
-                <div className="flex flex-wrap gap-2 pb-3 mb-4 border-b border-[#22222A]">
+                <div className="flex flex-wrap gap-2 pb-3 mb-4 border-b border-[#E0C9AE]">
                   {selectedCred.photos.map((venue, idx) => (
                     <button
                       key={venue.venue}
                       onClick={() => setActiveVenueTab(idx)}
                       className={`px-3 py-1.5 rounded-xl font-mono text-xs font-bold transition-all ${
                         activeVenueTab === idx
-                          ? "bg-[#D4AF37] text-black shadow-xs"
-                          : "bg-[#181822] text-slate-400 hover:text-white border border-[#2A2A38]"
+                          ? "bg-[#E8846B] text-[#FAF3E8] shadow-xs"
+                          : "bg-[#F3D9C4] text-[#5C4D3C] hover:text-[#3A2E22] border border-[#E0C9AE]"
                       }`}
                     >
                       {venue.venue} ({venue.images.length} Photos)
@@ -187,12 +175,12 @@ export function CredentialsVault() {
                   ))}
                 </div>
 
-                {/* Gallery Images Grid for Active Venue */}
+                {/* Gallery Images Grid */}
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                   {selectedCred.photos[activeVenueTab]?.images.map((imgSrc, imgIdx) => (
                     <div
                       key={imgIdx}
-                      className="relative aspect-[4/3] rounded-xl overflow-hidden border border-[#2A2A38] hover:border-[#D4AF37] cursor-pointer group"
+                      className="relative aspect-[4/3] rounded-xl overflow-hidden border border-[#E0C9AE] hover:border-[#E8846B] cursor-pointer group bg-[#FAF3E8]"
                       onClick={() => setZoomedImage(imgSrc)}
                     >
                       <Image
@@ -208,20 +196,22 @@ export function CredentialsVault() {
             )}
 
             {/* Description Narrative */}
-            <div className="space-y-4 text-xs sm:text-sm text-[#CBD5E1] leading-relaxed mb-6">
+            <div className="space-y-4 text-xs sm:text-sm text-[#5C4D3C] leading-relaxed mb-6">
               <p>{selectedCred.summary}</p>
             </div>
 
             {/* Verified Skills */}
-            <div className="space-y-2 pt-4 border-t border-[#22222A] mb-6">
-              <span className="font-mono text-xs text-white font-bold block">
+            <div className="space-y-2 pt-4 border-t border-[#E0C9AE] mb-6">
+              <span className="font-mono text-xs text-[#3A2E22] font-bold block">
                 Verified Technical Domains:
               </span>
               <div className="flex flex-wrap gap-1.5">
-                {selectedCred.skillsVerified.map((skill) => (
+                {selectedCred.skillsVerified.map((skill, sIdx) => (
                   <span
                     key={skill}
-                    className="px-2.5 py-1 rounded-md bg-[#181822] text-[#FFD700] text-xs font-mono border border-[#D4AF37]/30"
+                    className={`px-2.5 py-1 rounded-md text-xs font-mono ${
+                      sIdx % 2 === 0 ? "badge-coral" : "badge-sage"
+                    }`}
                   >
                     {skill}
                   </span>
@@ -235,7 +225,7 @@ export function CredentialsVault() {
                 href={selectedCred.certificateUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#D4AF37] text-black font-bold text-xs hover:bg-[#FFD700] transition-colors"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#E8846B] text-[#FAF3E8] font-bold text-xs hover:bg-[#D9735A] transition-colors"
               >
                 <span>View Full Certificate PDF</span>
                 <ExternalLink className="w-3.5 h-3.5" />
@@ -248,21 +238,21 @@ export function CredentialsVault() {
       {/* Lightbox Zoom for High-Res Certificate / Event Photos */}
       {zoomedImage && (
         <div
-          className="fixed inset-0 z-60 flex items-center justify-center p-4 bg-black/95 backdrop-blur-lg animate-in fade-in duration-200"
+          className="fixed inset-0 z-60 flex items-center justify-center p-4 bg-[#3A2E22]/90 backdrop-blur-lg animate-in fade-in duration-200"
           onClick={() => setZoomedImage(null)}
         >
           <button
             onClick={() => setZoomedImage(null)}
-            className="absolute top-6 right-6 p-3 rounded-full bg-[#1E1E28] border border-[#D4AF37]/50 text-white hover:text-[#FFD700] transition-colors"
+            className="absolute top-6 right-6 p-3 rounded-full bg-[#FDF8F2] border border-[#E0C9AE] text-[#3A2E22] hover:text-[#E8846B] transition-colors"
           >
             <X className="w-6 h-6" />
           </button>
-          <div className="relative w-full max-w-4xl max-h-[85vh] aspect-[4/3] overflow-hidden rounded-2xl border-2 border-[#D4AF37]">
+          <div className="relative w-full max-w-4xl max-h-[85vh] aspect-[4/3] overflow-hidden rounded-2xl border-2 border-[#E8846B] bg-[#FAF3E8]">
             <Image
               src={zoomedImage}
               alt="Zoomed Credential / Event Photo"
               fill
-              className="object-contain bg-black"
+              className="object-contain"
             />
           </div>
         </div>

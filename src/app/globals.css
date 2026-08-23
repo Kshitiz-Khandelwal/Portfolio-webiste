@@ -1,37 +1,39 @@
 @import "tailwindcss";
 
 :root {
-  /* Master Palette Tokens — Ney Gold & Ruby Red on Dark Canvas */
-  --rich-gold: #D4AF37;
-  --sunburst-gold: #FFD700;
-  --crimson-red: #DC143C;
-  --ruby-red: #9B111E;
-  --pure-white: #FFFFFF;
-  
-  --canvas-bg: #0F121A;
-  --card-bg: #181C28;
-  --card-subtle: #1E2333;
-  --border-subtle: #2B3245;
-  --border-gold: rgba(212, 175, 55, 0.45);
-  
-  --text-primary: #F8FAFC;
-  --text-secondary: #E2E8F0;
-  --text-muted: #94A3B8;
-  
-  --background: var(--canvas-bg);
+  /* Warm Sketchbook Palette Tokens */
+  --bg-page: #FAF3E8;          /* Warm Cream Canvas */
+  --bg-card: #F3D9C4;          /* Soft Peach Surface */
+  --bg-card-light: #FDF8F2;    /* Crisp Warm Cream Paper */
+  --bg-card-subtle: #EFE3D3;   /* Neutral Tan Sub-Surface */
+
+  --text-primary: #3A2E22;     /* Dark Warm Brown (NOT Black) */
+  --text-secondary: #5C4D3C;   /* Medium Warm Brown */
+  --text-muted: #8A7A63;       /* Warm Taupe */
+
+  --accent-coral: #E8846B;     /* Primary Coral Accent */
+  --accent-coral-hover: #D9735A;
+  --accent-sage: #8FBFA0;      /* Secondary Sage Green Accent */
+  --accent-sage-dark: #3D6E50;
+
+  --border-card: #E0C9AE;      /* 1-2px Warm Border */
+  --border-subtle: #EADBC8;
+
+  --background: var(--bg-page);
   --foreground: var(--text-primary);
 }
 
 @theme inline {
-  --color-gold-rich: #D4AF37;
-  --color-gold-sunburst: #FFD700;
-  --color-crimson: #DC143C;
-  --color-ruby: #9B111E;
-  --color-canvas: #0F121A;
-  --color-card-surface: #181C28;
-  --color-card-subtle: #1E2333;
-  --color-border-subtle: #2B3245;
-  
+  --color-page: #FAF3E8;
+  --color-card: #F3D9C4;
+  --color-card-light: #FDF8F2;
+  --color-card-subtle: #EFE3D3;
+  --color-text-main: #3A2E22;
+  --color-text-muted: #8A7A63;
+  --color-accent-coral: #E8846B;
+  --color-accent-sage: #8FBFA0;
+  --color-border-card: #E0C9AE;
+
   --font-sans: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, "SF Mono", Menlo, Monaco, Consolas, monospace;
 }
@@ -41,102 +43,42 @@ html {
 }
 
 body {
-  background-color: #0F121A;
-  color: #F8FAFC;
+  background-color: #FAF3E8;
+  color: #3A2E22;
   font-family: var(--font-sans);
   overflow-x: hidden;
 }
 
 .font-hand {
-  font-family: var(--font-hand), 'Caveat', 'Kalam', 'Gaegu', cursive;
+  font-family: var(--font-hand), 'Caveat', 'Kalam', cursive;
 }
 
-/* Tactile Washi Tape Styles */
-.washi-tape-gold {
-  position: absolute;
-  width: 72px;
-  height: 18px;
-  background-color: rgba(212, 175, 55, 0.45);
-  border-top: 1px dashed rgba(255, 215, 0, 0.7);
-  border-bottom: 1px dashed rgba(255, 215, 0, 0.7);
-  backdrop-filter: blur(2px);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
-  z-index: 20;
+/* Warm Tag & Badge Variants (WCAG AA Compliant) */
+.badge-coral {
+  background-color: #F6D9CF;
+  color: #B5432C;
+  border: 1px solid rgba(232, 132, 107, 0.5);
 }
 
-.washi-tape-ruby {
-  position: absolute;
-  width: 72px;
-  height: 18px;
-  background-color: rgba(220, 20, 60, 0.45);
-  border-top: 1px dashed rgba(239, 68, 68, 0.7);
-  border-bottom: 1px dashed rgba(239, 68, 68, 0.7);
-  backdrop-filter: blur(2px);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
-  z-index: 20;
+.badge-sage {
+  background-color: #E2EFE7;
+  color: #2D5E40;
+  border: 1px solid rgba(143, 191, 160, 0.6);
 }
 
-.washi-tape-slate {
-  position: absolute;
-  width: 72px;
-  height: 18px;
-  background-color: rgba(43, 50, 69, 0.65);
-  border-top: 1px dashed rgba(148, 163, 184, 0.6);
-  border-bottom: 1px dashed rgba(148, 163, 184, 0.6);
-  backdrop-filter: blur(2px);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
-  z-index: 20;
+.badge-tan {
+  background-color: #EFE3D3;
+  color: #4A3B2C;
+  border: 1px solid #E0C9AE;
 }
 
-/* Paper Sticky Note & Sketchbook Shadowing */
-.shadow-sketch {
-  box-shadow: 4px 4px 0px 0px #0A0A0E, 0 10px 25px -5px rgba(0,0,0,0.6);
+/* Subtle Warm Shadowing */
+.shadow-warm {
+  box-shadow: 0 4px 12px -2px rgba(58, 46, 34, 0.06), 0 2px 6px -1px rgba(58, 46, 34, 0.04);
 }
 
-.shadow-sketchLg {
-  box-shadow: 6px 6px 0px 0px #0A0A0E, 0 20px 35px -5px rgba(212,175,55,0.2);
-}
-
-.paper-sticky {
-  background-color: #181C28;
-  color: #F8FAFC;
-  border: 1px solid rgba(212, 175, 55, 0.4);
-  border-radius: 14px;
-  box-shadow: 4px 4px 0px 0px #0A0A0E, 0 10px 20px -5px rgba(0,0,0,0.5);
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.paper-sticky:hover {
-  transform: translateY(-3px) scale(1.02);
-  box-shadow: 6px 6px 0px 0px #0A0A0E, 0 15px 25px -5px rgba(212, 175, 55, 0.25);
-}
-
-/* Red Tape on Top of Sticky Note */
-.red-tape {
-  position: absolute;
-  top: -8px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 28px;
-  height: 12px;
-  background: #DC2626;
-  border-radius: 2px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.5);
-  z-index: 10;
-}
-
-.red-pin {
-  position: absolute;
-  top: -6px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 10px;
-  height: 10px;
-  background: #DC2626;
-  border-radius: 50%;
-  border: 1.5px solid #7F1D1D;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.5);
-  z-index: 10;
+.shadow-warmLg {
+  box-shadow: 0 10px 25px -3px rgba(58, 46, 34, 0.08), 0 4px 10px -2px rgba(58, 46, 34, 0.04);
 }
 
 /* Minimal Custom Scrollbar */
@@ -146,16 +88,16 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #0F121A;
+  background: #FAF3E8;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #334155;
+  background: #D5BFA4;
   border-radius: 9999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #D4AF37;
+  background: #E8846B;
 }
 
 .no-scrollbar::-webkit-scrollbar {
