@@ -7,51 +7,66 @@ export interface CredentialItem {
   summary: string;
   skillsVerified: string[];
   placeholderText: string;
+  certificateUrl?: string;
+  photosUrl?: string;
 }
 
 export const credentialsData: CredentialItem[] = [
   {
-    id: "cred-sih-2024",
-    title: "College Ideathon — SIH-Aligned Problem Statement",
-    issuer: "Internal Institutional Ideathon (BMSIT&M)",
-    date: "2024",
-    categoryLabel: "Hackathon Podium",
+    id: "cred-zarthi-internship",
+    title: "Backend Developer Intern",
+    issuer: "Zarthi",
+    date: "Current / Ongoing",
+    categoryLabel: "Industry Internship",
     summary:
-      "Secured 3rd place in college-level ideathon round evaluating Krishi360 agricultural advisory system against official Smart India Hackathon problem statements.",
-    skillsVerified: ["Mathematical Modeling", "Team Leadership", "Pitch & Architecture"],
-    placeholderText: "[📜 PASTE IDEATHON 3RD PLACE CERTIFICATE HERE]",
+      "Engineering robust backend services, microservices architectures, and high-performance REST APIs using Java and Spring Boot, integrated with SQL databases and production infrastructure.",
+    skillsVerified: ["Java", "Spring Boot", "Microservices", "REST APIs", "SQL & Database Design"],
+    placeholderText: "[💼 BACKEND DEV INTERNSHIP AT ZARTHI — JAVA & SPRING BOOT]",
+  },
+  {
+    id: "cred-iiit-trichy-research",
+    title: "Research Intern — IoMT Privacy & Split Federated Learning",
+    issuer: "Indian Institute of Information Technology Tiruchirappalli (IIIT Trichy)",
+    date: "Mar 2026 – May 2026",
+    categoryLabel: "Research Fellowship",
+    summary:
+      "Completed research internship under the AICTE-QIP-PG Certificate Programme on Machine Learning & Cyber Physical Systems (Supervised by Dr. R. Jennie Bharathi). Contributed to 'An SNN-based Split Federated Learning Framework for Privacy Preserving Intrusion Detection in IoMT Networks'.",
+    skillsVerified: ["Split Federated Learning", "Spiking Neural Networks (SNN)", "IoMT Cybersecurity", "Differential Privacy"],
+    placeholderText: "[📜 AICTE-QIP-PG RESEARCH CERTIFICATE — IIIT TRICHY]",
+    certificateUrl: "https://drive.google.com/file/d/1dyT0s3BKhlt2c8Qz7MZqIhBUK2SkKdxP/view?usp=sharing",
+  },
+  {
+    id: "cred-iot-workshops",
+    title: "IoT & Edge AI Workshop Instructor & Co-Organizer",
+    issuer: "SCJIT & Vivekananda Institute of Technology (VKIT)",
+    date: "May 2026",
+    categoryLabel: "Technical Outreach & Teaching",
+    summary:
+      "Conducted intensive hands-on embedded systems and edge ML workshops for 100+ engineering students, covering Raspberry Pi Pico 2 (RP2350), ESP32, GPIO/I2C sensor interfacing, and FreeRTOS telemetry.",
+    skillsVerified: ["Raspberry Pi Pico (RP2350)", "ESP32 & FreeRTOS", "Sensor Telemetry", "Technical Instruction"],
+    placeholderText: "[📸 VIEW WORKSHOP EVENT PHOTOS DRIVE]",
+    photosUrl: "https://drive.google.com/drive/folders/1CoQVyV7Sa2AYsYbT_DRMpaDwqQDjCcnu",
   },
   {
     id: "cred-isro-bah-2026",
     title: "Predictive Ground Station NOC Copilot (PS13)",
     issuer: "ISRO Build-A-Hackathon 2026",
     date: "2026",
-    categoryLabel: "Space Tech Submission",
+    categoryLabel: "National Space Hackathon",
     summary:
-      "Finalist submission proposing Prophet time-series trend decomposition, XGBoost fault classification, and offline RAG knowledge base for ISRO ground station telemetry.",
-    skillsVerified: ["Time-Series Forecasting", "Offline RAG", "System Reliability"],
-    placeholderText: "[📜 PASTE ISRO BAH SUBMISSION RECORD HERE]",
+      "National finalist solution proposing Prophet time-series trend decomposition, XGBoost fault forecasting, and offline ChromaDB RAG knowledge base for ISRO ground station telemetry.",
+    skillsVerified: ["Time-Series Forecasting", "Offline RAG", "System Reliability", "XGBoost"],
+    placeholderText: "[🚀 ISRO BAH 2026 PS13 SUBMISSION RECORD]",
   },
   {
-    id: "cred-iot-outreach-2026",
-    title: "IoT & Edge AI Workshop Instructor Certification",
-    issuer: "Vivekananda Institute of Technology & BMSIT&M",
-    date: "May 2026",
-    categoryLabel: "Technical Outreach",
+    id: "cred-sih-2024",
+    title: "Krishi360 — 3rd Place College Ideathon Podium",
+    issuer: "Internal Institutional Ideathon (BMSIT&M)",
+    date: "2024",
+    categoryLabel: "Hackathon Podium",
     summary:
-      "Co-organized and instructed full-day hands-on hardware workshop training 100+ rural engineering students in ESP32, sensor networks, and edge ML pipelines.",
-    skillsVerified: ["Microcontroller Firmware", "Technical Teaching", "Sensor Integration"],
-    placeholderText: "[📜 PASTE WORKSHOP INSTRUCTOR CERTIFICATE HERE]",
-  },
-  {
-    id: "cred-backend-internship",
-    title: "Systems & Backend Software Engineering Internship",
-    issuer: "Confidential Engineering Client (Details Available on Request)",
-    date: "2025 – 2026",
-    categoryLabel: "Industry Experience",
-    summary:
-      "Engineered high-throughput REST APIs, asynchronous worker pipelines, and database optimization for cloud telemetry processing under strict NDA.",
-    skillsVerified: ["FastAPI", "Database Indexing", "System Architecture"],
-    placeholderText: "[📜 PASTE INTERNSHIP VERIFICATION / NDA LETTER HERE]",
+      "Secured 3rd place podium in SIH-aligned problem statement for the Krishi360 agricultural advisory system with multi-factor Crop Suitability Index mathematical modeling.",
+    skillsVerified: ["Mathematical Modeling", "Team Leadership", "Pitch & Architecture"],
+    placeholderText: "[🏆 3RD PLACE IDEATHON PODIUM CERTIFICATE]",
   },
 ];

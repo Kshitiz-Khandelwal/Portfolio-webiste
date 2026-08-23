@@ -1,19 +1,29 @@
 "use client";
 
 import React from "react";
-import { Brain, ShieldCheck, Cpu, Code2, ArrowUpRight } from "lucide-react";
+import { Brain, ShieldCheck, Cpu, Code2, Server, Laptop } from "lucide-react";
 
 export function WhatIWorkOn() {
   const domains = [
     {
-      id: "ai-ml",
-      title: "Applied AI / ML",
-      badge: "Vision & Signal ML",
-      icon: Brain,
+      id: "backend-engineering",
+      title: "Backend & Distributed Systems",
+      badge: "Java & Spring Boot @ Zarthi",
+      icon: Server,
       color: "#FFD700",
       description:
-        "Applied machine learning pipelines, Continuous Wavelet Transforms (CWT) for biosignals, and transparent model explainability using SHAP and Grad-CAM.",
-      topics: ["Time-Series Transforms", "Convolutional Backbones", "TreeSHAP", "Model Evaluation"],
+        "Building production backend services and microservices architectures using Java and Spring Boot (currently interning at Zarthi), asynchronous FastAPI microservices, and optimized SQL schemas.",
+      topics: ["Java", "Spring Boot", "Microservices", "REST API Design", "PostgreSQL / SQL"],
+    },
+    {
+      id: "embedded-iot",
+      title: "Embedded Systems & IoT",
+      badge: "Zephyr RTOS & RP2350",
+      icon: Cpu,
+      color: "#38BDF8",
+      description:
+        "Firmware development on ARM Cortex-M33 (Raspberry Pi Pico 2 / RP2350) and ESP32, deterministic FreeRTOS task scheduling, UART/I2C/SPI sensor interfaces, and live telemetry streams.",
+      topics: ["Zephyr RTOS", "Raspberry Pi Pico 2", "ESP32 FreeRTOS", "Sensor Telemetry", "C / C++"],
     },
     {
       id: "cybersecurity",
@@ -22,28 +32,18 @@ export function WhatIWorkOn() {
       icon: ShieldCheck,
       color: "#DC143C",
       description:
-        "Sub-millisecond DNS threat filtering, DGA family classification, Shannon entropy analysis, and two-stage network intrusion detection engines.",
-      topics: ["DGA Malware Attribution", "DNS Tunneling", "TON-IoT IDS", "Wire-Speed Filters"],
+        "Sub-millisecond DNS threat filtering (DNS Shield), algorithmic DGA domain attribution, Shannon entropy scoring, and two-stage network intrusion detection engines.",
+      topics: ["DGA Malware Defense", "DNS Tunneling", "TON-IoT IDS", "Wire-Speed Packet Filters"],
     },
     {
-      id: "software-engineering",
-      title: "Software Engineering",
-      badge: "Full Stack & Microservices",
-      icon: Code2,
-      color: "#D4AF37",
+      id: "applied-ai-research",
+      title: "Applied AI / ML & Research",
+      badge: "IIIT Trichy Research Fellow",
+      icon: Brain,
+      color: "#10B981",
       description:
-        "End-to-end full-stack architectures, asynchronous FastAPI microservices, PostgreSQL/Supabase data schemas, and responsive Next.js web applications.",
-      topics: ["Next.js 15 App Router", "FastAPI Asynchronous APIs", "System Architecture", "TypeScript"],
-    },
-    {
-      id: "research-systems",
-      title: "Research & Systems",
-      badge: "Distributed AI & Embedded",
-      icon: Cpu,
-      color: "#38BDF8",
-      description:
-        "Decentralized privacy-preserving federated learning (SplitFed), cut-layer activation smashes, and deterministic real-time firmware on ARM microcontrollers.",
-      topics: ["Split Learning", "NoPeek Loss", "Differential Privacy", "Zephyr RTOS"],
+        "Privacy-preserving Split Federated Learning on IoMT networks (Research Intern at IIIT Trichy), time-series link fault forecasting (ISRO Hackathon Finalist), and TreeSHAP explainability.",
+      topics: ["Split Federated Learning", "IoMT Privacy", "Time-Series Prophet", "TreeSHAP Explainability"],
     },
   ];
 
@@ -51,14 +51,14 @@ export function WhatIWorkOn() {
     <section id="what-i-work-on" className="py-20 px-4 sm:px-6 max-w-7xl mx-auto border-t border-[#22222A]">
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
         <div>
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#D4AF37]/15 border border-[#D4AF37]/40 text-[11px] font-mono uppercase tracking-wider text-[#D4AF37] font-bold mb-3">
-            Core Focus Areas
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#D4AF37]/15 border border-[#D4AF37]/40 text-[11px] font-mono uppercase tracking-wider text-[#FFD700] font-bold mb-3">
+            Core Technical Focus
           </div>
           <h2 className="font-sans font-bold text-3xl sm:text-4xl text-white tracking-tight">
             What I Work On
           </h2>
           <p className="font-sans text-xs sm:text-sm text-[#9A9AA4] mt-1 max-w-xl">
-            My primary technical domains spanning intelligent algorithms, threat defense pipelines, and production systems.
+            My primary technical domains spanning production backend architectures, embedded firmware, cybersecurity defense, and applied research.
           </p>
         </div>
       </div>
@@ -83,12 +83,12 @@ export function WhatIWorkOn() {
                   >
                     <Icon className="w-5 h-5" />
                   </div>
-                  <span className="font-mono text-[10px] uppercase text-[#8A8A94] tracking-wider px-2 py-0.5 rounded-full bg-[#18181F] border border-[#22222A]">
+                  <span className="font-mono text-[10px] uppercase text-[#D4AF37] tracking-wider px-2 py-0.5 rounded-full bg-[#18181F] border border-[#D4AF37]/30 font-bold">
                     {d.badge}
                   </span>
                 </div>
 
-                <h3 className="font-sans font-bold text-lg text-white group-hover:text-[#D4AF37] transition-colors mb-2">
+                <h3 className="font-sans font-bold text-lg text-white group-hover:text-[#FFD700] transition-colors mb-2">
                   {d.title}
                 </h3>
                 <p className="font-sans text-xs text-[#A1A1AA] leading-relaxed mb-6">
