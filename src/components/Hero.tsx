@@ -25,7 +25,7 @@ export function Hero() {
   const togglePhotoColor = () => {
     setIsColor((prev) => {
       const next = !prev;
-      toast.info(next ? "✨ Photo switched to Full Color" : "🖤 Photo switched to Grayscale", {
+      toast.info(next ? "✨ Photo switched to Natural Color" : "🖤 Photo switched to Monochrome", {
         duration: 1500,
       });
       return next;
@@ -50,16 +50,22 @@ export function Hero() {
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           className="lg:col-span-7 flex flex-col items-start text-left z-10"
         >
-          {/* Tactile Domain Tags with Organic Tilts */}
-          <div className="flex flex-wrap gap-2.5 mb-5">
+          {/* Recruiter Role Availability Badge */}
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-950/30 border border-emerald-500/40 font-mono text-[11px] text-emerald-300 font-bold mb-4 shadow-sm">
+            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+            <span>Open to Backend &amp; AI Engineering Roles (Bangalore / Remote • Full-Time &amp; Internships)</span>
+          </div>
+
+          {/* Domain Tags */}
+          <div className="flex flex-wrap gap-2.5 mb-4">
             <div className="relative inline-flex items-center px-3.5 py-1 rounded-xl bg-[#181C28] border border-[#D4AF37]/60 font-mono text-xs text-[#FFD700] font-bold shadow-sketch hover:scale-105 transition-transform -rotate-1">
-              <span>BACKEND &amp; SYSTEMS</span>
+              <span>JAVA &amp; SPRING BOOT</span>
             </div>
             <div className="relative inline-flex items-center px-3.5 py-1 rounded-xl bg-[#181C28] border border-[#2B3245] font-mono text-xs text-[#E2E8F0] shadow-sketch hover:scale-105 transition-transform rotate-1">
-              <span>AI / ML RESEARCH</span>
+              <span>SPLIT FEDERATED AI</span>
             </div>
             <div className="relative inline-flex items-center px-3.5 py-1 rounded-xl bg-[#181C28] border border-[#2B3245] font-mono text-xs text-[#E2E8F0] shadow-sketch hover:scale-105 transition-transform -rotate-1">
-              <span>EMBEDDED IOT</span>
+              <span>ZEPHYR RTOS</span>
             </div>
           </div>
 
@@ -90,7 +96,7 @@ export function Hero() {
 
           {/* Narrative Positioning */}
           <p className="font-sans text-base sm:text-lg text-[#E2E8F0] max-w-xl leading-relaxed mb-6">
-            I build high-throughput backend services in Java &amp; Spring Boot, research privacy-preserving split federated learning, and engineer deterministic embedded IoT firmware.
+            I build high-throughput backend microservices in Java &amp; Spring Boot, research privacy-preserving split federated learning on IoMT networks, and develop deterministic firmware on ARM Cortex-M33 microcontrollers.
           </p>
 
           {/* Focused Terminal Card */}
@@ -148,7 +154,7 @@ export function Hero() {
               <ExternalLink className="w-3 h-3 text-[#8A8A94]" />
             </a>
 
-            {/* Direct Resume Download Link */}
+            {/* Direct Hosted Resume Download Link */}
             <a
               href="/resume.pdf"
               download="Kshitiz_Khandelwal_Resume.pdf"
@@ -156,7 +162,7 @@ export function Hero() {
               className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-[#181C28] text-[#E4E4E9] border border-[#2B3245] hover:border-[#D4AF37] text-sm font-sans font-medium hover:text-[#FFD700] shadow-sketch transition-all active:scale-[0.98]"
             >
               <FileDown className="w-4 h-4 text-[#D4AF37]" />
-              <span>Resume ↓</span>
+              <span>Resume (PDF) ↓</span>
             </a>
           </div>
         </motion.div>
@@ -186,13 +192,13 @@ export function Hero() {
               <span>BENGALURU, INDIA 🇮🇳</span>
             </div>
 
-            {/* Profile Picture Container with 100% Reliable Click-to-Color Toggle */}
+            {/* Profile Picture Container with Tap / Click-to-Toggle Natural Color */}
             <div
               onClick={togglePhotoColor}
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
               className="relative aspect-[4/5] rounded-2xl overflow-hidden bg-[#0A0A0C] border border-[#2B3245] cursor-pointer select-none"
-              title="Click to toggle Color / Grayscale photo"
+              title="Tap or Click to toggle Natural Color / Monochrome photo"
             >
               <Image
                 src="/profile.jpg"
@@ -217,7 +223,7 @@ export function Hero() {
                 </span>
                 <p className="font-sans text-[11px] text-slate-300 mt-1 flex items-center gap-1.5">
                   <span className={`w-2 h-2 rounded-full ${isColor ? "bg-emerald-400" : "bg-[#D4AF37]"} animate-pulse`} />
-                  <span>{isColor ? "🎨 Full Color Mode (Click for B&W)" : "✨ Click to toggle full color"}</span>
+                  <span>{isColor ? "🎨 Natural Color Active (Tap for B&W)" : "✨ Tap / Click to Toggle Natural Color"}</span>
                 </p>
               </div>
             </div>
@@ -226,7 +232,7 @@ export function Hero() {
             <div className="flex items-center justify-between pt-3 mt-3 border-t-2 border-dashed border-[#2B3245] font-mono text-[10px] text-[#94A3B8]">
               <span className="flex items-center gap-1.5">
                 <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
-                <span className="text-[#E2E8F0]">SYSTEM CORE: ONLINE</span>
+                <span className="text-emerald-400 font-bold">AVAILABLE FOR HIRE</span>
               </span>
               <span className="text-[#FFD700] font-semibold">9.43 CGPA • CSBS</span>
             </div>

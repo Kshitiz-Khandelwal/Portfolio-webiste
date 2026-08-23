@@ -9,6 +9,7 @@ import { OtherProjectsAndIoT } from "@/components/OtherProjectsAndIoT";
 import { EvidenceSkills } from "@/components/EvidenceSkills";
 import { CredentialsVault } from "@/components/CredentialsVault";
 import { HackathonExperience } from "@/components/HackathonExperience";
+import { MentorshipTestimonials } from "@/components/MentorshipTestimonials";
 import { EducationSection } from "@/components/EducationSection";
 import { GitHubSection } from "@/components/GitHubSection";
 import { ContactSection } from "@/components/ContactSection";
@@ -34,6 +35,7 @@ export default function Home() {
         <EvidenceSkills />
         <CredentialsVault />
         <HackathonExperience />
+        <MentorshipTestimonials />
         <EducationSection />
         <GitHubSection />
         <ContactSection />
