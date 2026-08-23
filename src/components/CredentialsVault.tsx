@@ -18,7 +18,7 @@ export function CredentialsVault() {
       {/* Section Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
         <div>
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#D4AF37]/15 border border-[#D4AF37]/40 text-[11px] font-mono uppercase tracking-wider text-[#FFD700] font-bold mb-3">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#D4AF37]/15 border border-[#D4AF37]/40 text-[11px] font-mono uppercase tracking-wider text-[#FFD700] font-bold mb-3">
             Experience &amp; Institutional Proof
           </div>
           <h2 className="font-sans font-bold text-3xl sm:text-4xl text-white tracking-tight">
@@ -66,14 +66,14 @@ export function CredentialsVault() {
                   {cred.issuer}
                 </p>
 
-                {/* Visual Preview Frame */}
-                <div className="relative aspect-[16/9] rounded-2xl overflow-hidden bg-[#0A0A0C] border border-[#2B3245] group-hover:border-[#D4AF37]/50 flex flex-col items-center justify-center p-3 text-center mb-4 transition-colors">
+                {/* Visual Preview Frame (Uncropped with object-contain) */}
+                <div className="relative aspect-[16/10] rounded-2xl overflow-hidden bg-[#0A0A0C] border-2 border-[#2B3245] group-hover:border-[#D4AF37]/50 flex flex-col items-center justify-center p-2 text-center mb-4 transition-colors">
                   {cred.imagePath ? (
                     <Image
                       src={cred.imagePath}
                       alt={cred.title}
                       fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      className="object-contain p-1 group-hover:scale-105 transition-transform duration-500"
                     />
                   ) : cred.photos && cred.photos[0]?.images[0] ? (
                     <Image
@@ -93,7 +93,7 @@ export function CredentialsVault() {
 
                   {/* Badge Overlay */}
                   {(cred.imagePath || cred.photos) && (
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-2.5">
+                    <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex items-end p-2">
                       <span className="font-mono text-[10px] text-[#FFD700] font-bold">
                         {cred.placeholderText}
                       </span>
@@ -145,18 +145,18 @@ export function CredentialsVault() {
               Organization / Issuer: {selectedCred.issuer}
             </p>
 
-            {/* 1. IIIT Certificate Direct Image Preview */}
+            {/* 1. IIIT Certificate Direct Image Preview (100% Uncropped with object-contain) */}
             {selectedCred.imagePath && (
               <div className="mb-6">
                 <div
-                  className="relative aspect-[4/3] rounded-2xl overflow-hidden border-2 border-[#D4AF37]/50 shadow-2xl cursor-pointer group"
+                  className="relative aspect-[4/3] rounded-2xl overflow-hidden border-2 border-[#D4AF37]/50 shadow-2xl cursor-pointer group bg-[#0A0A0C]"
                   onClick={() => setZoomedImage(selectedCred.imagePath || null)}
                 >
                   <Image
                     src={selectedCred.imagePath}
                     alt="Verified Certificate"
                     fill
-                    className="object-contain bg-black"
+                    className="object-contain p-2"
                   />
                   <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                     <span className="px-4 py-2 rounded-xl bg-black/80 border border-[#D4AF37] text-xs font-mono font-bold text-[#FFD700]">

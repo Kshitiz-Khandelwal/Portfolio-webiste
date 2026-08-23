@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import { Trophy, Users, Award, MapPin, CheckCircle2, ExternalLink, X } from "lucide-react";
+import { Trophy, Users, Award, MapPin, CheckCircle2, ExternalLink, X, Sparkles } from "lucide-react";
 
 export function HackathonExperience() {
   const [zoomedImage, setZoomedImage] = useState<string | null>(null);
@@ -14,12 +14,14 @@ export function HackathonExperience() {
       organization: "Internal Institutional Ideathon",
       role: "Team Leader — Krishi360 Platform",
       badge: "3rd Place Podium, College Ideathon",
-      imageSrc: "/events/bmsit/bmsit_1.jpeg",
+      imageSrc: null,
+      customCardTitle: "Krishi360 Precision Agriculture Platform",
+      customCardSubtitle: "Smart India Hackathon Aligned Architecture",
       tilt: "-rotate-0.8",
       description:
         "Led the team at a college-level Ideathon built on an official Smart India Hackathon problem statement, architecting Krishi360's Crop Suitability Index mathematical model and presenting the prototype to the internal judging panel.",
       highlights: [
-        "Secured 3rd place at the institution's internal ideathon round.",
+        "Secured 3rd place podium finish at the institution's internal ideathon round.",
         "Coordinated task breakdown, ML model training, and API integration within tight hackathon sprints.",
         "Delivered a live interactive farmer advisory platform with soil and rainfall recommendation algorithms.",
       ],
@@ -31,6 +33,8 @@ export function HackathonExperience() {
       role: "System Architect & ML Lead",
       badge: "Finalist Solution Submission",
       imageSrc: null,
+      customCardTitle: "Predictive Ground Station NOC Copilot",
+      customCardSubtitle: "ISRO PS13 Fault Anomaly Detection",
       tilt: "rotate-0.8",
       description:
         "Engineered the complete Predictive NOC Copilot architecture for Problem Statement 13 (Predictive Ground Station MPLS Fault Anomaly Detection).",
@@ -147,7 +151,7 @@ export function HackathonExperience() {
               <div className="lg:col-span-5">
                 {exp.imageSrc ? (
                   <div
-                    className="relative aspect-[16/10] rounded-2xl overflow-hidden bg-[#0E0E12] border-2 border-[#2B3245] hover:border-[#D4AF37] shadow-xl group/photo cursor-pointer transition-all duration-300 hover:shadow-[0_10px_25px_rgba(212,175,55,0.2)]"
+                    className="relative aspect-[16/10] rounded-2xl overflow-hidden bg-[#0A0A0C] border-2 border-[#2B3245] hover:border-[#D4AF37] shadow-xl group/photo cursor-pointer transition-all duration-300 hover:shadow-[0_10px_25px_rgba(212,175,55,0.2)]"
                     onClick={() => setZoomedImage(exp.imageSrc)}
                   >
                     <Image
@@ -167,13 +171,17 @@ export function HackathonExperience() {
                   </div>
                 ) : (
                   <div className="aspect-[16/10] rounded-2xl bg-[#10121A] border-2 border-dashed border-[#2B3245] hover:border-[#D4AF37] flex flex-col items-center justify-center p-6 text-center transition-colors">
-                    <Trophy className="w-8 h-8 text-[#FFD700] mb-2 opacity-90" />
-                    <span className="font-mono text-xs text-white font-bold mb-1">
-                      Finalist Solution Architecture
+                    <Trophy className="w-9 h-9 text-[#FFD700] mb-2" />
+                    <span className="font-mono text-sm text-white font-bold mb-1">
+                      {exp.customCardTitle || "Hackathon Solution Architecture"}
                     </span>
-                    <p className="font-mono text-[10px] text-[#FFD700] max-w-xs font-semibold">
-                      Predictive Ground Station MPLS Fault Detection
+                    <p className="font-mono text-[11px] text-[#FFD700] max-w-xs font-semibold">
+                      {exp.customCardSubtitle || exp.badge}
                     </p>
+                    <div className="mt-3 flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#181C28] border border-[#2B3245] text-[10px] font-mono text-[#CBD5E1]">
+                      <Sparkles className="w-3 h-3 text-[#FFD700]" />
+                      <span>Verified Submission</span>
+                    </div>
                   </div>
                 )}
               </div>
