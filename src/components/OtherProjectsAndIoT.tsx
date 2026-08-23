@@ -1,11 +1,13 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
+import Image from "next/image";
 import { otherProjects } from "@/data/projects";
-import { Cpu, ExternalLink, Play, Video, CheckCircle2, ShieldCheck, Sparkles } from "lucide-react";
+import { Cpu, ExternalLink, Play, Video, CheckCircle2, ShieldCheck, Sparkles, ZoomIn, X } from "lucide-react";
 import { WorkshopCollage } from "./WorkshopCollage";
 
 export function OtherProjectsAndIoT() {
+  const [zoomedHardwarePhoto, setZoomedHardwarePhoto] = useState<boolean>(false);
   const zephyrProject = otherProjects.find((p) => p.id === "zephyr-pico-lab") || otherProjects[0];
   const remaining = otherProjects.filter((p) => p.id !== "zephyr-pico-lab");
 
@@ -138,7 +140,7 @@ export function OtherProjectsAndIoT() {
         </div>
       </div>
 
-      {/* Animated Workshop Event Photos Collage */}
+      {/* Tactile Idea Pinboard Workshop Photo Collage */}
       <WorkshopCollage />
 
       {/* Featured Hardware Spotlight: Zephyr Edge AI Lab */}
@@ -203,25 +205,60 @@ export function OtherProjectsAndIoT() {
             </div>
           </div>
 
-          {/* Right: Structured Hardware Photo Frame */}
+          {/* Right: Real Rotated RP2350 Hardware Photo */}
           <div className="lg:col-span-5">
-            <div className="aspect-[4/3] rounded-2xl bg-[#0E0E12] border-2 border-dashed border-[#333340] hover:border-[#D4AF37] flex flex-col items-center justify-center p-6 text-center transition-colors group">
-              <div className="w-14 h-14 rounded-2xl bg-[#181822] border border-[#2A2A38] flex items-center justify-center text-[#D4AF37] mb-3 group-hover:border-[#D4AF37] transition-colors shadow-xs">
-                <Cpu className="w-7 h-7" />
+            <div
+              className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-[#0E0E12] border-2 border-[#2A2A38] hover:border-[#D4AF37] shadow-xl group cursor-pointer transition-all duration-300 hover:shadow-[0_10px_30px_rgba(212,175,55,0.2)]"
+              onClick={() => setZoomedHardwarePhoto(true)}
+            >
+              <Image
+                src="/rp2350_iot_board.jpeg"
+                alt="RP2350 Hardware Lab Setup"
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+
+              {/* Bottom Tag Overlay */}
+              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/95 via-black/60 to-transparent p-4 text-left">
+                <span className="font-mono text-xs text-[#FFD700] font-bold block">
+                  RP2350 Hardware Lab Board
+                </span>
+                <span className="font-mono text-[10px] text-slate-300 mt-0.5 block">
+                  Breadboard • L298N Motor Driver • Raspberry Pi Pico 2
+                </span>
               </div>
-              <span className="font-mono text-xs text-white font-bold block mb-1">
-                RP2350 Hardware Lab Setup
-              </span>
-              <p className="font-mono text-[10px] text-[#D4AF37] max-w-xs font-semibold">
-                {zephyrProject.photoPlaceholder}
-              </p>
-              <span className="font-mono text-[9px] text-slate-400 mt-2 block">
-                Breadboard • L298N Motor Driver • Pico 2
-              </span>
+
+              <div className="absolute top-3 right-3 px-2.5 py-1 rounded-lg bg-black/80 border border-[#D4AF37]/60 text-[10px] font-mono text-[#FFD700] font-bold opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1">
+                <ZoomIn className="w-3 h-3" />
+                <span>Zoom</span>
+              </div>
             </div>
           </div>
         </div>
       </div>
+
+      {/* Fullscreen Lightbox for RP2350 Hardware Board */}
+      {zoomedHardwarePhoto && (
+        <div
+          className="fixed inset-0 z-60 flex items-center justify-center p-4 bg-black/95 backdrop-blur-xl animate-in fade-in duration-200"
+          onClick={() => setZoomedHardwarePhoto(false)}
+        >
+          <button
+            onClick={() => setZoomedHardwarePhoto(false)}
+            className="absolute top-6 right-6 p-3 rounded-full bg-[#1E1E28] border border-[#D4AF37]/50 text-white hover:text-[#FFD700] transition-colors"
+          >
+            <X className="w-6 h-6" />
+          </button>
+          <div className="relative w-full max-w-4xl max-h-[85vh] aspect-[4/3] overflow-hidden rounded-2xl border-2 border-[#D4AF37]">
+            <Image
+              src="/rp2350_iot_board.jpeg"
+              alt="RP2350 Hardware Lab Board Fullscreen"
+              fill
+              className="object-contain bg-black"
+            />
+          </div>
+        </div>
+      )}
 
       {/* Grid of Other Projects */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
