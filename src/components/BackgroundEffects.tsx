@@ -181,7 +181,30 @@ export function BackgroundEffects() {
   }, []);
 
   return (
-    <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+    <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden select-none">
+      {/* Ambient Color Blobs */}
+      <div className="absolute top-10 left-[-5%] w-[600px] h-[550px] bg-[#D4AF37]/8 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute top-[35%] right-[-5%] w-[650px] h-[600px] bg-[#DC143C]/6 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute top-[65%] left-[10%] w-[550px] h-[500px] bg-[#38BDF8]/6 rounded-full blur-[140px] pointer-events-none" />
+
+      {/* Tactile Doodles in Corners */}
+      <div className="absolute top-28 left-6 text-2xl opacity-15 hidden md:block rotate-[-12deg]">✦</div>
+      <div className="absolute top-36 right-16 hidden lg:flex items-center gap-2 opacity-20">
+        <span className="font-mono text-xs text-[#D4AF37] tracking-widest">- - - ⚡ - - -</span>
+      </div>
+      <div className="absolute top-[45%] left-8 text-xl opacity-15 hidden md:block rotate-12">⚙️</div>
+      <div className="absolute top-[75%] right-12 hidden lg:block opacity-20">
+        <span className="font-mono text-xs text-[#FFD700] tracking-wider">- - - 🛸 - - -</span>
+      </div>
+
+      {/* SVG Subtle Textured Paper Noise Filter */}
+      <div
+        className="absolute inset-0 opacity-[0.035] pointer-events-none"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
+        }}
+      />
+
       {/* Interactive HTML5 Particle & Floating Quotes Canvas */}
       <canvas ref={canvasRef} className="absolute inset-0 w-full h-full opacity-65" />
 

@@ -50,25 +50,29 @@ export function Hero() {
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           className="lg:col-span-7 flex flex-col items-start text-left z-10"
         >
-          {/* Domain Tags */}
-          <div className="flex flex-wrap items-center gap-2 mb-5">
-            <span className="px-3 py-1 rounded-full bg-[#121216] border border-[#D4AF37]/60 font-mono text-xs text-[#FFD700] font-bold shadow-xs">
-              BACKEND &amp; SYSTEMS
-            </span>
-            <span className="text-[#22222A]">•</span>
-            <span className="px-3 py-1 rounded-full bg-[#121216] border border-[#22222A] font-mono text-xs text-[#E2E8F0] shadow-xs">
-              AI / ML RESEARCH
-            </span>
-            <span className="text-[#22222A]">•</span>
-            <span className="px-3 py-1 rounded-full bg-[#121216] border border-[#22222A] font-mono text-xs text-[#E2E8F0] shadow-xs">
-              EMBEDDED IOT
-            </span>
+          {/* Tactile Domain Tags with Organic Tilts */}
+          <div className="flex flex-wrap gap-2.5 mb-5">
+            <div className="relative inline-flex items-center px-3.5 py-1 rounded-xl bg-[#181C28] border border-[#D4AF37]/60 font-mono text-xs text-[#FFD700] font-bold shadow-sketch hover:scale-105 transition-transform -rotate-1">
+              <span>BACKEND &amp; SYSTEMS</span>
+            </div>
+            <div className="relative inline-flex items-center px-3.5 py-1 rounded-xl bg-[#181C28] border border-[#2B3245] font-mono text-xs text-[#E2E8F0] shadow-sketch hover:scale-105 transition-transform rotate-1">
+              <span>AI / ML RESEARCH</span>
+            </div>
+            <div className="relative inline-flex items-center px-3.5 py-1 rounded-xl bg-[#181C28] border border-[#2B3245] font-mono text-xs text-[#E2E8F0] shadow-sketch hover:scale-105 transition-transform -rotate-1">
+              <span>EMBEDDED IOT</span>
+            </div>
           </div>
 
-          {/* Name & Academic Positioning */}
-          <h1 className="font-sans font-extrabold text-4xl sm:text-6xl text-white tracking-tight leading-[1.08] mb-3">
-            Kshitiz Khandelwal
-          </h1>
+          {/* Name with Golden Brushstroke Underline */}
+          <div className="relative mb-2">
+            <h1 className="font-sans font-extrabold text-4xl sm:text-6xl text-white tracking-tight leading-[1.08]">
+              Kshitiz Khandelwal
+            </h1>
+            <svg className="w-full max-w-md h-3.5 text-[#D4AF37] -mt-1 opacity-90" viewBox="0 0 300 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 8 C60 2, 180 11, 297 5" stroke="currentColor" strokeWidth="4" strokeLinecap="round" />
+            </svg>
+          </div>
+
           <p className="font-mono text-base sm:text-lg text-[#FFD700] font-bold mb-2">
             Systems, AI &amp; Backend Engineer • Intern @ Zarthi
           </p>
@@ -90,10 +94,10 @@ export function Hero() {
           </p>
 
           {/* Focused Terminal Card */}
-          <div className="w-full max-w-xl bg-[#121216] border border-[#22222A] rounded-2xl p-4 sm:p-5 shadow-xl mb-8 font-mono text-xs text-[#F8FAFC] relative overflow-hidden group">
+          <div className="w-full max-w-xl bg-[#181C28] border border-[#2B3245] rounded-2xl p-4 sm:p-5 shadow-sketch mb-8 font-mono text-xs text-[#F8FAFC] relative overflow-hidden group">
             <BorderBeam size={200} duration={8} colorFrom="#FFD700" colorTo="#D4AF37" />
 
-            <div className="flex items-center justify-between pb-3 mb-3 border-b border-[#22222A]">
+            <div className="flex items-center justify-between pb-3 mb-3 border-b border-[#2B3245]">
               <div className="flex items-center gap-2">
                 <div className="w-3 h-3 rounded-full bg-[#DC143C]" />
                 <div className="w-3 h-3 rounded-full bg-[#D4AF37]" />
@@ -125,9 +129,9 @@ export function Hero() {
           <div className="flex flex-wrap items-center gap-3 w-full sm:w-auto">
             <a
               href="#projects"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-[#D4AF37] text-black font-sans font-bold text-sm hover:bg-[#FFD700] hover:shadow-[0_0_24px_rgba(255,215,0,0.35)] shadow-sm transition-all active:scale-[0.98]"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-[#D4AF37] text-black font-sans font-bold text-sm hover:bg-[#FFD700] hover:shadow-[0_0_24px_rgba(255,215,0,0.35)] shadow-sketch transition-all active:scale-[0.98]"
             >
-              <span>Explore Projects</span>
+              <span>Explore Projects ⚡</span>
               <ArrowRight className="w-4 h-4" />
             </a>
 
@@ -135,7 +139,7 @@ export function Hero() {
               href="https://github.com/Kshitiz-Khandelwal"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-[#121216] text-[#E4E4E9] border border-[#22222A] hover:border-[#D4AF37] text-sm font-sans font-medium hover:text-[#FFD700] shadow-xs transition-all active:scale-[0.98]"
+              className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-[#181C28] text-[#E4E4E9] border border-[#2B3245] hover:border-[#D4AF37] text-sm font-sans font-medium hover:text-[#FFD700] shadow-sketch transition-all active:scale-[0.98]"
             >
               <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
                 <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
@@ -149,35 +153,45 @@ export function Hero() {
               href="/resume.pdf"
               download="Kshitiz_Khandelwal_Resume.pdf"
               onClick={handleResumeClick}
-              className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-[#121216] text-[#E4E4E9] border border-[#22222A] hover:border-[#D4AF37] text-sm font-sans font-medium hover:text-[#FFD700] shadow-xs transition-all active:scale-[0.98]"
+              className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-[#181C28] text-[#E4E4E9] border border-[#2B3245] hover:border-[#D4AF37] text-sm font-sans font-medium hover:text-[#FFD700] shadow-sketch transition-all active:scale-[0.98]"
             >
               <FileDown className="w-4 h-4 text-[#D4AF37]" />
-              <span>Resume</span>
+              <span>Resume ↓</span>
             </a>
           </div>
         </motion.div>
 
-        {/* Right Column: Clean, Human Photo Card with Click-to-Color Toggle */}
+        {/* Right Column: Tactile Photo Card with Washi Tape, Paperclip & Toggle */}
         <motion.div
           variants={fadeUp}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           className="lg:col-span-5 flex flex-col items-center justify-center z-10"
         >
-          <div className="relative w-full max-w-md bg-[#121216] border border-[#22222A] hover:border-[#D4AF37] rounded-3xl p-4 sm:p-5 shadow-2xl transition-all duration-300 overflow-hidden group">
+          <div className="relative w-full max-w-md bg-[#181C28] border-2 border-[#2B3245] hover:border-[#D4AF37] rounded-3xl p-5 shadow-sketchLg rotate-1 hover:rotate-0 transition-all duration-300 overflow-hidden group">
+            {/* Washi Tape and Paperclip accents */}
+            <div className="washi-tape-gold -top-2 left-10 rotate-[-5deg]" />
+            <div className="washi-tape-ruby -bottom-2 right-10 rotate-[4deg]" />
+            <div className="absolute top-3 right-6 text-xl select-none pointer-events-none opacity-80 group-hover:scale-110 transition-transform">
+              📎
+            </div>
+
             <BorderBeam size={220} duration={12} colorFrom="#D4AF37" colorTo="#DC143C" />
 
             {/* Clean Location Header */}
-            <div className="flex items-center justify-between pb-3 mb-3 border-b border-[#22222A] font-mono text-[10px] text-[#8A8A94]">
-              <span className="text-white font-bold">KSHITIZ KHANDELWAL</span>
-              <span>BENGALURU, INDIA</span>
+            <div className="flex items-center justify-between pb-3 mb-3 border-b-2 border-dashed border-[#2B3245] font-mono text-[10px] text-[#94A3B8]">
+              <span className="text-white font-bold flex items-center gap-1.5">
+                <span>⚡</span>
+                <span>KSHITIZ KHANDELWAL</span>
+              </span>
+              <span>BENGALURU, INDIA 🇮🇳</span>
             </div>
 
-            {/* Profile Picture Container with 100% Reliable Click-to-Color Toggle & Hover Reveal */}
+            {/* Profile Picture Container with 100% Reliable Click-to-Color Toggle */}
             <div
               onClick={togglePhotoColor}
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
-              className="relative aspect-[4/5] rounded-2xl overflow-hidden bg-[#0A0A0C] border border-[#22222A] cursor-pointer select-none"
+              className="relative aspect-[4/5] rounded-2xl overflow-hidden bg-[#0A0A0C] border border-[#2B3245] cursor-pointer select-none"
               title="Click to toggle Color / Grayscale photo"
             >
               <Image
@@ -209,12 +223,12 @@ export function Hero() {
             </div>
 
             {/* Bottom Status Bar */}
-            <div className="flex items-center justify-between pt-3 mt-3 border-t border-[#22222A] font-mono text-[10px] text-[#8A8A94]">
+            <div className="flex items-center justify-between pt-3 mt-3 border-t-2 border-dashed border-[#2B3245] font-mono text-[10px] text-[#94A3B8]">
               <span className="flex items-center gap-1.5">
                 <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
-                <span className="text-[#C7C7CF]">SYSTEM CORE: ONLINE</span>
+                <span className="text-[#E2E8F0]">SYSTEM CORE: ONLINE</span>
               </span>
-              <span className="text-[#D4AF37] font-semibold">9.43 CGPA • CSBS</span>
+              <span className="text-[#FFD700] font-semibold">9.43 CGPA • CSBS</span>
             </div>
           </div>
         </motion.div>
