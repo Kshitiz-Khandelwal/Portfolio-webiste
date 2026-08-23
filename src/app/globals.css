@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Kalam:wght@400;700&family=Gaegu:wght@700&display=swap');
 @import "tailwindcss";
 
 :root {
@@ -8,15 +9,15 @@
   --ruby-red: #9B111E;
   --pure-white: #FFFFFF;
   
-  --canvas-bg: #F8FAFC;
-  --card-bg: #FFFFFF;
-  --card-subtle: #F1F5F9;
-  --border-subtle: #E2E8F0;
+  --canvas-bg: #0A0A0C;
+  --card-bg: #121216;
+  --card-subtle: #18181F;
+  --border-subtle: #22222A;
   --border-gold: rgba(212, 175, 55, 0.4);
   
-  --text-primary: #0F172A;
-  --text-secondary: #475569;
-  --text-muted: #64748B;
+  --text-primary: #F4F4F7;
+  --text-secondary: #C7C7CF;
+  --text-muted: #8A8A94;
   
   --background: var(--canvas-bg);
   --foreground: var(--text-primary);
@@ -27,10 +28,10 @@
   --color-gold-sunburst: #FFD700;
   --color-crimson: #DC143C;
   --color-ruby: #9B111E;
-  --color-canvas: #F8FAFC;
-  --color-card-surface: #FFFFFF;
-  --color-card-subtle: #F1F5F9;
-  --color-border-subtle: #E2E8F0;
+  --color-canvas: #0A0A0C;
+  --color-card-surface: #121216;
+  --color-card-subtle: #18181F;
+  --color-border-subtle: #22222A;
   
   --font-sans: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, "SF Mono", Menlo, Monaco, Consolas, monospace;
@@ -41,15 +42,57 @@ html {
 }
 
 body {
-  background-color: var(--canvas-bg);
-  color: var(--text-primary);
+  background-color: #0A0A0C;
+  color: #F4F4F7;
   font-family: var(--font-sans);
   overflow-x: hidden;
 }
 
-::selection {
-  background-color: rgba(212, 175, 55, 0.25);
-  color: #0F172A;
+.font-hand {
+  font-family: 'Caveat', 'Kalam', 'Gaegu', cursive;
+}
+
+/* Paper Sticky Note Styling */
+.paper-sticky {
+  background-color: #F7EBD9;
+  color: #261B11;
+  border: 1px solid #E5D2B8;
+  border-radius: 12px;
+  box-shadow: 4px 5px 0px 0px rgba(26, 17, 10, 0.85), 0 10px 20px -5px rgba(0,0,0,0.5);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.paper-sticky:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 6px 8px 0px 0px rgba(26, 17, 10, 0.95), 0 15px 25px -5px rgba(0,0,0,0.6);
+}
+
+/* Red Tape on Top of Sticky Note */
+.red-tape {
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 28px;
+  height: 12px;
+  background: #DC2626;
+  border-radius: 2px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+  z-index: 10;
+}
+
+.red-pin {
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10px;
+  height: 10px;
+  background: #DC2626;
+  border-radius: 50%;
+  border: 1.5px solid #7F1D1D;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.4);
+  z-index: 10;
 }
 
 /* Minimal Custom Scrollbar */
@@ -59,11 +102,11 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #F8FAFC;
+  background: #0A0A0C;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #CBD5E1;
+  background: #2A2A35;
   border-radius: 9999px;
 }
 
@@ -71,53 +114,10 @@ body {
   background: #D4AF37;
 }
 
-/* Hide scrollbar for horizontal rail while maintaining touch/drag scroll */
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
 .no-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
-}
-
-/* Profile Photo Engineered Treatment */
-.profile-engineered {
-  filter: grayscale(85%) contrast(110%) brightness(100%);
-  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.profile-engineered:hover {
-  filter: grayscale(0%) contrast(100%) brightness(100%);
-}
-
-/* Ambient Dark Background — animated dot grid + drifting glow, replaces old light-canvas checker grid */
-@keyframes driftGrid {
-  0% { background-position: 0px 0px; }
-  100% { background-position: 64px 64px; }
-}
-
-@keyframes glowDrift {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  50% { transform: translate(30px, -20px) scale(1.08); }
-}
-
-@keyframes border-beam {
-  100% {
-    offset-distance: 100%;
-  }
-}
-
-.animate-border-beam {
-  animation: border-beam 8s linear infinite;
-}
-
-.ambient-grid {
-  background-size: 32px 32px;
-  background-image:
-    radial-gradient(rgba(212, 175, 55, 0.16) 1px, transparent 1px);
-  animation: driftGrid 18s linear infinite;
-}
-
-.ambient-glow {
-  animation: glowDrift 14s ease-in-out infinite;
 }
