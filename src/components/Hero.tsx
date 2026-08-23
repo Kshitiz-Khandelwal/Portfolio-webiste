@@ -14,6 +14,7 @@ const fadeUp = {
 
 export function Hero() {
   const [isColor, setIsColor] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
 
   const handleResumeClick = () => {
     toast.success("Downloading Resume...", {
@@ -22,9 +23,12 @@ export function Hero() {
   };
 
   const togglePhotoColor = () => {
-    setIsColor(!isColor);
-    toast.info(isColor ? "Photo switched to Grayscale" : "Photo switched to Full Color", {
-      duration: 1500,
+    setIsColor((prev) => {
+      const next = !prev;
+      toast.info(next ? "✨ Photo switched to Full Color" : "🖤 Photo switched to Grayscale", {
+        duration: 1500,
+      });
+      return next;
     });
   };
 
@@ -52,11 +56,11 @@ export function Hero() {
               BACKEND &amp; SYSTEMS
             </span>
             <span className="text-[#22222A]">•</span>
-            <span className="px-3 py-1 rounded-full bg-[#121216] border border-[#22222A] font-mono text-xs text-[#C7C7CF] shadow-xs">
+            <span className="px-3 py-1 rounded-full bg-[#121216] border border-[#22222A] font-mono text-xs text-[#E2E8F0] shadow-xs">
               AI / ML RESEARCH
             </span>
             <span className="text-[#22222A]">•</span>
-            <span className="px-3 py-1 rounded-full bg-[#121216] border border-[#22222A] font-mono text-xs text-[#C7C7CF] shadow-xs">
+            <span className="px-3 py-1 rounded-full bg-[#121216] border border-[#22222A] font-mono text-xs text-[#E2E8F0] shadow-xs">
               EMBEDDED IOT
             </span>
           </div>
@@ -65,12 +69,12 @@ export function Hero() {
           <h1 className="font-sans font-extrabold text-4xl sm:text-6xl text-white tracking-tight leading-[1.08] mb-3">
             Kshitiz Khandelwal
           </h1>
-          <p className="font-mono text-base sm:text-lg text-[#D4AF37] font-bold mb-2">
+          <p className="font-mono text-base sm:text-lg text-[#FFD700] font-bold mb-2">
             Systems, AI &amp; Backend Engineer • Intern @ Zarthi
           </p>
 
           {/* Credibility Line */}
-          <div className="inline-flex items-center gap-2 font-mono text-xs text-[#9A9AA4] mb-6">
+          <div className="inline-flex items-center gap-2 font-mono text-xs text-[#94A3B8] mb-6">
             <span>BMSIT&amp;M</span>
             <span>•</span>
             <span>CSBS</span>
@@ -81,12 +85,12 @@ export function Hero() {
           </div>
 
           {/* Narrative Positioning */}
-          <p className="font-sans text-base sm:text-lg text-[#C7C7CF] max-w-xl leading-relaxed mb-6">
+          <p className="font-sans text-base sm:text-lg text-[#E2E8F0] max-w-xl leading-relaxed mb-6">
             I build high-throughput backend services in Java &amp; Spring Boot, research privacy-preserving split federated learning, and engineer deterministic embedded IoT firmware.
           </p>
 
           {/* Focused Terminal Card */}
-          <div className="w-full max-w-xl bg-[#121216] border border-[#22222A] rounded-2xl p-4 sm:p-5 shadow-xl mb-8 font-mono text-xs text-[#E4E4E9] relative overflow-hidden group">
+          <div className="w-full max-w-xl bg-[#121216] border border-[#22222A] rounded-2xl p-4 sm:p-5 shadow-xl mb-8 font-mono text-xs text-[#F8FAFC] relative overflow-hidden group">
             <BorderBeam size={200} duration={8} colorFrom="#FFD700" colorTo="#D4AF37" />
 
             <div className="flex items-center justify-between pb-3 mb-3 border-b border-[#22222A]">
@@ -94,22 +98,22 @@ export function Hero() {
                 <div className="w-3 h-3 rounded-full bg-[#DC143C]" />
                 <div className="w-3 h-3 rounded-full bg-[#D4AF37]" />
                 <div className="w-3 h-3 rounded-full bg-emerald-500" />
-                <span className="text-[#6B6B76] text-[11px] ml-2">bash — kshitiz@workstation</span>
+                <span className="text-[#94A3B8] text-[11px] ml-2">bash — kshitiz@workstation</span>
               </div>
-              <span className="text-[#D4AF37] font-bold text-[10px]">ACTIVE WORKBENCH</span>
+              <span className="text-[#FFD700] font-bold text-[10px]">ACTIVE WORKBENCH</span>
             </div>
 
             <div className="space-y-1.5 leading-relaxed">
               <div>
-                <span className="text-[#D4AF37] font-bold">$ whoami</span>
+                <span className="text-[#FFD700] font-bold">$ whoami</span>
               </div>
               <div className="text-white font-bold">
                 Kshitiz Khandelwal — Backend &amp; Systems Engineer (Java / Spring Boot / Rust)
               </div>
-              <div className="text-[#8A8A94] pt-1">
+              <div className="text-[#94A3B8] pt-1">
                 Active Engagements:
               </div>
-              <div className="text-[#C7C7CF] pl-3 border-l-2 border-[#D4AF37] space-y-0.5 font-medium">
+              <div className="text-[#E2E8F0] pl-3 border-l-2 border-[#D4AF37] space-y-0.5 font-medium">
                 <div>→ Backend Developer Intern @ Zarthi (Java &amp; Spring Boot)</div>
                 <div>→ Research Fellow @ IIIT Trichy (IoMT Split Federated Learning)</div>
                 <div>→ Embedded IoT Workshop Instructor (100+ Students Instructed)</div>
@@ -120,7 +124,7 @@ export function Hero() {
           {/* Action CTAs */}
           <div className="flex flex-wrap items-center gap-3 w-full sm:w-auto">
             <a
-              href="#featured-projects"
+              href="#projects"
               className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-[#D4AF37] text-black font-sans font-bold text-sm hover:bg-[#FFD700] hover:shadow-[0_0_24px_rgba(255,215,0,0.35)] shadow-sm transition-all active:scale-[0.98]"
             >
               <span>Explore Projects</span>
@@ -142,7 +146,7 @@ export function Hero() {
 
             {/* Direct Resume Download Link */}
             <a
-              href="/Kshitiz_Khandelwal_Resume.pdf"
+              href="/resume.pdf"
               download="Kshitiz_Khandelwal_Resume.pdf"
               onClick={handleResumeClick}
               className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-[#121216] text-[#E4E4E9] border border-[#22222A] hover:border-[#D4AF37] text-sm font-sans font-medium hover:text-[#FFD700] shadow-xs transition-all active:scale-[0.98]"
@@ -168,10 +172,12 @@ export function Hero() {
               <span>BENGALURU, INDIA</span>
             </div>
 
-            {/* Profile Picture Container with Click-to-Color Toggle & Hover Reveal */}
+            {/* Profile Picture Container with 100% Reliable Click-to-Color Toggle & Hover Reveal */}
             <div
               onClick={togglePhotoColor}
-              className="relative aspect-[4/5] rounded-2xl overflow-hidden bg-[#0A0A0C] border border-[#22222A] cursor-pointer group select-none"
+              onMouseEnter={() => setIsHovered(true)}
+              onMouseLeave={() => setIsHovered(false)}
+              className="relative aspect-[4/5] rounded-2xl overflow-hidden bg-[#0A0A0C] border border-[#22222A] cursor-pointer select-none"
               title="Click to toggle Color / Grayscale photo"
             >
               <Image
@@ -180,11 +186,11 @@ export function Hero() {
                 fill
                 priority
                 sizes="(max-width: 768px) 100vw, 400px"
-                className={`object-cover object-top transition-all duration-500 ${
-                  isColor
-                    ? "filter-none brightness-105"
-                    : "profile-engineered group-hover:filter-none"
-                }`}
+                style={{
+                  filter: (isColor || isHovered) ? "grayscale(0%) contrast(100%) brightness(105%)" : "grayscale(100%) contrast(115%) brightness(95%)",
+                  transition: "filter 0.4s cubic-bezier(0.16, 1, 0.3, 1)",
+                }}
+                className="object-cover object-top"
               />
 
               {/* Bottom Gradient Overlay */}
@@ -196,7 +202,7 @@ export function Hero() {
                   Computer Science @ BMSIT&amp;M
                 </span>
                 <p className="font-sans text-[11px] text-slate-300 mt-1 flex items-center gap-1.5">
-                  <span className="w-2 h-2 rounded-full bg-[#D4AF37] animate-pulse" />
+                  <span className={`w-2 h-2 rounded-full ${isColor ? "bg-emerald-400" : "bg-[#D4AF37]"} animate-pulse`} />
                   <span>{isColor ? "🎨 Full Color Mode (Click for B&W)" : "✨ Click to toggle full color"}</span>
                 </p>
               </div>

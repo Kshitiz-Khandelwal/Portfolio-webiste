@@ -77,7 +77,9 @@ export function HorizontalProjectRail() {
   };
 
   return (
-    <section id="featured-projects" className="py-20 px-4 sm:px-6 max-w-7xl mx-auto border-t border-[#22222A]">
+    <section id="projects" className="py-20 px-4 sm:px-6 max-w-7xl mx-auto border-t border-[#22222A]">
+      {/* Anchor for both #projects and #featured-projects */}
+      <div id="featured-projects" className="scroll-mt-24" />
       {/* Section Header with Navigation Controls */}
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
         <div>
