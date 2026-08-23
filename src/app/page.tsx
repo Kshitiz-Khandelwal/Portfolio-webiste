@@ -17,8 +17,8 @@ import { Footer } from "@/components/Footer";
 
 export default function Home() {
   return (
-    <div className="relative min-h-screen bg-[#FAF3E8] text-[#3A2E22] overflow-x-hidden selection:bg-[#E8846B]/30 selection:text-[#3A2E22]">
-      {/* Interactive Canvas & Floating Quotes */}
+    <div className="relative min-h-screen bg-white text-[#111827] overflow-x-hidden selection:bg-[#BFDBFE] selection:text-[#1E40AF]">
+      {/* Interactive Minimal Canvas */}
       <BackgroundEffects />
 
       {/* Sticky Navbar */}
@@ -41,7 +41,7 @@ export default function Home() {
         <ContactSection />
       </main>
 
-      {/* Signature Footer */}
+      {/* Signature Minimal Footer */}
       <Footer />
     </div>
   );

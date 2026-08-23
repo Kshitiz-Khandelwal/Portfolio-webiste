@@ -25,7 +25,7 @@ export function OtherProjectsAndIoT() {
       id: "mobile-controlled-iot",
       title: "Mobile-Controlled Cyber-Physical Robot",
       category: "IoT Firmware & RF Telemetry",
-      badgeClass: "badge-coral",
+      badgeClass: "badge-blue",
       description:
         "Real-time dual-motor drive control over local Wi-Fi / Bluetooth stream with sub-15ms actuation latency, fail-safe disconnect protocols, and hardware interrupt handling.",
       directUrl: "https://drive.google.com/file/d/13vgG0nkYFZ8nUp0Gkg3gGM8iBwO9TKKf/view?usp=drive_link",
@@ -36,7 +36,7 @@ export function OtherProjectsAndIoT() {
       id: "driver-drowsiness",
       title: "Real-Time Driver Negligence & Eye-Blink Edge Alert",
       category: "Edge Computer Vision & Safety",
-      badgeClass: "badge-sage",
+      badgeClass: "badge-neutral",
       description:
         "Computer vision edge node computing Eye Aspect Ratio (EAR) and head-pose telemetry at 30 FPS, triggering instantaneous acoustic buzzers upon micro-sleep detection.",
       directUrl: "https://drive.google.com/file/d/13AXunM5ePO8qOm-RWkIuxlkMIIOvXp1l/view?usp=drive_link",
@@ -47,7 +47,7 @@ export function OtherProjectsAndIoT() {
       id: "hardware-vault",
       title: "Hardware Bench & Workshop Video Vault",
       category: "Multi-Campus Footage Archive",
-      badgeClass: "badge-tan",
+      badgeClass: "badge-neutral",
       description:
         "Access the complete Google Drive vault containing live testbench experiments, oscillograms, and workshop participant training sessions across 3 campuses.",
       directUrl: driveFolderUrl,
@@ -77,28 +77,29 @@ export function OtherProjectsAndIoT() {
   };
 
   return (
-    <section id="other-projects" className="py-20 px-4 sm:px-6 max-w-7xl mx-auto border-t border-[#E0C9AE]">
+    <section id="other-projects" className="py-20 px-4 sm:px-6 max-w-7xl mx-auto bg-[#F7F7F5] rounded-3xl my-8 border border-[#E5E7EB]">
       {/* Video Demonstrations Vault Banner */}
-      <div className="bg-[#F3D9C4]/70 border border-[#E0C9AE] rounded-3xl p-6 sm:p-10 mb-12 shadow-warm relative overflow-hidden">
+      <div className="bg-white border border-[#E5E7EB] rounded-3xl p-6 sm:p-10 mb-12 shadow-clean">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8">
           <div>
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-xl badge-coral text-[11px] font-mono uppercase tracking-wider font-bold mb-3">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-lg badge-blue text-[11px] font-mono uppercase tracking-wider font-semibold mb-3">
               <Play className="w-3 h-3 fill-current" />
               <span>Interactive Hardware Video Vault</span>
             </div>
-            <h3 className="font-sans font-bold text-2xl sm:text-3xl text-[#3A2E22]">
+            <h3 className="font-sans font-bold text-2xl sm:text-3xl text-[#111827]">
               Working Embedded &amp; AI Video Proofs
             </h3>
-            <p className="font-sans text-xs sm:text-sm text-[#8A7A63] mt-1 max-w-xl">
+            <p className="font-sans text-xs sm:text-sm text-[#6B7280] mt-1 max-w-xl">
               Click on any video below to stream footage directly inside the website.
             </p>
           </div>
 
+          {/* Primary Blue CTA Button */}
           <a
             href={driveFolderUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-xl bg-[#E8846B] text-[#FAF3E8] font-bold text-xs sm:text-sm hover:bg-[#D9735A] hover:scale-105 active:scale-95 transition-all shadow-warm shrink-0"
+            className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-xl bg-[#2563EB] text-white font-medium text-xs sm:text-sm hover:bg-[#1D4ED8] hover:shadow-clean-md transition-all shadow-clean shrink-0"
           >
             <Play className="w-4 h-4 fill-current" />
             <span>Open Google Drive Vault</span>
@@ -112,45 +113,41 @@ export function OtherProjectsAndIoT() {
             <div
               key={demo.id}
               onClick={() => openVideo(demo)}
-              className="bg-[#FDF8F2] border border-[#E0C9AE] hover:border-[#E8846B] rounded-2xl p-5 flex flex-col justify-between group transition-all duration-300 hover:-translate-y-1.5 hover:shadow-warmLg shadow-warm cursor-pointer select-none relative"
+              className="bg-white border border-[#E5E7EB] hover:border-[#2563EB] rounded-2xl p-5 flex flex-col justify-between group transition-all duration-300 hover:-translate-y-1.5 hover:shadow-clean-md shadow-clean cursor-pointer select-none relative"
             >
               <div>
-                {/* Video Card Header */}
-                <div className="flex items-center justify-between mb-3 pb-2 border-b border-[#E0C9AE]">
-                  <span className={`font-mono text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-md font-bold ${demo.badgeClass}`}>
+                <div className="flex items-center justify-between mb-3 pb-2 border-b border-[#F3F4F6]">
+                  <span className={`font-mono text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-md font-semibold ${demo.badgeClass}`}>
                     {demo.category}
                   </span>
-                  <div className="w-8 h-8 rounded-full bg-[#F3D9C4] border border-[#E0C9AE] flex items-center justify-center text-[#B5432C] group-hover:scale-110 group-hover:bg-[#E8846B] group-hover:text-[#FAF3E8] transition-all shadow-xs">
+                  <div className="w-8 h-8 rounded-full bg-[#EFF6FF] border border-[#BFDBFE] flex items-center justify-center text-[#2563EB] group-hover:scale-110 group-hover:bg-[#2563EB] group-hover:text-white transition-all shadow-xs">
                     <Play className="w-3.5 h-3.5 fill-current ml-0.5" />
                   </div>
                 </div>
 
-                <h4 className="font-sans font-bold text-base text-[#3A2E22] group-hover:text-[#E8846B] transition-colors mb-2">
+                <h4 className="font-sans font-bold text-base text-[#111827] group-hover:text-[#2563EB] transition-colors mb-2">
                   {demo.title}
                 </h4>
 
-                <p className="font-sans text-xs text-[#5C4D3C] leading-relaxed mb-4">
+                <p className="font-sans text-xs text-[#4B5563] leading-relaxed mb-4">
                   {demo.description}
                 </p>
               </div>
 
               <div>
                 {/* Tech Tags */}
-                <div className="flex flex-wrap gap-1.5 pt-3 border-t border-[#E0C9AE] mb-4">
-                  {demo.tags.map((tag, tIdx) => (
+                <div className="flex flex-wrap gap-1.5 pt-3 border-t border-[#F3F4F6] mb-4">
+                  {demo.tags.map((tag) => (
                     <span
                       key={tag}
-                      className={`px-2 py-0.5 rounded text-[10px] font-mono font-medium ${
-                        tIdx % 2 === 0 ? "badge-coral" : "badge-sage"
-                      }`}
+                      className="px-2 py-0.5 rounded text-[10px] font-mono font-medium badge-neutral"
                     >
                       {tag}
                     </span>
                   ))}
                 </div>
 
-                {/* Direct Play In-Page Button */}
-                <div className="inline-flex items-center gap-2 text-xs font-bold text-[#E8846B] group-hover:text-[#B5432C] transition-colors">
+                <div className="inline-flex items-center gap-2 text-xs font-medium text-[#2563EB] group-hover:text-[#1D4ED8] transition-colors">
                   <Play className="w-3.5 h-3.5 fill-current" />
                   <span>Click to Watch Footage In-Page ➔</span>
                 </div>
@@ -163,18 +160,18 @@ export function OtherProjectsAndIoT() {
       {/* Direct In-Page Google Drive Video Player Modal */}
       {activeVideoModal && (
         <div
-          className="fixed inset-0 z-60 flex items-center justify-center p-4 sm:p-6 bg-[#3A2E22]/80 backdrop-blur-md animate-in fade-in duration-200"
+          className="fixed inset-0 z-60 flex items-center justify-center p-4 sm:p-6 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200"
           onClick={() => setActiveVideoModal(null)}
         >
           <div
-            className="relative w-full max-w-4xl bg-[#FDF8F2] border-2 border-[#E8846B] rounded-3xl p-4 sm:p-6 shadow-warmLg overflow-hidden"
+            className="relative w-full max-w-4xl bg-white border border-[#E5E7EB] rounded-3xl p-4 sm:p-6 shadow-clean-lg overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Top Modal Controls */}
-            <div className="flex items-center justify-between pb-3 mb-3 border-b border-[#E0C9AE]">
+            <div className="flex items-center justify-between pb-3 mb-3 border-b border-[#E5E7EB]">
               <div className="flex items-center gap-2">
-                <span className="w-2.5 h-2.5 rounded-full bg-[#E8846B] animate-pulse" />
-                <h3 className="font-sans font-bold text-base sm:text-lg text-[#3A2E22]">
+                <span className="w-2.5 h-2.5 rounded-full bg-[#2563EB]" />
+                <h3 className="font-sans font-bold text-base sm:text-lg text-[#111827]">
                   {activeVideoModal.title}
                 </h3>
               </div>
@@ -184,7 +181,7 @@ export function OtherProjectsAndIoT() {
                   href={activeVideoModal.directUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-[#F3D9C4] border border-[#E0C9AE] text-xs font-mono text-[#B5432C] hover:text-[#3A2E22] transition-colors"
+                  className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-[#F3F4F6] border border-[#E5E7EB] text-xs font-mono text-[#374151] hover:text-[#2563EB] transition-colors"
                 >
                   <span>Open in Drive</span>
                   <ExternalLink className="w-3 h-3" />
@@ -192,7 +189,7 @@ export function OtherProjectsAndIoT() {
 
                 <button
                   onClick={() => setActiveVideoModal(null)}
-                  className="p-2 rounded-xl bg-[#F3D9C4] border border-[#E0C9AE] text-[#5C4D3C] hover:text-[#3A2E22] transition-colors"
+                  className="p-2 rounded-xl bg-[#F3F4F6] border border-[#E5E7EB] text-[#6B7280] hover:text-[#111827] transition-colors"
                 >
                   <X className="w-5 h-5" />
                 </button>
@@ -200,14 +197,14 @@ export function OtherProjectsAndIoT() {
             </div>
 
             {/* Embedded Video Frame */}
-            <div className="relative aspect-[16/10] w-full rounded-2xl overflow-hidden bg-[#F3D9C4] border border-[#E0C9AE]">
+            <div className="relative aspect-[16/10] w-full rounded-2xl overflow-hidden bg-[#F3F4F6] border border-[#E5E7EB]">
               {isVideoLoading && (
-                <div className="absolute inset-0 flex flex-col items-center justify-center bg-[#FAF3E8] z-10 space-y-3">
-                  <Loader2 className="w-8 h-8 text-[#E8846B] animate-spin" />
-                  <span className="font-mono text-xs text-[#3A2E22]">
+                <div className="absolute inset-0 flex flex-col items-center justify-center bg-white z-10 space-y-3">
+                  <Loader2 className="w-8 h-8 text-[#2563EB] animate-spin" />
+                  <span className="font-mono text-xs text-[#111827]">
                     Streaming footage from Google Drive Vault...
                   </span>
-                  <span className="font-mono text-[10px] text-[#8A7A63]">
+                  <span className="font-mono text-[10px] text-[#6B7280]">
                     (Buffered for high quality playback)
                   </span>
                 </div>
@@ -225,11 +222,11 @@ export function OtherProjectsAndIoT() {
             </div>
 
             {/* Description Footer */}
-            <div className="pt-3 mt-3 border-t border-[#E0C9AE] flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-              <p className="font-sans text-xs text-[#5C4D3C]">
+            <div className="pt-3 mt-3 border-t border-[#E5E7EB] flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+              <p className="font-sans text-xs text-[#4B5563]">
                 {activeVideoModal.description}
               </p>
-              <span className="font-mono text-[10px] text-[#B5432C] shrink-0 font-bold">
+              <span className="font-mono text-[10px] text-[#2563EB] shrink-0 font-semibold">
                 {activeVideoModal.category}
               </span>
             </div>
@@ -241,48 +238,46 @@ export function OtherProjectsAndIoT() {
       <WorkshopCollage />
 
       {/* Featured Hardware Spotlight: Zephyr Edge AI Lab */}
-      <div className="relative bg-[#FDF8F2] border border-[#E0C9AE] hover:border-[#E8846B] rounded-3xl p-6 sm:p-8 mt-12 mb-8 shadow-warm transition-all duration-300">
+      <div className="relative bg-white border border-[#E5E7EB] hover:border-[#2563EB] rounded-3xl p-6 sm:p-8 mt-12 mb-8 shadow-clean transition-all duration-300">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           {/* Left: Project Details */}
           <div className="lg:col-span-7 space-y-4">
-            <div className="flex flex-wrap items-center gap-2 pb-2 border-b border-[#E0C9AE]">
-              <span className="font-mono text-[10px] uppercase tracking-wider px-2.5 py-1 rounded-full badge-coral font-bold">
+            <div className="flex flex-wrap items-center gap-2 pb-2 border-b border-[#F3F4F6]">
+              <span className="font-mono text-[10px] uppercase tracking-wider px-2.5 py-1 rounded-full badge-blue font-semibold">
                 {zephyrProject.badge}
               </span>
-              <span className="font-mono text-[10px] text-[#8A7A63]">
+              <span className="font-mono text-[10px] text-[#6B7280]">
                 ARM Cortex-M33 Dual-Core
               </span>
             </div>
 
-            <h3 className="font-sans font-bold text-2xl text-[#3A2E22]">
+            <h3 className="font-sans font-bold text-2xl text-[#111827]">
               {zephyrProject.title}
             </h3>
-            <p className="font-mono text-xs text-[#E8846B] font-semibold">
+            <p className="font-sans text-xs sm:text-sm text-[#2563EB] font-medium">
               {zephyrProject.tagline}
             </p>
 
-            <p className="font-sans text-xs sm:text-sm text-[#5C4D3C] leading-relaxed">
+            <p className="font-sans text-xs sm:text-sm text-[#4B5563] leading-relaxed">
               {zephyrProject.summary}
             </p>
 
             {/* Highlights */}
             <div className="space-y-2 pt-2">
               {zephyrProject.highlights.map((h, idx) => (
-                <div key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-[#5C4D3C]">
-                  <CheckCircle2 className="w-4 h-4 text-[#8FBFA0] shrink-0 mt-0.5" />
+                <div key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-[#4B5563]">
+                  <CheckCircle2 className="w-4 h-4 text-[#2563EB] shrink-0 mt-0.5" />
                   <span>{h}</span>
                 </div>
               ))}
             </div>
 
             {/* Tech Tags */}
-            <div className="flex flex-wrap gap-1.5 pt-3 border-t border-[#E0C9AE]">
-              {zephyrProject.tags.map((tag, tIdx) => (
+            <div className="flex flex-wrap gap-1.5 pt-3 border-t border-[#F3F4F6]">
+              {zephyrProject.tags.map((tag) => (
                 <span
                   key={tag}
-                  className={`px-2.5 py-1 rounded-md text-[11px] font-mono font-medium ${
-                    tIdx % 2 === 0 ? "badge-coral" : "badge-sage"
-                  }`}
+                  className="px-2.5 py-1 rounded-md text-[11px] font-mono font-medium badge-neutral"
                 >
                   {tag}
                 </span>
@@ -294,7 +289,7 @@ export function OtherProjectsAndIoT() {
                 href={zephyrProject.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#F3D9C4] border border-[#E0C9AE] hover:border-[#E8846B] text-xs font-mono text-[#3A2E22] hover:text-[#E8846B] shadow-warm transition-all"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white border border-[#E5E7EB] hover:border-[#2563EB] text-xs font-sans text-[#111827] hover:text-[#2563EB] shadow-clean transition-all"
               >
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
                   <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
@@ -307,7 +302,7 @@ export function OtherProjectsAndIoT() {
           {/* Right: RP2350 Hardware Photo */}
           <div className="lg:col-span-5">
             <div
-              className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-[#F3D9C4] border border-[#E0C9AE] hover:border-[#E8846B] shadow-warm group cursor-pointer transition-all duration-300"
+              className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-[#F3F4F6] border border-[#E5E7EB] hover:border-[#2563EB] shadow-clean group cursor-pointer transition-all duration-300"
               onClick={() => setZoomedHardwarePhoto(true)}
             >
               <Image
@@ -316,17 +311,17 @@ export function OtherProjectsAndIoT() {
                 fill
                 className="object-contain p-2 group-hover:scale-105 transition-transform duration-500"
               />
-              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#3A2E22]/90 via-[#3A2E22]/40 to-transparent p-3 flex items-center justify-between pointer-events-none">
+              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-3 flex items-center justify-between pointer-events-none">
                 <div>
-                  <span className="font-mono text-xs text-[#FAF3E8] font-bold block">
+                  <span className="font-mono text-xs text-white font-semibold block">
                     RP2350 Hardware Lab Board
                   </span>
-                  <span className="font-mono text-[10px] text-[#F3D9C4]">
+                  <span className="font-mono text-[10px] text-slate-300">
                     Breadboard • L298N Motor Driver • Raspberry Pi Pico 2
                   </span>
                 </div>
-                <span className="font-mono text-[10px] bg-[#FAF3E8] px-2 py-0.5 rounded text-[#3A2E22] font-bold">
-                  🔍 Click to Zoom
+                <span className="font-mono text-[10px] bg-white px-2 py-0.5 rounded text-[#111827] font-semibold">
+                  🔍 Zoom
                 </span>
               </div>
             </div>
@@ -337,16 +332,16 @@ export function OtherProjectsAndIoT() {
       {/* Lightbox Zoom Modal */}
       {zoomedHardwarePhoto && (
         <div
-          className="fixed inset-0 z-60 flex items-center justify-center p-4 bg-[#3A2E22]/85 backdrop-blur-md animate-in fade-in duration-200"
+          className="fixed inset-0 z-60 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm animate-in fade-in duration-200"
           onClick={() => setZoomedHardwarePhoto(false)}
         >
           <button
             onClick={() => setZoomedHardwarePhoto(false)}
-            className="absolute top-6 right-6 p-3 rounded-full bg-[#FDF8F2] border border-[#E0C9AE] text-[#3A2E22] hover:text-[#E8846B] transition-colors"
+            className="absolute top-6 right-6 p-3 rounded-full bg-white border border-[#E5E7EB] text-[#111827] hover:text-[#2563EB] transition-colors shadow-clean"
           >
             <X className="w-6 h-6" />
           </button>
-          <div className="relative w-full max-w-4xl max-h-[85vh] aspect-[4/3] overflow-hidden rounded-2xl border-2 border-[#E8846B] bg-[#FAF3E8]">
+          <div className="relative w-full max-w-4xl max-h-[85vh] aspect-[4/3] overflow-hidden rounded-2xl border border-[#E5E7EB] bg-white shadow-clean-lg">
             <Image
               src="/rp2350_iot_board.jpeg"
               alt="RP2350 Hardware Lab Setup High Res"

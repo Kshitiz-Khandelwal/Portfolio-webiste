@@ -1,38 +1,38 @@
 @import "tailwindcss";
 
 :root {
-  /* Warm Sketchbook Palette Tokens */
-  --bg-page: #FAF3E8;          /* Warm Cream Canvas */
-  --bg-card: #F3D9C4;          /* Soft Peach Surface */
-  --bg-card-light: #FDF8F2;    /* Crisp Warm Cream Paper */
-  --bg-card-subtle: #EFE3D3;   /* Neutral Tan Sub-Surface */
+  /* Minimal Light Monochrome & Single Blue Accent System */
+  --bg-page: #FFFFFF;
+  --bg-section-alt: #F7F7F5;
+  --bg-card: #FFFFFF;
+  --bg-surface-subtle: #F3F4F6;
 
-  --text-primary: #3A2E22;     /* Dark Warm Brown (NOT Black) */
-  --text-secondary: #5C4D3C;   /* Medium Warm Brown */
-  --text-muted: #8A7A63;       /* Warm Taupe */
+  --text-primary: #111827;
+  --text-secondary: #374151;
+  --text-muted: #6B7280;
 
-  --accent-coral: #E8846B;     /* Primary Coral Accent */
-  --accent-coral-hover: #D9735A;
-  --accent-sage: #8FBFA0;      /* Secondary Sage Green Accent */
-  --accent-sage-dark: #3D6E50;
+  --accent-primary: #2563EB;
+  --accent-hover: #1D4ED8;
+  --accent-subtle: #EFF6FF;
+  --accent-border: #BFDBFE;
 
-  --border-card: #E0C9AE;      /* 1-2px Warm Border */
-  --border-subtle: #EADBC8;
+  --border-default: #E5E7EB;
+  --border-subtle: #F3F4F6;
 
   --background: var(--bg-page);
   --foreground: var(--text-primary);
 }
 
 @theme inline {
-  --color-page: #FAF3E8;
-  --color-card: #F3D9C4;
-  --color-card-light: #FDF8F2;
-  --color-card-subtle: #EFE3D3;
-  --color-text-main: #3A2E22;
-  --color-text-muted: #8A7A63;
-  --color-accent-coral: #E8846B;
-  --color-accent-sage: #8FBFA0;
-  --color-border-card: #E0C9AE;
+  --color-page: #FFFFFF;
+  --color-section-alt: #F7F7F5;
+  --color-card: #FFFFFF;
+  --color-surface-subtle: #F3F4F6;
+  --color-text-main: #111827;
+  --color-text-muted: #6B7280;
+  --color-accent-blue: #2563EB;
+  --color-accent-hover: #1D4ED8;
+  --color-border-card: #E5E7EB;
 
   --font-sans: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, "SF Mono", Menlo, Monaco, Consolas, monospace;
@@ -43,8 +43,8 @@ html {
 }
 
 body {
-  background-color: #FAF3E8;
-  color: #3A2E22;
+  background-color: #FFFFFF;
+  color: #111827;
   font-family: var(--font-sans);
   overflow-x: hidden;
 }
@@ -53,32 +53,30 @@ body {
   font-family: var(--font-hand), 'Caveat', 'Kalam', cursive;
 }
 
-/* Warm Tag & Badge Variants (WCAG AA Compliant) */
-.badge-coral {
-  background-color: #F6D9CF;
-  color: #B5432C;
-  border: 1px solid rgba(232, 132, 107, 0.5);
+/* Single Unified Blue Badge Utility */
+.badge-blue {
+  background-color: #EFF6FF;
+  color: #1D4ED8;
+  border: 1px solid #BFDBFE;
 }
 
-.badge-sage {
-  background-color: #E2EFE7;
-  color: #2D5E40;
-  border: 1px solid rgba(143, 191, 160, 0.6);
+.badge-neutral {
+  background-color: #F3F4F6;
+  color: #374151;
+  border: 1px solid #E5E7EB;
 }
 
-.badge-tan {
-  background-color: #EFE3D3;
-  color: #4A3B2C;
-  border: 1px solid #E0C9AE;
+/* Clean Minimal Shadows */
+.shadow-clean {
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.05);
 }
 
-/* Subtle Warm Shadowing */
-.shadow-warm {
-  box-shadow: 0 4px 12px -2px rgba(58, 46, 34, 0.06), 0 2px 6px -1px rgba(58, 46, 34, 0.04);
+.shadow-clean-md {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.06), 0 2px 4px -2px rgba(0, 0, 0, 0.04);
 }
 
-.shadow-warmLg {
-  box-shadow: 0 10px 25px -3px rgba(58, 46, 34, 0.08), 0 4px 10px -2px rgba(58, 46, 34, 0.04);
+.shadow-clean-lg {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.06), 0 4px 6px -4px rgba(0, 0, 0, 0.03);
 }
 
 /* Minimal Custom Scrollbar */
@@ -88,16 +86,16 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #FAF3E8;
+  background: #FFFFFF;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #D5BFA4;
+  background: #D1D5DB;
   border-radius: 9999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #E8846B;
+  background: #2563EB;
 }
 
 .no-scrollbar::-webkit-scrollbar {

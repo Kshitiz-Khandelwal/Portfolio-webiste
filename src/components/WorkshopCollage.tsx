@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import { ZoomIn, X, MapPin } from "lucide-react";
+import { ZoomIn, X } from "lucide-react";
 
 export function WorkshopCollage() {
   const [activeFilter, setActiveFilter] = useState<string>("all");
@@ -28,16 +28,16 @@ export function WorkshopCollage() {
   const filtered = activeFilter === "all" ? allPhotos : allPhotos.filter((p) => p.venue.toLowerCase() === activeFilter.toLowerCase());
 
   return (
-    <div className="mt-10 bg-[#FDF8F2] border border-[#E0C9AE] rounded-3xl p-6 sm:p-10 shadow-warm relative overflow-hidden">
+    <div className="mt-10 bg-white border border-[#E5E7EB] rounded-3xl p-6 sm:p-10 shadow-clean relative overflow-hidden">
       {/* Header Bar */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 mb-8 border-b border-[#E0C9AE] relative z-10">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 mb-8 border-b border-[#E5E7EB] relative z-10">
         <div>
           <div className="flex items-center gap-2 mb-1">
-            <h3 className="font-sans font-bold text-xl sm:text-2xl text-[#3A2E22]">
+            <h3 className="font-sans font-bold text-xl sm:text-2xl text-[#111827]">
               Workshop Idea Gallery &amp; Photo Documentation
             </h3>
           </div>
-          <p className="font-sans text-xs sm:text-sm text-[#8A7A63]">
+          <p className="font-sans text-xs sm:text-sm text-[#6B7280]">
             Documented sessions across 3 engineering campuses • Click any photo to enlarge in full resolution.
           </p>
         </div>
@@ -48,10 +48,10 @@ export function WorkshopCollage() {
             <button
               key={tab}
               onClick={() => setActiveFilter(tab)}
-              className={`px-3.5 py-1.5 rounded-xl text-xs font-mono font-bold transition-all ${
+              className={`px-3.5 py-1.5 rounded-xl text-xs font-mono font-medium transition-all ${
                 activeFilter === tab
-                  ? "bg-[#E8846B] text-[#FAF3E8] shadow-xs"
-                  : "bg-[#F3D9C4] text-[#5C4D3C] hover:text-[#3A2E22] border border-[#E0C9AE]"
+                  ? "bg-[#2563EB] text-white shadow-clean"
+                  : "bg-[#F3F4F6] text-[#4B5563] hover:text-[#111827] border border-[#E5E7EB]"
               }`}
             >
               {tab === "all" ? "All Photos (9)" : `${tab} Campus`}
@@ -65,11 +65,11 @@ export function WorkshopCollage() {
         {filtered.map((item) => (
           <div
             key={item.src}
-            className="group relative bg-[#FAF3E8] border border-[#E0C9AE] hover:border-[#E8846B] p-3.5 rounded-2xl shadow-warm hover:shadow-warmLg transition-all duration-300 hover:-translate-y-1.5 cursor-pointer"
+            className="group relative bg-[#F7F7F5] border border-[#E5E7EB] hover:border-[#2563EB] p-3.5 rounded-2xl shadow-clean hover:shadow-clean-md transition-all duration-300 hover:-translate-y-1 cursor-pointer"
             onClick={() => setZoomedPhoto(item)}
           >
             {/* Photo Frame */}
-            <div className="relative aspect-[4/3] rounded-xl overflow-hidden bg-[#F3D9C4] border border-[#E0C9AE] mb-3">
+            <div className="relative aspect-[4/3] rounded-xl overflow-hidden bg-white border border-[#E5E7EB] mb-3">
               <Image
                 src={item.src}
                 alt={item.title}
@@ -79,9 +79,9 @@ export function WorkshopCollage() {
               />
 
               {/* Hover Zoom Prompt Badge */}
-              <div className="absolute inset-0 bg-[#3A2E22]/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                <span className="px-3 py-1.5 rounded-lg bg-[#FAF3E8] border border-[#E8846B] text-xs font-mono font-bold text-[#3A2E22] flex items-center gap-1.5 shadow-sm">
-                  <ZoomIn className="w-3.5 h-3.5 text-[#E8846B]" />
+              <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                <span className="px-3 py-1.5 rounded-lg bg-white text-xs font-sans font-medium text-[#111827] flex items-center gap-1.5 shadow-clean">
+                  <ZoomIn className="w-3.5 h-3.5 text-[#2563EB]" />
                   <span>Enlarge Photo</span>
                 </span>
               </div>
@@ -90,15 +90,15 @@ export function WorkshopCollage() {
             {/* Label Area */}
             <div className="pt-1 px-1">
               <div className="flex items-center justify-between gap-1 mb-1">
-                <span className="font-mono text-[9px] uppercase tracking-wider px-2 py-0.5 rounded-md badge-coral font-bold">
+                <span className="font-mono text-[9px] uppercase tracking-wider px-2 py-0.5 rounded-md badge-blue font-semibold">
                   {item.venue} Campus
                 </span>
-                <span className="font-mono text-[9px] text-[#8A7A63]">Verified Session</span>
+                <span className="font-mono text-[9px] text-[#6B7280]">Verified Session</span>
               </div>
-              <h4 className="font-sans font-bold text-sm text-[#3A2E22] group-hover:text-[#E8846B] transition-colors leading-snug">
+              <h4 className="font-sans font-bold text-sm text-[#111827] group-hover:text-[#2563EB] transition-colors leading-snug">
                 {item.title}
               </h4>
-              <p className="font-sans text-xs text-[#5C4D3C] mt-1 line-clamp-2">
+              <p className="font-sans text-xs text-[#6B7280] mt-1 line-clamp-2">
                 {item.caption}
               </p>
             </div>
@@ -109,21 +109,21 @@ export function WorkshopCollage() {
       {/* Lightbox Zoom Modal */}
       {zoomedPhoto && (
         <div
-          className="fixed inset-0 z-60 flex items-center justify-center p-4 bg-[#3A2E22]/85 backdrop-blur-md animate-in fade-in duration-200"
+          className="fixed inset-0 z-60 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm animate-in fade-in duration-200"
           onClick={() => setZoomedPhoto(null)}
         >
           <button
             onClick={() => setZoomedPhoto(null)}
-            className="absolute top-6 right-6 p-3 rounded-full bg-[#FDF8F2] border border-[#E0C9AE] text-[#3A2E22] hover:text-[#E8846B] transition-colors"
+            className="absolute top-6 right-6 p-3 rounded-full bg-white border border-[#E5E7EB] text-[#111827] hover:text-[#2563EB] transition-colors shadow-clean"
           >
             <X className="w-6 h-6" />
           </button>
 
           <div
-            className="relative w-full max-w-4xl bg-[#FDF8F2] border-2 border-[#E8846B] rounded-3xl p-4 sm:p-6 shadow-warmLg overflow-hidden"
+            className="relative w-full max-w-4xl bg-white border border-[#E5E7EB] rounded-3xl p-4 sm:p-6 shadow-clean-lg overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden bg-[#FAF3E8] border border-[#E0C9AE] mb-4">
+            <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden bg-[#F3F4F6] border border-[#E5E7EB] mb-4">
               <Image
                 src={zoomedPhoto.src}
                 alt={zoomedPhoto.title}
@@ -132,15 +132,15 @@ export function WorkshopCollage() {
               />
             </div>
 
-            <div className="flex items-center justify-between pt-2 border-t border-[#E0C9AE]">
+            <div className="flex items-center justify-between pt-2 border-t border-[#E5E7EB]">
               <div>
-                <span className="font-mono text-[10px] uppercase font-bold text-[#E8846B]">
+                <span className="font-mono text-[10px] uppercase font-semibold text-[#2563EB]">
                   {zoomedPhoto.venue} Campus Session
                 </span>
-                <h3 className="font-sans font-bold text-lg text-[#3A2E22]">
+                <h3 className="font-sans font-bold text-lg text-[#111827]">
                   {zoomedPhoto.title}
                 </h3>
-                <p className="font-sans text-xs text-[#5C4D3C] mt-0.5">
+                <p className="font-sans text-xs text-[#6B7280] mt-0.5">
                   {zoomedPhoto.caption}
                 </p>
               </div>

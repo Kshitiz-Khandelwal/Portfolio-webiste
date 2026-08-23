@@ -54,37 +54,33 @@ export function BackgroundEffects() {
     };
     window.addEventListener("resize", handleResize);
 
-    // Warm Palette Particles
+    // Light Minimal Particles
     const colors = [
-      "rgba(232, 132, 107,",  // Coral
-      "rgba(143, 191, 160,",  // Sage Green
-      "rgba(138, 122, 99,",   // Warm Taupe
-      "rgba(92, 77, 60,",     // Medium Warm Brown
+      "rgba(37, 99, 235,",   // Blue #2563EB
+      "rgba(107, 114, 128,", // Gray #6B7280
+      "rgba(156, 163, 175,", // Light Gray
     ];
 
-    const particleCount = Math.min(Math.floor((width * height) / 32000), 35);
+    const particleCount = Math.min(Math.floor((width * height) / 35000), 28);
     const particles: Particle[] = [];
 
     for (let i = 0; i < particleCount; i++) {
       particles.push({
         x: Math.random() * width,
         y: Math.random() * height,
-        vx: (Math.random() - 0.5) * 0.3,
-        vy: (Math.random() - 0.5) * 0.3,
-        radius: Math.random() * 1.5 + 0.6,
+        vx: (Math.random() - 0.5) * 0.25,
+        vy: (Math.random() - 0.5) * 0.25,
+        radius: Math.random() * 1.2 + 0.5,
         color: colors[Math.floor(Math.random() * colors.length)],
-        alpha: Math.random() * 0.35 + 0.15,
+        alpha: Math.random() * 0.2 + 0.1,
       });
     }
 
-    // Quotes Floating in Ambient Background
     const floatingQuotesList = [
       "“Talk is cheap. Show me the code.” — Linus Torvalds",
       "“Simplicity is prerequisite for reliability.” — Dijkstra",
-      "“Every system begins as nothing. The craft is in the iteration.”",
       "H(X) = -Σ P(xᵢ) · log₂ P(xᵢ)",
       "Attention(Q,K,V) = softmax(QKᵀ / √dₖ) V",
-      "“In the midst of chaos, there is also opportunity.” — Sun Tzu",
       "NoPeek_Loss = ℒ_task + α · dCor(X, Z)",
     ];
 
@@ -92,11 +88,11 @@ export function BackgroundEffects() {
       text,
       x: Math.random() * width,
       y: Math.random() * height,
-      vx: (Math.random() - 0.5) * 0.15,
-      vy: (Math.random() - 0.5) * 0.15,
+      vx: (Math.random() - 0.5) * 0.12,
+      vy: (Math.random() - 0.5) * 0.12,
       size: Math.floor(Math.random() * 2) + 11,
-      color: colors[idx % colors.length],
-      alpha: Math.random() * 0.14 + 0.08,
+      color: "rgba(156, 163, 175,",
+      alpha: Math.random() * 0.12 + 0.06,
       pulseSpeed: Math.random() * 0.015 + 0.008,
       pulseOffset: Math.random() * Math.PI * 2,
     }));
@@ -107,7 +103,7 @@ export function BackgroundEffects() {
       time += 0.015;
       ctx.clearRect(0, 0, width, height);
 
-      // 1. Draw Floating Quotes
+      // 1. Quotes
       for (const q of quotes) {
         q.x += q.vx;
         q.y += q.vy;
@@ -117,27 +113,27 @@ export function BackgroundEffects() {
         if (q.y < -50) q.y = height + 30;
         if (q.y > height + 50) q.y = -30;
 
-        const dynamicAlpha = q.alpha + Math.sin(time * q.pulseSpeed * 60 + q.pulseOffset) * 0.04;
+        const dynamicAlpha = q.alpha + Math.sin(time * q.pulseSpeed * 60 + q.pulseOffset) * 0.03;
 
         ctx.font = `italic ${q.size}px "Courier New", Courier, monospace`;
-        ctx.fillStyle = `${q.color} ${Math.max(dynamicAlpha, 0.06)})`;
+        ctx.fillStyle = `${q.color} ${Math.max(dynamicAlpha, 0.04)})`;
         ctx.fillText(q.text, q.x, q.y);
       }
 
-      // 2. Constellation Lines
+      // 2. Lines
       for (let i = 0; i < particles.length; i++) {
         for (let j = i + 1; j < particles.length; j++) {
           const dx = particles[i].x - particles[j].x;
           const dy = particles[i].y - particles[j].y;
           const dist = Math.sqrt(dx * dx + dy * dy);
 
-          if (dist < 110) {
-            const lineAlpha = (1 - dist / 110) * 0.12;
+          if (dist < 100) {
+            const lineAlpha = (1 - dist / 100) * 0.08;
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.strokeStyle = `rgba(232, 132, 107, ${lineAlpha})`;
-            ctx.lineWidth = 0.65;
+            ctx.strokeStyle = `rgba(37, 99, 235, ${lineAlpha})`;
+            ctx.lineWidth = 0.6;
             ctx.stroke();
           }
         }
@@ -172,21 +168,16 @@ export function BackgroundEffects() {
 
   return (
     <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden select-none">
-      {/* Ambient Warm Color Blobs */}
-      <div className="absolute top-10 left-[-5%] w-[600px] h-[550px] bg-[#E8846B]/6 rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute top-[35%] right-[-5%] w-[650px] h-[600px] bg-[#8FBFA0]/7 rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute top-[65%] left-[10%] w-[550px] h-[500px] bg-[#F3D9C4]/40 rounded-full blur-[140px] pointer-events-none" />
-
       {/* Interactive HTML5 Particle & Floating Quotes Canvas */}
       <canvas ref={canvasRef} className="absolute inset-0 w-full h-full opacity-60" />
 
       {/* Interactive Cursor Spotlight Glow */}
       <div
-        className="absolute w-[450px] h-[450px] rounded-full blur-[130px] transition-transform duration-75 ease-out pointer-events-none -translate-x-1/2 -translate-y-1/2"
+        className="absolute w-[400px] h-[400px] rounded-full blur-[120px] transition-transform duration-75 ease-out pointer-events-none -translate-x-1/2 -translate-y-1/2"
         style={{
           left: `${mousePos.x}px`,
           top: `${mousePos.y}px`,
-          background: "radial-gradient(circle, rgba(232, 132, 107, 0.08) 0%, rgba(143, 191, 160, 0.04) 45%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(37, 99, 235, 0.04) 0%, transparent 70%)",
         }}
       />
     </div>
