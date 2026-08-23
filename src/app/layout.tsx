@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "sonner";
@@ -13,25 +13,40 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+export const viewport: Viewport = {
+  themeColor: "#0F121A",
+  width: "device-width",
+  initialScale: 1,
+};
+
 export const metadata: Metadata = {
-  title: "Kshitiz Khandelwal — Systems & AI Engineer | Portfolio",
+  title: "Kshitiz Khandelwal — Systems, AI & Backend Engineer",
   description:
-    "Portfolio of Kshitiz Khandelwal — Systems, AI/ML, and Cybersecurity Engineer. Specializing in DNS threat defense pipelines, privacy-preserving federated healthcare ML, and real-time embedded RTOS.",
+    "Portfolio of Kshitiz Khandelwal — Backend & Systems Engineer, AI/ML Researcher. Intern @ Zarthi (Java & Spring Boot) & Research Fellow @ IIIT Trichy (Split Federated Learning on IoMT).",
   keywords: [
     "Kshitiz Khandelwal",
     "Systems Engineer",
-    "Machine Learning Engineer",
+    "Backend Developer",
+    "Java Spring Boot",
+    "Zarthi Intern",
+    "IIIT Trichy Research",
+    "Split Federated Learning",
     "DNS Shield",
-    "SplitFed Healthcare",
     "Zephyr RTOS",
     "BMSIT",
-    "Cybersecurity AI",
   ],
   authors: [{ name: "Kshitiz Khandelwal" }],
+  icons: {
+    icon: [
+      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/favicon.ico", sizes: "any" },
+    ],
+    apple: "/apple-icon.png",
+  },
   openGraph: {
-    title: "Kshitiz Khandelwal — Systems & AI Engineer",
+    title: "Kshitiz Khandelwal — Systems, AI & Backend Engineer",
     description:
-      "AI-powered defense pipelines, federated healthcare machine learning, and real-time embedded systems architectures.",
+      "High-throughput backend services in Java & Spring Boot, privacy-preserving split federated learning, and deterministic embedded IoT firmware.",
     url: "https://kshitiz-khandelwal.vercel.app",
     siteName: "Kshitiz Khandelwal Portfolio",
     locale: "en_US",
@@ -48,20 +63,32 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "Person",
     name: "Kshitiz Khandelwal",
-    jobTitle: "Systems & AI Engineer",
-    affiliation: {
-      "@type": "CollegeOrUniversity",
-      name: "BMS Institute of Technology & Management",
-    },
+    jobTitle: "Systems, AI & Backend Engineer",
+    affiliation: [
+      {
+        "@type": "Organization",
+        name: "Zarthi",
+        jobTitle: "Backend Developer Intern",
+      },
+      {
+        "@type": "CollegeOrUniversity",
+        name: "BMS Institute of Technology & Management",
+      },
+      {
+        "@type": "CollegeOrUniversity",
+        name: "Indian Institute of Information Technology, Tiruchirappalli",
+      },
+    ],
     url: "https://kshitiz-khandelwal.vercel.app",
     sameAs: [
       "https://github.com/Kshitiz-Khandelwal",
       "https://linkedin.com/in/kshitiz-khandelwal-94917b32a",
     ],
     knowsAbout: [
+      "Java & Spring Boot",
       "Machine Learning",
+      "Split Federated Learning",
       "Cybersecurity",
-      "Federated Learning",
       "Zephyr RTOS",
       "System Design",
       "Full Stack Development",
@@ -71,12 +98,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+        <link rel="alternate icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" href="/apple-icon.png" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#F8FAFC] text-[#0F172A]`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#0F121A] text-[#F8FAFC]`}>
         {children}
         <Toaster position="bottom-right" richColors />
       </body>
