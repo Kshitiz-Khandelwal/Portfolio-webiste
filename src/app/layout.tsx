@@ -1,16 +1,25 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Caveat, Kalam } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "sonner";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+  display: "swap",
 });
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+  display: "swap",
+});
+
+const fontHand = Caveat({
+  variable: "--font-hand",
+  subsets: ["latin"],
+  weight: ["600", "700"],
+  display: "swap",
 });
 
 export const viewport: Viewport = {
@@ -106,7 +115,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#0F121A] text-[#F8FAFC]`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} ${fontHand.variable} antialiased bg-[#0F121A] text-[#F8FAFC]`}>
         {children}
         <Toaster position="bottom-right" richColors />
       </body>
