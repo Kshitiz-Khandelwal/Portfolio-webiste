@@ -15,41 +15,87 @@ export function BackgroundEffects() {
     let width = (canvas.width = window.innerWidth);
     let height = (canvas.height = window.innerHeight);
 
+    let mouse = { x: -1000, y: -1000, radius: 140 };
+
+    const handleMouseMove = (e: MouseEvent) => {
+      mouse.x = e.clientX;
+      mouse.y = e.clientY;
+    };
+
+    const handleMouseLeave = () => {
+      mouse.x = -1000;
+      mouse.y = -1000;
+    };
+
     const handleResize = () => {
       if (!canvas) return;
       width = canvas.width = window.innerWidth;
       height = canvas.height = window.innerHeight;
     };
+
+    window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener("mouseleave", handleMouseLeave);
     window.addEventListener("resize", handleResize);
 
-    // Warm sketch particles
-    const particleCount = 28;
-    const particles = Array.from({ length: particleCount }, () => ({
+    // Connected Studio & Blueprint Constellation Nodes
+    const nodeCount = Math.min(Math.floor((width * height) / 22000), 45);
+    const nodes = Array.from({ length: nodeCount }, () => ({
       x: Math.random() * width,
       y: Math.random() * height,
-      radius: Math.random() * 2 + 1,
-      dx: (Math.random() - 0.5) * 0.35,
-      dy: (Math.random() - 0.5) * 0.35,
-      alpha: Math.random() * 0.3 + 0.1,
-      color: Math.random() > 0.5 ? "#E25543" : "#F8DC96",
+      vx: (Math.random() - 0.5) * 0.45,
+      vy: (Math.random() - 0.5) * 0.45,
+      radius: Math.random() * 2 + 1.2,
+      baseColor: Math.random() > 0.6 ? "#E25543" : Math.random() > 0.3 ? "#F8DC96" : "#B2C4B0",
     }));
 
     const render = () => {
       ctx.clearRect(0, 0, width, height);
 
-      particles.forEach((p) => {
-        p.x += p.dx;
-        p.y += p.dy;
+      // 1. Draw connecting web lines between nearby nodes
+      for (let i = 0; i < nodes.length; i++) {
+        for (let j = i + 1; j < nodes.length; j++) {
+          const dx = nodes[i].x - nodes[j].x;
+          const dy = nodes[i].y - nodes[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
 
-        if (p.x < 0) p.x = width;
-        if (p.x > width) p.x = 0;
-        if (p.y < 0) p.y = height;
-        if (p.y > height) p.y = 0;
+          if (dist < 130) {
+            const alpha = (1 - dist / 130) * 0.18;
+            ctx.beginPath();
+            ctx.moveTo(nodes[i].x, nodes[i].y);
+            ctx.lineTo(nodes[j].x, nodes[j].y);
+            ctx.strokeStyle = `rgba(226, 85, 67, ${alpha})`;
+            ctx.lineWidth = 1;
+            ctx.stroke();
+          }
+        }
+      }
+
+      // 2. Render & update individual nodes
+      nodes.forEach((node) => {
+        // Mouse repelling physics
+        const dx = mouse.x - node.x;
+        const dy = mouse.y - node.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+
+        if (dist < mouse.radius) {
+          const angle = Math.atan2(dy, dx);
+          const force = (mouse.radius - dist) / mouse.radius;
+          node.x -= Math.cos(angle) * force * 2;
+          node.y -= Math.sin(angle) * force * 2;
+        }
+
+        node.x += node.vx;
+        node.y += node.vy;
+
+        if (node.x < 0) node.x = width;
+        if (node.x > width) node.x = 0;
+        if (node.y < 0) node.y = height;
+        if (node.y > height) node.y = 0;
 
         ctx.beginPath();
-        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-        ctx.fillStyle = p.color;
-        ctx.globalAlpha = p.alpha;
+        ctx.arc(node.x, node.y, node.radius, 0, Math.PI * 2);
+        ctx.fillStyle = node.baseColor;
+        ctx.globalAlpha = 0.55;
         ctx.fill();
       });
 
@@ -59,6 +105,8 @@ export function BackgroundEffects() {
     render();
 
     return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("mouseleave", handleMouseLeave);
       window.removeEventListener("resize", handleResize);
       cancelAnimationFrame(animationFrameId);
     };
@@ -66,18 +114,17 @@ export function BackgroundEffects() {
 
   return (
     <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-      {/* Dynamic Floating Canvas Particles */}
-      <canvas ref={canvasRef} className="absolute inset-0 w-full h-full opacity-60" />
+      {/* Interactive Constellation & Blueprint Line Canvas */}
+      <canvas ref={canvasRef} className="absolute inset-0 w-full h-full opacity-70" />
 
-      {/* Watercolor Paint Blobs in Background */}
-      <div className="paint-blob top-20 left-10 w-96 h-80 bg-[#E25543]/10" />
-      <div className="paint-blob top-1/3 right-10 w-80 h-96 bg-[#8A9A86]/12" />
-      <div className="paint-blob bottom-10 left-1/3 w-96 h-72 bg-[#E8B042]/10" />
-      <div className="paint-blob top-2/3 right-1/4 w-80 h-80 bg-[#D2C4D9]/10" />
+      {/* Atmospheric Watercolor Ambient Glows */}
+      <div className="paint-blob top-16 left-8 w-[420px] h-[360px] bg-[#E25543]/12 animate-pulse" style={{ animationDuration: "8s" }} />
+      <div className="paint-blob top-1/3 right-8 w-[380px] h-[400px] bg-[#B2C4B0]/14 animate-pulse" style={{ animationDuration: "11s" }} />
+      <div className="paint-blob bottom-16 left-1/4 w-[450px] h-[320px] bg-[#F8DC96]/10 animate-pulse" style={{ animationDuration: "9s" }} />
 
-      {/* Background Coffee Cup Stains */}
-      <div className="coffee-stain absolute top-1/4 -left-12 w-48 h-48 -rotate-12 opacity-40" />
-      <div className="coffee-stain absolute top-3/4 -right-10 w-44 h-44 rotate-45 opacity-35" />
+      {/* Subtle Studio Coffee Cup Ring Stains */}
+      <div className="coffee-stain absolute top-1/4 -left-12 w-48 h-48 -rotate-12 opacity-35" />
+      <div className="coffee-stain absolute top-3/4 -right-10 w-44 h-44 rotate-45 opacity-30" />
     </div>
   );
 }
