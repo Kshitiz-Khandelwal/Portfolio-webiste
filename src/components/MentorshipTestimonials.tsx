@@ -12,6 +12,7 @@ export function MentorshipTestimonials() {
       quote:
         "Kshitiz demonstrated exceptional research curiosity and mathematical rigor while formulating the NoPeek distance loss and Spiking Neural Network cut-layer abstractions for our Split Federated Learning research on IoMT networks.",
       tag: "RESEARCH SUPERVISION",
+      tapeColor: "washi-tape-coral",
     },
     {
       author: "BMSIT&M Department & Innovation Cell",
@@ -19,7 +20,8 @@ export function MentorshipTestimonials() {
       institution: "BMS Institute of Technology & Management",
       quote:
         "Consistent top-tier academic performance (9.43 CGPA) paired with practical leadership — instructing over 100 undergraduates in microcontroller programming and winning accolades in institutional hackathons.",
-      tag: "ACADEMIC & LEADERSHIP EXCELLENCE",
+      tag: "ACADEMIC EXCELLENCE",
+      tapeColor: "washi-tape-sage",
     },
     {
       author: "Engineering Mentorship @ Zarthi",
@@ -27,22 +29,22 @@ export function MentorshipTestimonials() {
       institution: "Zarthi Technologies",
       quote:
         "Rapidly grasps production microservices concepts in Java and Spring Boot, delivering clean asynchronous REST endpoints, resilient error handling, and optimized database query plans.",
-      tag: "INDUSTRY BACKEND INTERNSHIP",
+      tag: "BACKEND INTERNSHIP",
+      tapeColor: "washi-tape-mustard",
     },
   ];
 
   return (
-    <section className="py-16 px-4 sm:px-6 max-w-7xl mx-auto border-t border-[#22222A]">
-      <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
-        <div>
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#D4AF37]/15 border border-[#D4AF37]/40 text-[11px] font-mono uppercase tracking-wider text-[#FFD700] font-bold mb-3">
-            Third-Party Validation
-          </div>
-          <h2 className="font-sans font-bold text-3xl sm:text-4xl text-white tracking-tight">
-            Institutional Mentorship &amp; Faculty Endorsements
-          </h2>
-        </div>
-        <p className="font-sans text-sm text-[#94A3B8] max-w-md">
+    <section className="py-16 px-4 sm:px-6 max-w-6xl mx-auto">
+      {/* Section Header */}
+      <div className="flex flex-col items-center text-center mb-12">
+        <span className="font-bree text-xs sm:text-sm font-semibold tracking-widest uppercase text-[#D4BAA3] mb-2">
+          Third-Party Validation
+        </span>
+        <h2 className="font-bree text-5xl sm:text-6xl md:text-7xl text-[#F5E1CD]">
+          Mentorship &amp; Endorsements
+        </h2>
+        <p className="font-gochi text-base sm:text-lg text-[#D4BAA3] mt-2 max-w-md">
           Feedback from academic research supervisors, university faculty, and industry engineering leads.
         </p>
       </div>
@@ -51,32 +53,34 @@ export function MentorshipTestimonials() {
         {testimonials.map((t, idx) => (
           <div
             key={idx}
-            className="relative bg-[#181C28] border-2 border-[#2B3245] hover:border-[#D4AF37] rounded-3xl p-6 sm:p-7 shadow-sketch hover:shadow-sketchLg transition-all duration-300 flex flex-col justify-between group"
+            className="relative bg-[#F5E1CD] border-[3.5px] border-[#3E3124] rounded-[26px] p-6 shadow-sketch flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 hover:shadow-sketchLg group"
+            style={{
+              transform: `rotate(${idx % 2 === 0 ? -0.8 : 0.8}deg)`,
+            }}
           >
-            {/* Washi Tape */}
-            <div className="washi-tape-gold -top-2 left-8 rotate-[-3deg]" />
+            <div className={`${t.tapeColor} -top-3.5 left-6 rotate-[-5deg] !w-16 !h-4`} />
 
             <div>
-              <div className="flex items-center justify-between pb-3 mb-4 border-b-2 border-dashed border-[#2B3245]">
-                <span className="font-mono text-[9px] uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#10121A] text-[#FFD700] border border-[#D4AF37]/40 font-bold">
+              <div className="flex items-center justify-between pb-3 mb-4 border-b-2 border-dashed border-[#3E3124]/30">
+                <span className="font-gochi text-xs px-2.5 py-0.5 rounded-full bg-[#E25543] text-white border border-[#3E3124] font-bold">
                   {t.tag}
                 </span>
-                <Quote className="w-5 h-5 text-[#D4AF37] opacity-60" />
+                <Quote className="w-5 h-5 text-[#E25543] opacity-80" />
               </div>
 
-              <p className="font-sans text-xs sm:text-sm text-[#E2E8F0] leading-relaxed italic mb-6">
+              <p className="font-gochi text-base text-[#3E3124] leading-relaxed italic mb-6">
                 &ldquo;{t.quote}&rdquo;
               </p>
             </div>
 
-            <div className="pt-4 border-t-2 border-dashed border-[#2B3245]">
-              <h4 className="font-sans font-bold text-sm text-white group-hover:text-[#FFD700] transition-colors">
+            <div className="pt-3 border-t-2 border-dashed border-[#3E3124]/30">
+              <h4 className="font-bree font-bold text-base text-[#3E3124] group-hover:text-[#E25543] transition-colors">
                 {t.author}
               </h4>
-              <p className="font-mono text-xs text-[#FFD700]">
+              <p className="font-gochi text-xs text-[#E25543] font-bold">
                 {t.role}
               </p>
-              <p className="font-sans text-[11px] text-[#94A3B8] mt-0.5">
+              <p className="font-gochi text-xs text-[#6D6358] mt-0.5">
                 {t.institution}
               </p>
             </div>

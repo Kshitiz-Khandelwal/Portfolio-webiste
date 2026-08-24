@@ -1,140 +1,164 @@
 "use client";
 
 import React from "react";
-import { Brain, ShieldCheck, Cpu, Code2, Server, Laptop } from "lucide-react";
+import { Server, Shield, Cpu, Activity, ArrowRight } from "lucide-react";
 
 export function WhatIWorkOn() {
   const domains = [
     {
-      id: "backend-engineering",
-      page: "PAGE 01 // BACKEND",
+      id: "backend-systems",
       title: "Backend & Distributed Systems",
-      badge: "Java & Spring Boot @ Zarthi",
-      icon: Server,
-      color: "#FFD700",
-      tapeClass: "washi-tape-gold",
-      tilt: "-rotate-1",
+      icon: "⚙️",
+      tapeColor: "washi-tape-coral",
+      accent: "#E25543",
+      tagline: "High-Throughput Java & Production Microservices",
       description:
-        "Building production backend services and microservices architectures using Java and Spring Boot (currently interning at Zarthi), asynchronous FastAPI microservices, and optimized SQL schemas.",
-      topics: ["Java", "Spring Boot", "Microservices", "REST API Design", "PostgreSQL / SQL"],
+        "Building resilient REST APIs, asynchronous worker pools, and database optimizations in Java and Spring Boot (currently contributing at Zarthi).",
+      bullets: [
+        "Spring Boot microservices architecture with thread pools and circuit breakers.",
+        "Optimized query plans, indexing strategies, and connection pooling.",
+        "High-velocity event streams with zero-copy buffer pipelines.",
+      ],
+      badge: "PRODUCTION BACKEND",
+      rotate: "-rotate-1",
+    },
+    {
+      id: "ai-federated-learning",
+      title: "Privacy-Preserving & Edge AI",
+      icon: "🧠",
+      tapeColor: "washi-tape-sage",
+      accent: "#5C755A",
+      tagline: "Split Federated Learning & Medical IoMT Security",
+      description:
+        "Researching distributed AI algorithms where sensitive client data remains on-device while training global models over IoMT telemetry.",
+      bullets: [
+        "Formulated NoPeek distance correlation loss preventing gradient reconstruction.",
+        "Engineered Spiking Neural Network cut-layers with sub-1.2ms latency floors.",
+        "Benchmarked on 100k+ sample telemetry datasets (PTB-XL, Ton-IoT).",
+      ],
+      badge: "IIIT TRICHY RESEARCH",
+      rotate: "rotate-1",
+    },
+    {
+      id: "cybersecurity-forensics",
+      title: "Network Threat Intel & Forensics",
+      icon: "🛡️",
+      tapeColor: "washi-tape-mustard",
+      accent: "#9A7E30",
+      tagline: "Real-Time DGA Detection & Model Explainability",
+      description:
+        "Developing real-time packet inspection engines combining fast heuristic filters with TreeSHAP-explainable machine learning classifiers.",
+      bullets: [
+        "99.4% detection rate on algorithmically generated malicious domains (DGA).",
+        "Sub-1.2ms inference latency floor with LightGBM and custom entropy metrics.",
+        "TreeSHAP waterfall explanations giving SOC analysts defensible root causes.",
+      ],
+      badge: "CYBERSECURITY & SOC",
+      rotate: "-rotate-1",
     },
     {
       id: "embedded-iot",
-      page: "PAGE 02 // EMBEDDED",
-      title: "Embedded Systems & IoT",
-      badge: "Zephyr RTOS & RP2350",
-      icon: Cpu,
-      color: "#38BDF8",
-      tapeClass: "washi-tape-slate",
-      tilt: "rotate-1",
+      title: "Deterministic Embedded RTOS",
+      icon: "🔌",
+      tapeColor: "washi-tape-lavender",
+      accent: "#7B6285",
+      tagline: "Real-Time Firmware on Raspberry Pi Pico 2 (RP2350)",
       description:
-        "Firmware development on ARM Cortex-M33 (Raspberry Pi Pico 2 / RP2350) and ESP32, deterministic FreeRTOS task scheduling, UART/I2C/SPI sensor interfaces, and live telemetry streams.",
-      topics: ["Zephyr RTOS", "Raspberry Pi Pico 2", "ESP32 FreeRTOS", "Sensor Telemetry", "C / C++"],
-    },
-    {
-      id: "cybersecurity",
-      page: "PAGE 03 // SECURITY",
-      title: "Cybersecurity & Threat Defense",
-      badge: "Network & DNS Defense",
-      icon: ShieldCheck,
-      color: "#DC143C",
-      tapeClass: "washi-tape-ruby",
-      tilt: "-rotate-1",
-      description:
-        "Sub-millisecond DNS threat filtering (DNS Shield), algorithmic DGA domain attribution, Shannon entropy scoring, and two-stage network intrusion detection engines.",
-      topics: ["DGA Malware Defense", "DNS Tunneling", "TON-IoT IDS", "Wire-Speed Packet Filters"],
-    },
-    {
-      id: "applied-ai-research",
-      page: "PAGE 04 // AI RESEARCH",
-      title: "Applied AI / ML & Research",
-      badge: "IIIT Trichy Research Fellow",
-      icon: Brain,
-      color: "#10B981",
-      tapeClass: "washi-tape-gold",
-      tilt: "rotate-1",
-      description:
-        "Privacy-preserving Split Federated Learning on IoMT networks (Research Intern at IIIT Trichy), time-series link fault forecasting (ISRO Hackathon Finalist), and TreeSHAP explainability.",
-      topics: ["Split Federated Learning", "IoMT Privacy", "Time-Series Prophet", "TreeSHAP Explainability"],
+        "Writing deterministic bare-metal C/C++ and Zephyr RTOS firmware for ARM Cortex-M33 microcontrollers with sensor and motor actuation.",
+      bullets: [
+        "West build system, devicetree overlays, and Kconfig custom hardware drivers.",
+        "Cooperative multi-threading with thread-safe ring buffers.",
+        "Real-time PWM motor drivers and edge anomaly acoustic alerts.",
+      ],
+      badge: "EMBEDDED HARDWARE",
+      rotate: "rotate-1",
     },
   ];
 
   return (
-    <section id="what-i-work-on" className="py-20 px-4 sm:px-6 max-w-7xl mx-auto border-t border-[#22222A]">
-      <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
-        <div>
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#D4AF37]/15 border border-[#D4AF37]/40 text-[11px] font-mono uppercase tracking-wider text-[#FFD700] font-bold mb-3">
-            Core Technical Focus
-          </div>
-          <h2 className="font-sans font-bold text-3xl sm:text-4xl text-white tracking-tight">
-            What I Work On
-          </h2>
-          <p className="font-sans text-xs sm:text-sm text-[#94A3B8] mt-1 max-w-xl">
-            My primary technical domains spanning production backend architectures, embedded firmware, cybersecurity defense, and applied research.
-          </p>
-        </div>
+    <section id="domains" className="py-20 px-4 sm:px-6 max-w-6xl mx-auto">
+      {/* Section Header */}
+      <div className="flex flex-col items-center text-center mb-12">
+        <span className="font-bree text-xs sm:text-sm font-semibold tracking-widest uppercase text-[#D4BAA3] mb-2">
+          Engineering Focus
+        </span>
+        <h2 className="font-bree text-5xl sm:text-6xl md:text-7xl text-[#F5E1CD]">
+          What I Work On
+        </h2>
+        <p className="font-gochi text-base sm:text-lg text-[#D4BAA3] mt-2 max-w-lg">
+          The four specialized technical pillars behind my software and research architectures.
+        </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {domains.map((d) => {
-          const Icon = d.icon;
-          return (
+      {/* 2x2 Grid of Sketched Paper Cards */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {domains.map((dom, idx) => (
+          <div
+            key={dom.id}
+            className={`relative bg-[#F5E1CD] border-[3.5px] border-[#3E3124] rounded-[26px] p-6 shadow-sketch flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 hover:shadow-sketchLg group ${dom.rotate}`}
+          >
+            {/* Washi Tape Strip */}
             <div
-              key={d.id}
-              className={`relative bg-[#181C28] border-2 border-[#2B3245] hover:border-[#D4AF37] rounded-3xl p-6 transition-all duration-300 hover:-translate-y-2 hover:rotate-0 hover:shadow-sketchLg shadow-sketch flex flex-col justify-between group ${d.tilt}`}
-            >
-              {/* Washi Tape Header Accent */}
-              <div className={`${d.tapeClass} -top-2 left-1/2 -translate-x-1/2`} />
-              <div className="absolute top-3 right-4 text-lg select-none pointer-events-none opacity-80 group-hover:scale-110 transition-transform">
-                📎
+              className={`${dom.tapeColor} -top-3.5 ${
+                idx % 2 === 0 ? "left-8 rotate-[-6deg]" : "right-8 rotate-[5deg]"
+              }`}
+            />
+
+            {/* Paperclip */}
+            <div className="absolute top-3 right-4 text-xl select-none pointer-events-none opacity-80 group-hover:scale-110 transition-transform">
+              {idx % 2 === 0 ? "📎" : "📌"}
+            </div>
+
+            <div>
+              {/* Header Badge */}
+              <div className="flex items-center justify-between pb-2 mb-3 border-b-2 border-dashed border-[#3E3124]/30">
+                <span className="font-gochi text-xs text-[#6D6358] font-bold">
+                  PILLAR 0{idx + 1}
+                </span>
+                <span className="font-gochi text-xs px-3 py-0.5 rounded-full bg-[#E25543] text-white border border-[#3E3124] font-bold shadow-[1px_1px_0px_#3E3124]">
+                  {dom.badge}
+                </span>
               </div>
 
-              <div>
-                <div className="flex items-center justify-between pb-2 mb-3 border-b-2 border-dashed border-[#2B3245]">
-                  <span className="font-mono text-[10px] text-[#94A3B8] font-bold">
-                    {d.page}
-                  </span>
-                  <span className="font-mono text-[9px] uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#10121A] text-[#FFD700] border border-[#D4AF37]/40 font-bold">
-                    {d.badge}
-                  </span>
-                </div>
+              {/* Title & Tagline */}
+              <div className="flex items-start gap-2.5 mb-2">
+                <span className="text-2xl">{dom.icon}</span>
+                <h3 className="font-bree font-bold text-xl sm:text-2xl text-[#3E3124] group-hover:text-[#E25543] transition-colors leading-snug">
+                  {dom.title}
+                </h3>
+              </div>
 
-                <div className="flex items-center gap-3 mb-3">
-                  <div
-                    className="w-10 h-10 rounded-2xl flex items-center justify-center border transition-colors shrink-0 shadow-xs"
-                    style={{
-                      backgroundColor: `${d.color}18`,
-                      borderColor: `${d.color}45`,
-                      color: d.color,
-                    }}
-                  >
-                    <Icon className="w-5 h-5" />
+              <p className="font-gochi text-sm text-[#E25543] font-bold mb-3">
+                {dom.tagline}
+              </p>
+
+              <p className="font-gochi text-base text-[#3E3124] leading-relaxed mb-4">
+                {dom.description}
+              </p>
+
+              {/* Bullets on Warm Paper Inset */}
+              <div className="space-y-1.5 font-gochi text-sm text-[#3E3124] bg-[#F7E8D8] p-3.5 rounded-xl border-2 border-dashed border-[#3E3124]/20 mb-4">
+                {dom.bullets.map((b, bIdx) => (
+                  <div key={bIdx} className="flex items-start gap-2">
+                    <span className="text-[#E25543] font-bold">➔</span>
+                    <span>{b}</span>
                   </div>
-                  <h3 className="font-sans font-bold text-base sm:text-lg text-white group-hover:text-[#FFD700] transition-colors leading-tight">
-                    {d.title}
-                  </h3>
-                </div>
-
-                <p className="font-sans text-xs text-[#CBD5E1] leading-relaxed mb-6">
-                  {d.description}
-                </p>
-              </div>
-
-              <div>
-                <div className="flex flex-wrap gap-1.5 pt-4 border-t-2 border-dashed border-[#2B3245]">
-                  {d.topics.map((t) => (
-                    <span
-                      key={t}
-                      className="px-2 py-0.5 rounded-md bg-[#10121A] text-[#E2E8F0] text-[10px] font-mono border border-[#2B3245]"
-                    >
-                      {t}
-                    </span>
-                  ))}
-                </div>
+                ))}
               </div>
             </div>
-          );
-        })}
+
+            <div className="pt-3 border-t-2 border-dashed border-[#3E3124]/30 flex items-center justify-between font-gochi text-sm text-[#3E3124]">
+              <span className="text-[#6D6358]">Verified in Production &amp; Research</span>
+              <a
+                href="#projects"
+                className="inline-flex items-center gap-1 text-[#E25543] font-bold hover:underline"
+              >
+                <span>View Systems</span>
+                <ArrowRight className="w-4 h-4" />
+              </a>
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );

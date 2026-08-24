@@ -14,10 +14,10 @@ export function HackathonExperience() {
       organization: "Internal Institutional Ideathon",
       role: "Team Leader — Krishi360 Platform",
       badge: "3rd Place Podium, College Ideathon",
+      tapeColor: "washi-tape-coral",
       imageSrc: null,
       customCardTitle: "Krishi360 Precision Agriculture Platform",
       customCardSubtitle: "Smart India Hackathon Aligned Architecture",
-      tilt: "-rotate-0.8",
       description:
         "Led the team at a college-level Ideathon built on an official Smart India Hackathon problem statement, architecting Krishi360's Crop Suitability Index mathematical model and presenting the prototype to the internal judging panel.",
       highlights: [
@@ -32,10 +32,10 @@ export function HackathonExperience() {
       organization: "Indian Space Research Organisation (ISRO)",
       role: "System Architect & ML Lead",
       badge: "Finalist Solution Submission",
+      tapeColor: "washi-tape-sage",
       imageSrc: null,
       customCardTitle: "Predictive Ground Station NOC Copilot",
       customCardSubtitle: "ISRO PS13 Fault Anomaly Detection",
-      tilt: "rotate-0.8",
       description:
         "Engineered the complete Predictive NOC Copilot architecture for Problem Statement 13 (Predictive Ground Station MPLS Fault Anomaly Detection).",
       highlights: [
@@ -50,8 +50,8 @@ export function HackathonExperience() {
       role: "Co-Organizer & Instructor",
       location: "Bangalore, India",
       badge: "100+ Students Trained",
+      tapeColor: "washi-tape-mustard",
       imageSrc: "/events/vkit/vkit_1.jpeg",
-      tilt: "-rotate-0.8",
       description:
         "Co-planned and instructed a full-day hardware and edge AI workshop for students from rural engineering colleges, covering microcontroller programming, sensor networks, and IoT telemetry.",
       driveLink: "https://drive.google.com/drive/folders/1CoQVyV7Sa2AYsYbT_DRMpaDwqQDjCcnu",
@@ -63,151 +63,128 @@ export function HackathonExperience() {
   ];
 
   return (
-    <section id="experience" className="py-20 px-4 sm:px-6 max-w-7xl mx-auto border-t border-[#22222A]">
-      <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
-        <div>
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#D4AF37]/15 border border-[#D4AF37]/40 text-[11px] font-mono uppercase tracking-wider text-[#FFD700] font-bold mb-3">
-            Competitions &amp; Leadership
-          </div>
-          <h2 className="font-sans font-bold text-3xl sm:text-4xl text-white tracking-tight">
-            Hackathons &amp; Technical Outreach
-          </h2>
-        </div>
-        <p className="font-sans text-sm text-[#94A3B8] max-w-md">
-          Leading engineering squads under tight build deadlines and conducting technical hardware workshops.
+    <section id="hackathons" className="py-20 px-4 sm:px-6 max-w-6xl mx-auto">
+      {/* Section Header */}
+      <div className="flex flex-col items-center text-center mb-12">
+        <span className="font-bree text-xs sm:text-sm font-semibold tracking-widest uppercase text-[#D4BAA3] mb-2">
+          Competitive Builds
+        </span>
+        <h2 className="font-bree text-5xl sm:text-6xl md:text-7xl text-[#F5E1CD]">
+          Hackathons &amp; Leadership
+        </h2>
+        <p className="font-gochi text-base sm:text-lg text-[#D4BAA3] mt-2 max-w-md">
+          Competitive building under time constraints, university hackathons, and technical workshop leadership.
         </p>
       </div>
 
-      <div className="space-y-8">
+      {/* Grid of Hackathon Experiences */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {experiences.map((exp, idx) => (
           <div
             key={idx}
-            className={`relative bg-[#181C28] border-2 border-[#2B3245] hover:border-[#D4AF37] rounded-3xl p-6 sm:p-8 shadow-sketch hover:shadow-sketchLg transition-all duration-300 hover:-translate-y-1.5 hover:rotate-0 group ${exp.tilt}`}
+            className="relative bg-[#F5E1CD] border-[3.5px] border-[#3E3124] rounded-[26px] p-6 shadow-sketch flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 hover:shadow-sketchLg group"
+            style={{
+              transform: `rotate(${idx % 2 === 0 ? -0.8 : 0.8}deg)`,
+            }}
           >
-            {/* Washi Tape Accent */}
-            <div className="washi-tape-gold -top-2 left-10 rotate-[-4deg]" />
-            <div className="absolute top-4 right-6 text-xl select-none pointer-events-none opacity-80 group-hover:scale-110 transition-transform">
-              📎
-            </div>
+            <div className={`${exp.tapeColor} -top-3.5 left-6 rotate-[-5deg] !w-16 !h-4`} />
 
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-              {/* Left: Experience Details */}
-              <div className="lg:col-span-7 space-y-3">
-                <div className="flex flex-wrap items-center justify-between gap-2 pb-2 border-b-2 border-dashed border-[#2B3245]">
-                  <span className="font-mono text-xs font-bold text-[#FFD700]">
-                    {exp.period}
-                  </span>
-                  <span className="px-3 py-0.5 rounded-full font-mono text-[10px] uppercase font-bold tracking-wider bg-[#10121A] border border-[#D4AF37]/40 text-[#FFD700]">
-                    {exp.badge}
-                  </span>
-                </div>
-
-                <h3 className="font-sans font-bold text-xl sm:text-2xl text-white group-hover:text-[#FFD700] transition-colors">
-                  {exp.title}
-                </h3>
-                <div className="flex flex-wrap items-center gap-2 text-xs text-[#CBD5E1] font-sans">
-                  <span className="text-[#FFD700] font-bold">{exp.organization}</span>
-                  <span>•</span>
-                  <span>{exp.role}</span>
-                  {exp.location && (
-                    <>
-                      <span>•</span>
-                      <span className="flex items-center gap-1 font-mono text-[11px] text-[#94A3B8]">
-                        <MapPin className="w-3 h-3 text-[#DC143C]" /> {exp.location}
-                      </span>
-                    </>
-                  )}
-                </div>
-
-                <p className="font-sans text-xs sm:text-sm text-[#E2E8F0] leading-relaxed pt-1">
-                  {exp.description}
-                </p>
-
-                <div className="space-y-1.5 pt-2">
-                  {exp.highlights.map((h, hIdx) => (
-                    <div key={hIdx} className="flex items-start gap-2 text-xs text-[#CBD5E1]">
-                      <CheckCircle2 className="w-4 h-4 text-[#D4AF37] shrink-0 mt-0.5" />
-                      <span>{h}</span>
-                    </div>
-                  ))}
-                </div>
-
-                {exp.driveLink && (
-                  <div className="pt-2">
-                    <a
-                      href={exp.driveLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 font-mono text-xs text-[#FFD700] font-bold hover:underline"
-                    >
-                      <span>View Outreach Event Photos on Drive</span>
-                      <ExternalLink className="w-3.5 h-3.5" />
-                    </a>
-                  </div>
-                )}
+            <div>
+              <div className="flex items-center justify-between pb-3 mb-4 border-b-2 border-dashed border-[#3E3124]/30">
+                <span className="font-gochi text-xs px-2.5 py-0.5 rounded-full bg-[#E25543] text-white border border-[#3E3124] font-bold">
+                  {exp.badge}
+                </span>
+                <span className="font-gochi text-xs text-[#6D6358] font-bold">{exp.period}</span>
               </div>
 
-              {/* Right: Real Photo / Frame */}
-              <div className="lg:col-span-5">
+              {/* Photo or Custom Architectural Banner */}
+              <div className="relative aspect-[16/10] rounded-xl overflow-hidden bg-[#E9D3BB] border-2 border-[#3E3124] mb-4">
                 {exp.imageSrc ? (
                   <div
-                    className="relative aspect-[16/10] rounded-2xl overflow-hidden bg-[#0A0A0C] border-2 border-[#2B3245] hover:border-[#D4AF37] shadow-xl group/photo cursor-pointer transition-all duration-300 hover:shadow-[0_10px_25px_rgba(212,175,55,0.2)]"
+                    className="relative w-full h-full cursor-pointer group"
                     onClick={() => setZoomedImage(exp.imageSrc)}
                   >
                     <Image
                       src={exp.imageSrc}
                       alt={exp.title}
                       fill
-                      className="object-cover group-hover/photo:scale-105 transition-transform duration-500"
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent p-3 flex flex-col justify-between">
-                      <span className="font-mono text-[9px] uppercase tracking-wider text-white/80 self-end">
-                        Click to Zoom 🔍
-                      </span>
-                      <span className="font-mono text-[10px] text-[#FFD700] font-bold">
-                        {exp.badge}
+                    <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                      <span className="px-3 py-1.5 rounded-lg bg-[#F5E1CD] font-gochi text-xs text-[#3E3124] border-2 border-[#3E3124] shadow-sketch">
+                        Enlarge Photo 🔍
                       </span>
                     </div>
                   </div>
                 ) : (
-                  <div className="aspect-[16/10] rounded-2xl bg-[#10121A] border-2 border-dashed border-[#2B3245] hover:border-[#D4AF37] flex flex-col items-center justify-center p-6 text-center transition-colors">
-                    <Trophy className="w-9 h-9 text-[#FFD700] mb-2" />
-                    <span className="font-mono text-sm text-white font-bold mb-1">
-                      {exp.customCardTitle || "Hackathon Solution Architecture"}
+                  <div className="w-full h-full flex flex-col items-center justify-center p-4 text-center bg-[#E9D3BB]">
+                    <Trophy className="w-8 h-8 text-[#E25543] mb-1.5" />
+                    <span className="font-bree font-bold text-base text-[#3E3124] block leading-tight">
+                      {exp.customCardTitle}
                     </span>
-                    <p className="font-mono text-[11px] text-[#FFD700] max-w-xs font-semibold">
-                      {exp.customCardSubtitle || exp.badge}
-                    </p>
-                    <div className="mt-3 flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#181C28] border border-[#2B3245] text-[10px] font-mono text-[#CBD5E1]">
-                      <Sparkles className="w-3 h-3 text-[#FFD700]" />
-                      <span>Verified Submission</span>
-                    </div>
+                    <span className="font-gochi text-xs text-[#6D6358] mt-1 block">
+                      {exp.customCardSubtitle}
+                    </span>
                   </div>
                 )}
               </div>
+
+              <h3 className="font-bree font-bold text-lg text-[#3E3124] group-hover:text-[#E25543] transition-colors mb-1">
+                {exp.title}
+              </h3>
+              <p className="font-gochi text-sm text-[#E25543] mb-3 font-bold">
+                {exp.role} • {exp.organization}
+              </p>
+
+              <p className="font-gochi text-sm text-[#3E3124] leading-relaxed mb-4">
+                {exp.description}
+              </p>
+            </div>
+
+            <div className="pt-3 border-t-2 border-dashed border-[#3E3124]/30 space-y-2 font-gochi">
+              {exp.highlights.map((h, hIdx) => (
+                <div key={hIdx} className="flex items-start gap-2 text-sm text-[#3E3124]">
+                  <CheckCircle2 className="w-4 h-4 text-[#E25543] shrink-0 mt-0.5" />
+                  <span>{h}</span>
+                </div>
+              ))}
+
+              {exp.driveLink && (
+                <div className="pt-2">
+                  <a
+                    href={exp.driveLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-xs font-gochi text-[#E25543] hover:underline font-bold"
+                  >
+                    <span>View Workshop Photo Proof Album</span>
+                    <ExternalLink className="w-3 h-3" />
+                  </a>
+                </div>
+              )}
             </div>
           </div>
         ))}
       </div>
 
-      {/* Lightbox Zoom Modal */}
+      {/* Lightbox Modal */}
       {zoomedImage && (
         <div
-          className="fixed inset-0 z-60 flex items-center justify-center p-4 bg-black/95 backdrop-blur-xl animate-in fade-in duration-200"
+          className="fixed inset-0 z-60 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md animate-fadeIn"
           onClick={() => setZoomedImage(null)}
         >
           <button
             onClick={() => setZoomedImage(null)}
-            className="absolute top-6 right-6 p-3 rounded-full bg-[#1E1E28] border border-[#D4AF37]/50 text-white hover:text-[#FFD700] transition-colors"
+            className="absolute top-6 right-6 p-3 rounded-full bg-[#F5E1CD] border-2 border-[#3E3124] text-[#3E3124] hover:bg-[#E25543] hover:text-white transition-colors shadow-sketch"
           >
             <X className="w-6 h-6" />
           </button>
-          <div className="relative w-full max-w-4xl max-h-[85vh] aspect-[16/10] overflow-hidden rounded-2xl border-2 border-[#D4AF37]">
+          <div className="relative w-full max-w-4xl max-h-[85vh] aspect-[4/3] overflow-hidden rounded-2xl border-[4px] border-[#3E3124] bg-[#1F1D1B] shadow-paper">
             <Image
               src={zoomedImage}
-              alt="Zoomed Hackathon Event Photo"
+              alt="Zoomed Hackathon / Workshop Photo"
               fill
-              className="object-contain bg-black"
+              className="object-contain"
             />
           </div>
         </div>

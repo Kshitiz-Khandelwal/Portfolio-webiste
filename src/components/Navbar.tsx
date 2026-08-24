@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { FileDown, Menu, X, Sparkles, Terminal } from "lucide-react";
+import { Terminal, Code2, Menu, X, FileDown } from "lucide-react";
 import { toast } from "sonner";
 
 export function Navbar() {
@@ -23,162 +23,127 @@ export function Navbar() {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 pointer-events-none">
-      {/* Hanging Top Straps */}
-      <div className="max-w-7xl mx-auto px-6 sm:px-12 flex justify-between pointer-events-none relative z-10">
-        <div className="w-3 h-3 bg-[#D4AF37]/70 border-x border-[#D4AF37] ml-6 shadow-[0_0_10px_rgba(212,175,55,0.4)]" />
-        <div className="w-3 h-3 bg-[#D4AF37]/70 border-x border-[#D4AF37] mr-6 shadow-[0_0_10px_rgba(212,175,55,0.4)]" />
-      </div>
+    <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-3 sm:py-4 pointer-events-auto">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+        {/* Paper Strip Navbar Container */}
+        <div className="relative bg-[#F5E1CD] border-[3.5px] border-[#3E3124] shadow-sketch rounded-2xl px-4 sm:px-6 py-2.5 sm:py-3 flex items-center justify-between overflow-hidden w-full">
+          {/* Decorative Corner Washi Tapes */}
+          <div className="washi-tape-coral -top-2.5 left-6 rotate-[-6deg] !w-20 !h-5 hidden sm:block pointer-events-none" />
+          <div className="washi-tape-sage -top-2.5 right-6 rotate-[5deg] !w-20 !h-5 hidden sm:block pointer-events-none" />
 
-      {/* Main Ripped Hanging Paper Banner in Dark Obsidian & Gold Theme — Full Width Fit */}
-      <div className="max-w-7xl mx-auto px-3 sm:px-6 pointer-events-auto relative">
-        <div
-          className={`relative transition-all duration-300 ${
-            scrolled ? "translate-y-[-2px]" : "translate-y-0"
-          }`}
-        >
-          {/* Dark Obsidian Paper Body */}
-          <div className="relative bg-[#14141C] text-[#F4F4F7] shadow-[0_12px_35px_-5px_rgba(0,0,0,0.9),0_0_15px_rgba(212,175,55,0.15)] border-t border-[#D4AF37]/50 px-5 sm:px-8 pt-3 pb-6 rounded-t-2xl">
-            {/* Hanging Metallic Grommets */}
-            <div className="absolute top-2 left-6 w-3 h-3 rounded-full bg-[#0A0A0C] border-2 border-[#D4AF37] shadow-inner" />
-            <div className="absolute top-2 right-6 w-3 h-3 rounded-full bg-[#0A0A0C] border-2 border-[#D4AF37] shadow-inner" />
-
-            <div className="flex items-center justify-between">
-              {/* Left Brand: Clean Title & Red/Gold Emblem */}
-              <a href="#" className="flex items-center gap-3 group">
-                <div className="w-8 h-8 rounded-xl border border-[#D4AF37]/60 bg-[#0E1017] flex items-center justify-center p-1 shadow-[0_0_12px_rgba(212,175,55,0.3)] group-hover:border-[#FFD700] group-hover:scale-105 transition-all">
-                  <svg className="w-full h-full" viewBox="0 0 32 32" fill="none">
-                    {/* Vertical Gold Spine */}
-                    <rect x="6" y="5" width="4.5" height="22" rx="1.5" fill="#FFD700" />
-                    {/* Upper Arm */}
-                    <path d="M11 16 L22 6 C23 5 24.5 5 25.5 6 L26 6.5 C27 7.5 27 9 26 10 L16 19.5 Z" fill="#FFD700" />
-                    {/* Lower Leg */}
-                    <path d="M14 17 L25.5 26 C26.5 27 26.5 28.5 25.5 29.5 L25 30 C24 31 22.5 31 21.5 30 L10.5 20 Z" fill="#FFD700" />
-                    {/* Sleek Ruby Core Node */}
-                    <polygon points="17,14 20.5,17.5 17,21 13.5,17.5" fill="#EF4444" />
-                    <circle cx="17" cy="17.5" r="1.2" fill="#FFF099" />
-                  </svg>
-                </div>
-                <div className="flex flex-col">
-                  <span className="font-hand font-bold text-xl sm:text-2xl text-white group-hover:text-[#FFD700] transition-colors leading-tight">
-                    Kshitiz Khandelwal
-                  </span>
-                  <span className="text-[10px] font-mono text-[#94A3B8] tracking-wider uppercase hidden sm:block">
-                    Systems &amp; AI Engineer • BMSIT&amp;M
-                  </span>
-                </div>
-              </a>
-
-              {/* Center & Right Navigation Links */}
-              <nav className="hidden lg:flex items-center gap-6 font-hand text-lg text-[#CBD5E1]">
-                <a href="#about" className="hover:text-[#FFD700] transition-colors">
-                  About
-                </a>
-                <a href="#skills" className="hover:text-[#FFD700] transition-colors">
-                  Skills
-                </a>
-                <a href="#projects" className="hover:text-[#FFD700] transition-colors">
-                  Projects
-                </a>
-                <a href="#how-i-build" className="hover:text-[#FFD700] transition-colors">
-                  How I Approach Things
-                </a>
-                <a href="#other-projects" className="hover:text-[#FFD700] transition-colors text-[#FFD700] font-bold">
-                  🎥 IoT Videos
-                </a>
-                <a
-                  href="/resume.pdf"
-                  download="Kshitiz_Khandelwal_Resume.pdf"
-                  onClick={handleResumeClick}
-                  className="hover:text-[#FFD700] transition-colors"
-                >
-                  Resume
-                </a>
-              </nav>
-
-              {/* Action Buttons */}
-              <div className="flex items-center gap-3">
-                {/* Yellow Sticky Note Style Contact Button */}
-                <a
-                  href="#contact"
-                  className="px-5 py-1.5 rounded-lg bg-[#FFD700] text-black font-hand font-bold text-lg shadow-[2px_3px_0px_#000000] hover:shadow-[3px_4px_0px_#000000] hover:scale-105 active:scale-95 transition-all rotate-[-1deg] border border-black"
-                >
-                  Contact
-                </a>
-
-                {/* Mobile Hamburger Button */}
-                <button
-                  onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                  className="p-1.5 rounded-lg bg-[#1E1E28] border border-[#2A2A38] text-slate-300 lg:hidden hover:text-white transition-colors"
-                  aria-label="Toggle navigation menu"
-                >
-                  {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-                </button>
-              </div>
+          {/* Left Brand / Logo */}
+          <a href="#" className="flex items-center gap-2.5 text-[#3E3124] group z-10">
+            <div className="w-8 h-8 rounded-lg border-2 border-[#3E3124] bg-[#E9D3BB] flex items-center justify-center text-[#E25543] group-hover:rotate-12 transition-transform shadow-xs">
+              <Terminal className="w-4 h-4" />
             </div>
-          </div>
-
-          {/* Ripped Bottom Zig-Zag Edge */}
-          <div
-            className="w-full h-4 bg-[#14141C] border-b border-[#D4AF37]/40 relative"
-            style={{
-              clipPath:
-                "polygon(0% 0%, 5% 100%, 10% 0%, 15% 100%, 20% 0%, 25% 100%, 30% 0%, 35% 100%, 40% 0%, 45% 100%, 50% 0%, 55% 100%, 60% 0%, 65% 100%, 70% 0%, 75% 100%, 80% 0%, 85% 100%, 90% 0%, 95% 100%, 100% 0%)",
-            }}
-          />
-
-          {/* Mobile Menu Dropdown Panel */}
-          {mobileMenuOpen && (
-            <div className="lg:hidden absolute top-full left-0 right-0 mt-2 bg-[#14141C] border-2 border-[#D4AF37] rounded-2xl shadow-2xl p-5 font-hand text-xl space-y-3 z-50 animate-in fade-in slide-in-from-top-2">
-              <a
-                href="#about"
-                onClick={() => setMobileMenuOpen(false)}
-                className="block text-slate-200 hover:text-[#FFD700] py-1 border-b border-[#22222A]"
-              >
-                About
-              </a>
-              <a
-                href="#skills"
-                onClick={() => setMobileMenuOpen(false)}
-                className="block text-slate-200 hover:text-[#FFD700] py-1 border-b border-[#22222A]"
-              >
-                Skills
-              </a>
-              <a
-                href="#projects"
-                onClick={() => setMobileMenuOpen(false)}
-                className="block text-slate-200 hover:text-[#FFD700] py-1 border-b border-[#22222A]"
-              >
-                Projects
-              </a>
-              <a
-                href="#how-i-build"
-                onClick={() => setMobileMenuOpen(false)}
-                className="block text-slate-200 hover:text-[#FFD700] py-1 border-b border-[#22222A]"
-              >
-                How I Approach Things
-              </a>
-              <a
-                href="#other-projects"
-                onClick={() => setMobileMenuOpen(false)}
-                className="block text-[#FFD700] font-bold py-1 border-b border-[#22222A]"
-              >
-                🎥 IoT Videos
-              </a>
-              <a
-                href="/resume.pdf"
-                download="Kshitiz_Khandelwal_Resume.pdf"
-                onClick={() => {
-                  handleResumeClick();
-                  setMobileMenuOpen(false);
-                }}
-                className="block text-slate-200 hover:text-[#FFD700] py-1"
-              >
-                Resume
-              </a>
+            <div className="flex flex-col">
+              <span className="font-bree font-bold text-base sm:text-lg tracking-wide text-[#3E3124] leading-tight">
+                Kshitiz Khandelwal
+              </span>
+              <span className="font-gochi text-xs text-[#6D6358] leading-tight">
+                [ SYSTEMS_SKETCHBOOK_VOL.1 ]
+              </span>
             </div>
-          )}
+          </a>
+
+          {/* Center & Right Navigation Links */}
+          <nav className="hidden md:flex items-center gap-5 sm:gap-6 font-gochi text-base sm:text-lg text-[#3E3124] z-10">
+            <a
+              href="#about"
+              className="hover:text-[#E25543] hover:rotate-[-2deg] transition-all"
+            >
+              About
+            </a>
+            <a
+              href="#domains"
+              className="hover:text-[#E25543] hover:rotate-[2deg] transition-all"
+            >
+              Domains
+            </a>
+            <a
+              href="#projects"
+              className="hover:text-[#E25543] hover:rotate-[-1deg] transition-all"
+            >
+              Systems
+            </a>
+            <a
+              href="#how-i-build"
+              className="hover:text-[#E25543] hover:rotate-[2deg] transition-all"
+            >
+              Mindmap
+            </a>
+            <a
+              href="#credentials"
+              className="hover:text-[#E25543] hover:rotate-[-1deg] transition-all"
+            >
+              Credentials
+            </a>
+
+            {/* Sketched Contact Button */}
+            <a
+              href="#contact"
+              className="px-4 py-1.5 text-base font-gochi bg-[#E25543] text-white border-2 border-[#3E3124] rounded-xl shadow-[2px_2px_0px_0px_#3E3124] hover:bg-[#ce4433] hover:scale-105 active:translate-y-0.5 transition-all"
+            >
+              Get in Touch ✉️
+            </a>
+          </nav>
+
+          {/* Mobile Menu Toggle */}
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="p-1.5 rounded-lg border-2 border-[#3E3124] bg-[#E9D3BB] text-[#3E3124] md:hidden z-10"
+          >
+            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          </button>
         </div>
+
+        {/* Mobile Dropdown Menu */}
+        {mobileMenuOpen && (
+          <div className="mt-2 bg-[#F5E1CD] border-[3px] border-[#3E3124] rounded-2xl p-4 shadow-sketch md:hidden flex flex-col gap-3 font-gochi text-lg text-[#3E3124] animate-fadeIn">
+            <a
+              href="#about"
+              onClick={() => setMobileMenuOpen(false)}
+              className="hover:text-[#E25543] transition-colors"
+            >
+              About
+            </a>
+            <a
+              href="#domains"
+              onClick={() => setMobileMenuOpen(false)}
+              className="hover:text-[#E25543] transition-colors"
+            >
+              Domains
+            </a>
+            <a
+              href="#projects"
+              onClick={() => setMobileMenuOpen(false)}
+              className="hover:text-[#E25543] transition-colors"
+            >
+              Systems &amp; Projects
+            </a>
+            <a
+              href="#how-i-build"
+              onClick={() => setMobileMenuOpen(false)}
+              className="hover:text-[#E25543] transition-colors"
+            >
+              How I Approach Things
+            </a>
+            <a
+              href="#credentials"
+              onClick={() => setMobileMenuOpen(false)}
+              className="hover:text-[#E25543] transition-colors"
+            >
+              Credentials &amp; Proofs
+            </a>
+            <a
+              href="#contact"
+              onClick={() => setMobileMenuOpen(false)}
+              className="mt-2 text-center py-2 bg-[#E25543] text-white border-2 border-[#3E3124] rounded-xl shadow-[2px_2px_0px_#3E3124] font-bold"
+            >
+              Get in Touch ✉️
+            </a>
+          </div>
+        )}
       </div>
     </header>
   );

@@ -45,82 +45,78 @@ export function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-20 px-4 sm:px-6 max-w-7xl mx-auto border-t border-[#22222A]">
-      <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
-        <div>
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#D4AF37]/15 border border-[#D4AF37]/40 text-[11px] font-mono uppercase tracking-wider text-[#FFD700] font-bold mb-3">
-            Direct Reach Out
-          </div>
-          <h2 className="font-sans font-bold text-3xl sm:text-4xl text-white tracking-tight">
-            Let&apos;s Build Something High-Impact
-          </h2>
-        </div>
-        <p className="font-sans text-sm text-[#94A3B8] max-w-md">
+    <section id="contact" className="py-20 px-4 sm:px-6 max-w-6xl mx-auto">
+      {/* Section Header */}
+      <div className="flex flex-col items-center text-center mb-12">
+        <span className="font-bree text-xs sm:text-sm font-semibold tracking-widest uppercase text-[#D4BAA3] mb-2">
+          Get in Touch
+        </span>
+        <h2 className="font-bree text-5xl sm:text-6xl md:text-7xl text-[#F5E1CD]">
+          Let&apos;s Build Together
+        </h2>
+        <p className="font-gochi text-base sm:text-lg text-[#D4BAA3] mt-2 max-w-md">
           Interested in backend engineering, distributed systems, research collaborations, or building high-performance software?
         </p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
         {/* Left Column: Direct Contacts */}
-        <div className="relative lg:col-span-5 flex flex-col justify-between space-y-6 bg-[#181C28] border-2 border-[#2B3245] rounded-3xl p-6 sm:p-8 shadow-sketch hover:shadow-sketchLg transition-all duration-300">
-          <div className="washi-tape-gold -top-2 left-8 rotate-[-4deg]" />
-          <div className="absolute top-3 right-5 text-lg select-none pointer-events-none opacity-80">
-            📎
-          </div>
+        <div className="relative lg:col-span-5 flex flex-col justify-between space-y-6 bg-[#F5E1CD] border-[3.5px] border-[#3E3124] rounded-[28px] p-6 sm:p-8 shadow-paper -rotate-1 hover:rotate-0 transition-transform">
+          <div className="washi-tape-coral -top-3.5 left-10 rotate-[-5deg]" />
 
           <div>
-            <h3 className="font-sans font-bold text-xl text-white mb-2">
+            <h3 className="font-bree font-bold text-2xl text-[#3E3124] mb-2">
               Connect Directly
             </h3>
-            <p className="font-sans text-xs sm:text-sm text-[#CBD5E1] mb-6 leading-relaxed">
+            <p className="font-gochi text-base text-[#6D6358] mb-6 leading-relaxed">
               My inbox is always open for technical inquiries, research discussions, and backend engineering opportunities.
             </p>
 
             <div className="space-y-3.5">
               {/* Email Copy Card */}
-              <div className="flex items-center justify-between p-3.5 bg-[#10121A] border border-[#2B3245] hover:border-[#D4AF37] rounded-2xl transition-colors">
+              <div className="flex items-center justify-between p-3.5 bg-[#F7E8D8] border-2 border-[#3E3124] rounded-2xl shadow-xs">
                 <div className="flex items-center gap-3 overflow-hidden">
-                  <div className="w-9 h-9 rounded-xl bg-[#D4AF37]/15 border border-[#D4AF37]/40 flex items-center justify-center text-[#FFD700] shrink-0 font-bold shadow-xs">
+                  <div className="w-9 h-9 rounded-xl bg-[#E9D3BB] border-2 border-[#3E3124] flex items-center justify-center text-[#E25543] shrink-0 font-bold">
                     <Mail className="w-4 h-4" />
                   </div>
                   <div className="truncate">
-                    <span className="font-mono text-[10px] text-[#94A3B8] uppercase block">Email Address</span>
-                    <span className="font-mono text-xs text-[#E2E8F0] font-semibold truncate block">{email}</span>
+                    <span className="font-gochi text-xs text-[#6D6358] uppercase block">Email Address</span>
+                    <span className="font-mono text-xs text-[#3E3124] font-bold truncate block">{email}</span>
                   </div>
                 </div>
                 <button
                   onClick={handleCopyEmail}
-                  className="p-2 rounded-xl bg-[#181C28] hover:bg-[#2B3245] text-slate-300 hover:text-[#FFD700] border border-[#2B3245] transition-colors shrink-0 ml-2 shadow-xs"
+                  className="p-2 rounded-xl bg-[#E9D3BB] hover:bg-[#E25543] text-[#3E3124] hover:text-white border-2 border-[#3E3124] transition-colors shrink-0 ml-2 cursor-pointer"
                   title="Copy email"
                 >
-                  {copied ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
+                  {copied ? <Check className="w-4 h-4 text-emerald-600" /> : <Copy className="w-4 h-4" />}
                 </button>
               </div>
 
               {/* Phone Channel */}
-              <div className="flex items-center gap-3 p-3.5 bg-[#10121A] border border-[#2B3245] hover:border-[#D4AF37] rounded-2xl transition-colors">
-                <div className="w-9 h-9 rounded-xl bg-[#D4AF37]/15 border border-[#D4AF37]/40 flex items-center justify-center text-[#FFD700] shrink-0 font-bold shadow-xs">
+              <div className="flex items-center gap-3 p-3.5 bg-[#F7E8D8] border-2 border-[#3E3124] rounded-2xl shadow-xs">
+                <div className="w-9 h-9 rounded-xl bg-[#E9D3BB] border-2 border-[#3E3124] flex items-center justify-center text-[#E25543] shrink-0 font-bold">
                   <Phone className="w-4 h-4" />
                 </div>
                 <div>
-                  <span className="font-mono text-[10px] text-[#94A3B8] uppercase block">Phone / WhatsApp</span>
-                  <span className="font-mono text-xs text-[#E2E8F0] font-semibold">{phone}</span>
+                  <span className="font-gochi text-xs text-[#6D6358] uppercase block">Phone / WhatsApp</span>
+                  <span className="font-mono text-xs text-[#3E3124] font-bold">{phone}</span>
                 </div>
               </div>
             </div>
           </div>
 
           {/* Social Profiles */}
-          <div className="pt-6 border-t-2 border-dashed border-[#2B3245]">
-            <span className="font-mono text-[11px] uppercase tracking-wider text-[#94A3B8] block mb-3 font-semibold">
-              Developer Profiles &amp; Socials
+          <div className="pt-6 border-t-2 border-dashed border-[#3E3124]/30">
+            <span className="font-gochi text-xs uppercase tracking-wider text-[#6D6358] block mb-3 font-bold">
+              Developer Profiles &amp; Socials:
             </span>
             <div className="flex items-center gap-3">
               <a
                 href={github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-[#10121A] border border-[#2B3245] text-xs font-mono text-[#E2E8F0] hover:text-[#FFD700] hover:border-[#D4AF37] shadow-sketch transition-all"
+                className="flex-1 flex items-center justify-center gap-2 py-2 px-4 rounded-xl bg-[#E9D3BB] border-2 border-[#3E3124] font-gochi text-sm text-[#3E3124] hover:bg-[#E25543] hover:text-white shadow-xs transition-all"
               >
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
                   <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
@@ -132,9 +128,9 @@ export function ContactSection() {
                 href={linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-[#10121A] border border-[#2B3245] text-xs font-mono text-[#E2E8F0] hover:text-[#FFD700] hover:border-[#D4AF37] shadow-sketch transition-all"
+                className="flex-1 flex items-center justify-center gap-2 py-2 px-4 rounded-xl bg-[#E9D3BB] border-2 border-[#3E3124] font-gochi text-sm text-[#3E3124] hover:bg-[#E25543] hover:text-white shadow-xs transition-all"
               >
-                <svg className="w-4 h-4 fill-current text-[#38BDF8]" viewBox="0 0 24 24">
+                <svg className="w-4 h-4 fill-current text-[#E25543] group-hover:text-white" viewBox="0 0 24 24">
                   <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
                 </svg>
                 <span>LinkedIn</span>
@@ -144,20 +140,20 @@ export function ContactSection() {
         </div>
 
         {/* Right Column: Direct Reach-Out Form */}
-        <div className="relative lg:col-span-7 bg-[#181C28] border-2 border-[#2B3245] rounded-3xl p-6 sm:p-8 shadow-sketch hover:shadow-sketchLg transition-all duration-300">
-          <div className="washi-tape-ruby -top-2 right-10 rotate-[4deg]" />
+        <div className="relative lg:col-span-7 bg-[#F5E1CD] border-[3.5px] border-[#3E3124] rounded-[28px] p-6 sm:p-8 shadow-paper rotate-1 hover:rotate-0 transition-transform">
+          <div className="washi-tape-sage -top-3.5 right-10 rotate-[6deg]" />
 
-          <div className="flex items-center gap-2 mb-6 pb-2 border-b-2 border-dashed border-[#2B3245]">
-            <MessageSquare className="w-4 h-4 text-[#FFD700]" />
-            <h3 className="font-sans font-bold text-lg text-white">
+          <div className="flex items-center gap-2 mb-6 pb-2 border-b-2 border-dashed border-[#3E3124]/30">
+            <MessageSquare className="w-5 h-5 text-[#E25543]" />
+            <h3 className="font-bree font-bold text-2xl text-[#3E3124]">
               Send a Transmission Message
             </h3>
           </div>
 
-          <form onSubmit={handleSendMessage} className="space-y-4">
+          <form onSubmit={handleSendMessage} className="space-y-4 font-gochi">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label className="block font-mono text-[11px] text-[#94A3B8] uppercase tracking-wider mb-1.5 font-bold">
+                <label className="block text-sm text-[#6D6358] uppercase tracking-wider mb-1 font-bold">
                   Your Name
                 </label>
                 <input
@@ -166,12 +162,12 @@ export function ContactSection() {
                   value={senderName}
                   onChange={(e) => setSenderName(e.target.value)}
                   placeholder="e.g. Dr. Jennie Bharathi"
-                  className="w-full bg-[#10121A] border border-[#2B3245] rounded-xl px-4 py-2.5 text-xs text-white placeholder:text-[#64748B] focus:outline-none focus:border-[#FFD700] focus:ring-1 focus:ring-[#FFD700] font-sans"
+                  className="w-full bg-[#F7E8D8] border-2 border-[#3E3124] rounded-xl px-4 py-2.5 text-base text-[#3E3124] placeholder:text-[#6D6358]/60 focus:outline-none focus:border-[#E25543] font-gochi"
                 />
               </div>
 
               <div>
-                <label className="block font-mono text-[11px] text-[#94A3B8] uppercase tracking-wider mb-1.5 font-bold">
+                <label className="block text-sm text-[#6D6358] uppercase tracking-wider mb-1 font-bold">
                   Your Email
                 </label>
                 <input
@@ -180,13 +176,13 @@ export function ContactSection() {
                   value={senderEmail}
                   onChange={(e) => setSenderEmail(e.target.value)}
                   placeholder="e.g. jennifer@research.org"
-                  className="w-full bg-[#10121A] border border-[#2B3245] rounded-xl px-4 py-2.5 text-xs text-white placeholder:text-[#64748B] focus:outline-none focus:border-[#FFD700] focus:ring-1 focus:ring-[#FFD700] font-sans"
+                  className="w-full bg-[#F7E8D8] border-2 border-[#3E3124] rounded-xl px-4 py-2.5 text-base text-[#3E3124] placeholder:text-[#6D6358]/60 focus:outline-none focus:border-[#E25543] font-gochi"
                 />
               </div>
             </div>
 
             <div>
-              <label className="block font-mono text-[11px] text-[#94A3B8] uppercase tracking-wider mb-1.5 font-bold">
+              <label className="block text-sm text-[#6D6358] uppercase tracking-wider mb-1 font-bold">
                 Message / Opportunity Details
               </label>
               <textarea
@@ -195,17 +191,18 @@ export function ContactSection() {
                 value={senderMessage}
                 onChange={(e) => setSenderMessage(e.target.value)}
                 placeholder="Let's connect regarding systems engineering, Java Spring Boot, or AI research..."
-                className="w-full bg-[#10121A] border border-[#2B3245] rounded-xl px-4 py-2.5 text-xs text-white placeholder:text-[#64748B] focus:outline-none focus:border-[#FFD700] focus:ring-1 focus:ring-[#FFD700] font-sans resize-none"
+                className="w-full bg-[#F7E8D8] border-2 border-[#3E3124] rounded-xl px-4 py-2.5 text-base text-[#3E3124] placeholder:text-[#6D6358]/60 focus:outline-none focus:border-[#E25543] font-gochi resize-none"
               />
             </div>
 
+            {/* Primary Coral Submit Button */}
             <button
               type="submit"
               disabled={isSending}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-[#D4AF37] text-black font-sans font-bold text-xs sm:text-sm hover:bg-[#FFD700] shadow-sketch transition-all active:scale-[0.98] disabled:opacity-50"
+              className="w-full sm:w-auto sketch-button sketch-button-filled text-base"
             >
-              <Send className="w-4 h-4" />
-              <span>{isSending ? "Dispatching..." : "Send Message ✉"}</span>
+              <Send className="w-4 h-4 mr-2" />
+              <span>{isSending ? "Dispatching..." : "Send Message ➔"}</span>
             </button>
           </form>
         </div>

@@ -17,14 +17,14 @@ import { Footer } from "@/components/Footer";
 
 export default function Home() {
   return (
-    <div className="relative min-h-screen bg-[#0F121A] text-[#F8FAFC] overflow-x-hidden selection:bg-[#D4AF37]/30 selection:text-white">
-      {/* Interactive Constellation Canvas & Floating Quotes */}
+    <div className="relative min-h-screen bg-[#1F1D1B] text-[#F5E1CD] overflow-x-hidden selection:bg-[#E25543] selection:text-white sketch-grid">
+      {/* Background Watercolor Blobs & Floating Doodles */}
       <BackgroundEffects />
 
-      {/* Sticky Ripped Paper Navbar */}
+      {/* Sketched Paper Navbar */}
       <Navbar />
 
-      {/* Main Page Flow with About positioned high up */}
+      {/* Main Content Sections */}
       <main className="relative z-10">
         <Hero />
         <AboutSection />
@@ -41,7 +41,7 @@ export default function Home() {
         <ContactSection />
       </main>
 
-      {/* Signature Minimal Footer */}
+      {/* Sketched Paper Footer */}
       <Footer />
     </div>
   );

@@ -1,29 +1,9 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono, Caveat, Kalam } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "sonner";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const fontHand = Caveat({
-  variable: "--font-hand",
-  subsets: ["latin"],
-  weight: ["600", "700"],
-  display: "swap",
-});
-
 export const viewport: Viewport = {
-  themeColor: "#0F121A",
+  themeColor: "#1F1D1B",
   width: "device-width",
   initialScale: 1,
 };
@@ -31,7 +11,7 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   title: "Kshitiz Khandelwal — Systems, AI & Backend Engineer",
   description:
-    "Portfolio of Kshitiz Khandelwal — Backend & Systems Engineer, AI/ML Researcher. Intern @ Zarthi (Java & Spring Boot) & Research Fellow @ IIIT Trichy (Split Federated Learning on IoMT).",
+    "Handcrafted portfolio of Kshitiz Khandelwal — Backend & Systems Engineer, AI/ML Researcher. Intern @ Zarthi (Java & Spring Boot) & Research Fellow @ IIIT Trichy (Split Federated Learning on IoMT).",
   keywords: [
     "Kshitiz Khandelwal",
     "Systems Engineer",
@@ -68,54 +48,14 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    name: "Kshitiz Khandelwal",
-    jobTitle: "Systems, AI & Backend Engineer",
-    affiliation: [
-      {
-        "@type": "Organization",
-        name: "Zarthi",
-        jobTitle: "Backend Developer Intern",
-      },
-      {
-        "@type": "CollegeOrUniversity",
-        name: "BMS Institute of Technology & Management",
-      },
-      {
-        "@type": "CollegeOrUniversity",
-        name: "Indian Institute of Information Technology, Tiruchirappalli",
-      },
-    ],
-    url: "https://kshitiz-khandelwal.vercel.app",
-    sameAs: [
-      "https://github.com/Kshitiz-Khandelwal",
-      "https://linkedin.com/in/kshitiz-khandelwal-94917b32a",
-    ],
-    knowsAbout: [
-      "Java & Spring Boot",
-      "Machine Learning",
-      "Split Federated Learning",
-      "Cybersecurity",
-      "Zephyr RTOS",
-      "System Design",
-      "Full Stack Development",
-    ],
-  };
-
   return (
     <html lang="en">
       <head>
         <link rel="icon" href="/icon.svg" type="image/svg+xml" />
         <link rel="alternate icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" href="/apple-icon.png" />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} ${fontHand.variable} antialiased bg-[#0F121A] text-[#F8FAFC]`}>
+      <body className="antialiased bg-[#1F1D1B] text-[#F5E1CD] font-sans selection:bg-[#E25543] selection:text-white">
         {children}
         <Toaster position="bottom-right" richColors />
       </body>

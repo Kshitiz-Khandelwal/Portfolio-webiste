@@ -498,3 +498,6 @@ Atomic Ticket Decrement Tokens    Persistent Event Schemas, Users & RSVPs
     githubUrl: "https://github.com/Kshitiz-Khandelwal/Campus-Event-RSVP-Platform",
   },
 ];
+
+export const projectCaseStudies = featuredProjects;
+
