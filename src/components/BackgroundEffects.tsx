@@ -15,7 +15,7 @@ export function BackgroundEffects() {
     let width = (canvas.width = window.innerWidth);
     let height = (canvas.height = window.innerHeight);
 
-    let mouse = { x: -1000, y: -1000, radius: 140 };
+    let mouse = { x: -1000, y: -1000, radius: 180 };
 
     const handleMouseMove = (e: MouseEvent) => {
       mouse.x = e.clientX;
@@ -37,66 +37,98 @@ export function BackgroundEffects() {
     window.addEventListener("mouseleave", handleMouseLeave);
     window.addEventListener("resize", handleResize);
 
-    // Connected Studio & Blueprint Constellation Nodes
-    const nodeCount = Math.min(Math.floor((width * height) / 22000), 45);
-    const nodes = Array.from({ length: nodeCount }, () => ({
+    // Engineering & Atmospheric Stardust Particles
+    const particleCount = Math.min(Math.floor((width * height) / 18000), 55);
+    const particles = Array.from({ length: particleCount }, () => ({
       x: Math.random() * width,
       y: Math.random() * height,
-      vx: (Math.random() - 0.5) * 0.45,
-      vy: (Math.random() - 0.5) * 0.45,
-      radius: Math.random() * 2 + 1.2,
-      baseColor: Math.random() > 0.6 ? "#E25543" : Math.random() > 0.3 ? "#F8DC96" : "#B2C4B0",
+      vx: (Math.random() - 0.5) * 0.5,
+      vy: (Math.random() - 0.5) * 0.5,
+      size: Math.random() * 2.5 + 1,
+      type: Math.random() > 0.7 ? "spark" : Math.random() > 0.4 ? "node" : "dust",
+      color: Math.random() > 0.6 ? "#E25543" : Math.random() > 0.3 ? "#F8DC96" : "#B2C4B0",
+      rot: Math.random() * Math.PI * 2,
+      vrot: (Math.random() - 0.5) * 0.02,
+      opacity: Math.random() * 0.4 + 0.2,
     }));
 
     const render = () => {
       ctx.clearRect(0, 0, width, height);
 
-      // 1. Draw connecting web lines between nearby nodes
-      for (let i = 0; i < nodes.length; i++) {
-        for (let j = i + 1; j < nodes.length; j++) {
-          const dx = nodes[i].x - nodes[j].x;
-          const dy = nodes[i].y - nodes[j].y;
+      // 1. Draw subtle connecting laser/circuit lines between close particles
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
           const dist = Math.sqrt(dx * dx + dy * dy);
 
-          if (dist < 130) {
-            const alpha = (1 - dist / 130) * 0.18;
+          if (dist < 110) {
+            const alpha = (1 - dist / 110) * 0.15;
             ctx.beginPath();
-            ctx.moveTo(nodes[i].x, nodes[i].y);
-            ctx.lineTo(nodes[j].x, nodes[j].y);
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
             ctx.strokeStyle = `rgba(226, 85, 67, ${alpha})`;
-            ctx.lineWidth = 1;
+            ctx.lineWidth = 0.8;
             ctx.stroke();
           }
         }
       }
 
-      // 2. Render & update individual nodes
-      nodes.forEach((node) => {
+      // 2. Render & Update Particle Shapes
+      particles.forEach((p) => {
         // Mouse repelling physics
-        const dx = mouse.x - node.x;
-        const dy = mouse.y - node.y;
+        const dx = mouse.x - p.x;
+        const dy = mouse.y - p.y;
         const dist = Math.sqrt(dx * dx + dy * dy);
 
         if (dist < mouse.radius) {
           const angle = Math.atan2(dy, dx);
           const force = (mouse.radius - dist) / mouse.radius;
-          node.x -= Math.cos(angle) * force * 2;
-          node.y -= Math.sin(angle) * force * 2;
+          p.x -= Math.cos(angle) * force * 2.2;
+          p.y -= Math.sin(angle) * force * 2.2;
         }
 
-        node.x += node.vx;
-        node.y += node.vy;
+        p.x += p.vx;
+        p.y += p.vy;
+        p.rot += p.vrot;
 
-        if (node.x < 0) node.x = width;
-        if (node.x > width) node.x = 0;
-        if (node.y < 0) node.y = height;
-        if (node.y > height) node.y = 0;
+        if (p.x < 0) p.x = width;
+        if (p.x > width) p.x = 0;
+        if (p.y < 0) p.y = height;
+        if (p.y > height) p.y = 0;
 
-        ctx.beginPath();
-        ctx.arc(node.x, node.y, node.radius, 0, Math.PI * 2);
-        ctx.fillStyle = node.baseColor;
-        ctx.globalAlpha = 0.55;
-        ctx.fill();
+        ctx.save();
+        ctx.translate(p.x, p.y);
+        ctx.rotate(p.rot);
+        ctx.fillStyle = p.color;
+        ctx.globalAlpha = p.opacity;
+
+        if (p.type === "spark") {
+          // Draw 4-point star spark
+          ctx.beginPath();
+          ctx.moveTo(0, -p.size * 2);
+          ctx.quadraticCurveTo(0, 0, p.size * 2, 0);
+          ctx.quadraticCurveTo(0, 0, 0, p.size * 2);
+          ctx.quadraticCurveTo(0, 0, -p.size * 2, 0);
+          ctx.quadraticCurveTo(0, 0, 0, -p.size * 2);
+          ctx.fill();
+        } else if (p.type === "node") {
+          // Draw geometric diamond node
+          ctx.beginPath();
+          ctx.moveTo(0, -p.size * 1.5);
+          ctx.lineTo(p.size * 1.5, 0);
+          ctx.lineTo(0, p.size * 1.5);
+          ctx.lineTo(-p.size * 1.5, 0);
+          ctx.closePath();
+          ctx.fill();
+        } else {
+          // Draw circular soft dust particle
+          ctx.beginPath();
+          ctx.arc(0, 0, p.size, 0, Math.PI * 2);
+          ctx.fill();
+        }
+
+        ctx.restore();
       });
 
       animationFrameId = requestAnimationFrame(render);
@@ -114,17 +146,17 @@ export function BackgroundEffects() {
 
   return (
     <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-      {/* Interactive Constellation & Blueprint Line Canvas */}
-      <canvas ref={canvasRef} className="absolute inset-0 w-full h-full opacity-70" />
+      {/* Interactive Circuit & Geometric Stardust Canvas */}
+      <canvas ref={canvasRef} className="absolute inset-0 w-full h-full opacity-80" />
 
-      {/* Atmospheric Watercolor Ambient Glows */}
-      <div className="paint-blob top-16 left-8 w-[420px] h-[360px] bg-[#E25543]/12 animate-pulse" style={{ animationDuration: "8s" }} />
-      <div className="paint-blob top-1/3 right-8 w-[380px] h-[400px] bg-[#B2C4B0]/14 animate-pulse" style={{ animationDuration: "11s" }} />
-      <div className="paint-blob bottom-16 left-1/4 w-[450px] h-[320px] bg-[#F8DC96]/10 animate-pulse" style={{ animationDuration: "9s" }} />
+      {/* Atmospheric Breathing Gradient Auroras */}
+      <div className="paint-blob top-10 left-10 w-[500px] h-[420px] bg-[#E25543]/14 animate-pulse" style={{ animationDuration: "7s" }} />
+      <div className="paint-blob top-1/2 right-4 w-[450px] h-[450px] bg-[#B2C4B0]/15 animate-pulse" style={{ animationDuration: "10s" }} />
+      <div className="paint-blob bottom-10 left-1/3 w-[550px] h-[380px] bg-[#F8DC96]/12 animate-pulse" style={{ animationDuration: "9s" }} />
 
       {/* Subtle Studio Coffee Cup Ring Stains */}
-      <div className="coffee-stain absolute top-1/4 -left-12 w-48 h-48 -rotate-12 opacity-35" />
-      <div className="coffee-stain absolute top-3/4 -right-10 w-44 h-44 rotate-45 opacity-30" />
+      <div className="coffee-stain absolute top-1/4 -left-12 w-48 h-48 -rotate-12 opacity-30" />
+      <div className="coffee-stain absolute top-3/4 -right-10 w-44 h-44 rotate-45 opacity-25" />
     </div>
   );
 }

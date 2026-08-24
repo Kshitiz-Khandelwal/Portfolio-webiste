@@ -2,21 +2,21 @@
 @import "tailwindcss";
 
 :root {
-  --background: #1F1D1B;
+  --background: #181615;
   --foreground: #F5E1CD;
   
-  --sketch-dark: #1F1D1B;
-  --sketch-canvas: #1F1D1B;
+  --sketch-dark: #181615;
+  --sketch-canvas: #1C1A18;
   --sketch-paper: #F5E1CD;
   --sketch-paper-dark: #E9D3BB;
   --sketch-paper-warm: #F7E8D8;
   --sketch-tape: #EAD9C7;
-  --sketch-ink: #3E3124;
-  --sketch-ink-dark: #2C2C2C;
-  --sketch-ink-muted: #6D6358;
+  --sketch-ink: #2B2015;
+  --sketch-ink-dark: #1A140E;
+  --sketch-ink-muted: #6B5B4D;
   --sketch-coral: #E25543;
   --sketch-sand: #D4BAA3;
-  --sketch-yellow: #F8E8B8;
+  --sketch-yellow: #F8DC96;
   --sketch-sage: #B2C4B0;
   --sketch-lavender: #D2C4D9;
 }
@@ -29,18 +29,18 @@
   --font-sans: 'Outfit', sans-serif;
   --font-mono: 'Fira Mono', monospace;
 
-  --color-sketch-dark: #1F1D1B;
-  --color-sketch-canvas: #1F1D1B;
+  --color-sketch-dark: #181615;
+  --color-sketch-canvas: #1C1A18;
   --color-sketch-paper: #F5E1CD;
   --color-sketch-paper-dark: #E9D3BB;
   --color-sketch-paper-warm: #F7E8D8;
   --color-sketch-tape: #EAD9C7;
-  --color-sketch-ink: #3E3124;
-  --color-sketch-ink-dark: #2C2C2C;
-  --color-sketch-ink-muted: #6D6358;
+  --color-sketch-ink: #2B2015;
+  --color-sketch-ink-dark: #1A140E;
+  --color-sketch-ink-muted: #6B5B4D;
   --color-sketch-coral: #E25543;
   --color-sketch-sand: #D4BAA3;
-  --color-sketch-yellow: #F8E8B8;
+  --color-sketch-yellow: #F8DC96;
   --color-sketch-sage: #B2C4B0;
   --color-sketch-lavender: #D2C4D9;
 }
@@ -50,10 +50,11 @@ html {
 }
 
 body {
-  background-color: #1F1D1B;
+  background-color: #181615;
   color: #F5E1CD;
   font-family: 'Outfit', sans-serif;
   overflow-x: hidden;
+  letter-spacing: -0.01em;
 }
 
 .font-bree {
@@ -76,11 +77,17 @@ body {
   font-family: 'Fira Mono', monospace;
 }
 
-/* Warm Studio Sketchbook Dot Grid Canvas */
+.font-sans {
+  font-family: 'Outfit', sans-serif;
+}
+
+/* Atmospheric Studio Background (No harsh dots) */
 .sketch-grid {
-  background-color: #1F1D1B;
-  background-image: radial-gradient(#6B6259 1.3px, transparent 1.3px);
-  background-size: 30px 30px;
+  background-color: #181615;
+  background-image: 
+    linear-gradient(rgba(245, 225, 205, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(245, 225, 205, 0.02) 1px, transparent 1px);
+  background-size: 60px 60px;
 }
 
 /* Organic Hand-Drawn Wobbly Borders */
@@ -99,189 +106,166 @@ body {
 /* Paper Card Defaults */
 .paper-card {
   background-color: #F5E1CD;
-  color: #3E3124;
-  border: 3.5px solid #3E3124;
+  color: #2B2015;
+  border: 3.5px solid #2B2015;
   border-radius: 24px;
-  box-shadow: 4px 4px 0px 0px #3E3124;
+  box-shadow: 4px 4px 0px 0px #2B2015;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .paper-card:hover {
   transform: translateY(-3px) rotate(-0.5deg);
-  box-shadow: 6px 6px 0px 0px #3E3124;
+  box-shadow: 6px 6px 0px 0px #2B2015;
 }
 
 .paper-card-warm {
   background-color: #F7E8D8;
-  color: #3E3124;
-  border: 3.5px solid #3E3124;
+  color: #2B2015;
+  border: 3.5px solid #2B2015;
   border-radius: 24px;
-  box-shadow: 4px 4px 0px 0px #3E3124;
+  box-shadow: 4px 4px 0px 0px #2B2015;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .paper-card-warm:hover {
   transform: translateY(-3px) rotate(0.5deg);
-  box-shadow: 6px 6px 0px 0px #3E3124;
+  box-shadow: 6px 6px 0px 0px #2B2015;
 }
 
 .shadow-sketch {
-  box-shadow: 4px 4px 0px 0px #3E3124;
+  box-shadow: 4px 4px 0px 0px #2B2015;
 }
 
 .shadow-sketchLg {
-  box-shadow: 6px 6px 0px 0px #3E3124;
+  box-shadow: 6px 6px 0px 0px #2B2015;
 }
 
 .shadow-sketch-sm {
-  box-shadow: 2px 2px 0px 0px #3E3124;
+  box-shadow: 2px 2px 0px 0px #2B2015;
 }
 
 .shadow-paper {
-  box-shadow: 0 18px 50px rgba(0,0,0,0.4), 4px 4px 0px 0px #3E3124;
+  box-shadow: 6px 6px 0px 0px #2B2015;
 }
 
-/* Base Washi Tape */
-.washi-tape {
-  position: absolute !important;
-  height: 24px;
-  width: 95px;
-  background-color: #EAD9C7;
-  opacity: 0.92;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
-  z-index: 20;
-  pointer-events: none;
-  border-left: 2px dashed rgba(62, 49, 36, 0.4);
-  border-right: 2px dashed rgba(62, 49, 36, 0.4);
-}
-
-/* Handcrafted Pastel Washi Tapes */
+/* Pastel Washi Tapes */
 .washi-tape-coral {
-  position: absolute !important;
-  height: 24px;
-  width: 95px;
-  background-color: #F0A89C;
-  opacity: 0.92;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
-  z-index: 20;
+  position: absolute;
+  width: 90px;
+  height: 22px;
+  background-color: rgba(240, 168, 156, 0.85);
+  border: 1px dashed rgba(62, 49, 36, 0.4);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+  z-index: 10;
   pointer-events: none;
-  border-left: 2px dashed rgba(62, 49, 36, 0.4);
-  border-right: 2px dashed rgba(62, 49, 36, 0.4);
 }
 
 .washi-tape-sage {
-  position: absolute !important;
-  height: 24px;
-  width: 95px;
-  background-color: #B2C4B0;
-  opacity: 0.92;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
-  z-index: 20;
+  position: absolute;
+  width: 90px;
+  height: 22px;
+  background-color: rgba(178, 196, 176, 0.85);
+  border: 1px dashed rgba(62, 49, 36, 0.4);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+  z-index: 10;
   pointer-events: none;
-  border-left: 2px dashed rgba(62, 49, 36, 0.4);
-  border-right: 2px dashed rgba(62, 49, 36, 0.4);
 }
 
 .washi-tape-mustard {
-  position: absolute !important;
-  height: 24px;
-  width: 95px;
-  background-color: #F8DC96;
-  opacity: 0.92;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
-  z-index: 20;
+  position: absolute;
+  width: 90px;
+  height: 22px;
+  background-color: rgba(248, 220, 150, 0.85);
+  border: 1px dashed rgba(62, 49, 36, 0.4);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+  z-index: 10;
   pointer-events: none;
-  border-left: 2px dashed rgba(62, 49, 36, 0.4);
-  border-right: 2px dashed rgba(62, 49, 36, 0.4);
 }
 
 .washi-tape-lavender {
-  position: absolute !important;
-  height: 24px;
-  width: 95px;
-  background-color: #D2C4D9;
-  opacity: 0.92;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
-  z-index: 20;
+  position: absolute;
+  width: 90px;
+  height: 22px;
+  background-color: rgba(210, 196, 217, 0.85);
+  border: 1px dashed rgba(62, 49, 36, 0.4);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+  z-index: 10;
   pointer-events: none;
-  border-left: 2px dashed rgba(62, 49, 36, 0.4);
-  border-right: 2px dashed rgba(62, 49, 36, 0.4);
 }
 
-/* Watercolor Paint Splatters / Blobs */
+/* Watercolor Paint Blob */
 .paint-blob {
-  border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+  position: absolute;
+  border-radius: 50%;
   filter: blur(55px);
   pointer-events: none;
-  position: absolute;
+  opacity: 0.16;
 }
 
-/* Coffee Cup Ring Stains */
+/* Subtle Coffee Stain */
 .coffee-stain {
-  border: 5px solid rgba(123, 93, 60, 0.22);
+  position: absolute;
   border-radius: 50%;
+  border: 3px solid rgba(62, 49, 36, 0.15);
+  box-shadow: inset 0 0 10px rgba(62, 49, 36, 0.08);
   pointer-events: none;
 }
 
-/* Hand-stitched Felt Swatches */
-.felt-swatch {
-  border: 2px dashed #3E3124;
-  border-radius: 12px;
-  box-shadow: 2px 2px 0px #3E3124;
-}
-
-/* Hand-drawn Button Styles */
+/* Handcrafted Sketch Buttons */
 .sketch-button {
-  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.65rem 1.65rem;
-  font-family: 'Gochi Hand', cursive;
-  font-size: 1.25rem;
-  color: #E25543;
-  background: #F5E1CD;
-  border: 3px solid #3E3124;
-  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
-  box-shadow: 4px 4px 0px 0px #3E3124;
+  padding: 0.65rem 1.4rem;
+  background-color: #F5E1CD;
+  color: #2B2015;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: 3px solid #2B2015;
+  border-radius: 16px;
+  box-shadow: 3px 3px 0px 0px #2B2015;
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   cursor: pointer;
-  user-select: none;
+  text-decoration: none;
 }
 
 .sketch-button:hover {
-  transform: translateY(-2px) rotate(-0.8deg) scale(1.02);
-  box-shadow: 6px 6px 0px 0px #3E3124;
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0px 0px #2B2015;
   background-color: #F7E8D8;
 }
 
 .sketch-button:active {
-  transform: translateY(1px) scale(0.98);
-  box-shadow: 2px 2px 0px 0px #3E3124;
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0px 0px #2B2015;
 }
 
 .sketch-button-filled {
   background-color: #E25543;
-  color: #F5E1CD;
-  border-color: #3E3124;
+  color: #FFFFFF;
 }
 
 .sketch-button-filled:hover {
-  background-color: #d14432;
-  color: #ffffff;
+  background-color: #D14432;
+  color: #FFFFFF;
 }
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 9px;
 }
+
 ::-webkit-scrollbar-track {
-  background: #1F1D1B;
+  background: #181615;
 }
+
 ::-webkit-scrollbar-thumb {
   background: #3E3124;
-  border-radius: 4px;
+  border-radius: 5px;
+  border: 2px solid #181615;
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: #E25543;
 }
